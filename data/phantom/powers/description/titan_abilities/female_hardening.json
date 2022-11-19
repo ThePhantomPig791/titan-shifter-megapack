@@ -1,0 +1,23 @@
+{
+    "type": "origins:active_self",
+    "name": "Titan Hardening",
+    "description": "In titan form, you can harden the flesh around your knees and fists to increase attack and defense, but slightly decrease mobility. This hardening lasts for 90 seconds, and can only be used once per shift.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Harden with %s."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "You won't be able to use hardening if you've recently come out of a crystal (see previous power)."
+        }
+    ],
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

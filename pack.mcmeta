@@ -1,0 +1,8 @@
+{
+	"pack": {
+		"pack_format": 10,
+		"description": "A datapack that adds Titan Shifters to the origins mod",
+		"author": "ThePhantomPig791",
+		"requires": "Apugli & Appli - Fabric"
+	}
+}

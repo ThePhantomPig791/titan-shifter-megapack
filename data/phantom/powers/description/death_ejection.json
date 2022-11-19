@@ -1,0 +1,5 @@
+{
+    "type": "origins:simple",
+    "name": "Force Ejection",
+    "description": "In titan form, being at or below 3 hunger bars will force eject you, making you sustain minor drawbacks of overuse. Additionally, dying (only if the damage taken is or is less than 8 hearts) will eject you out of your titan body, inflicting negative effects and lowering your energy."
+}

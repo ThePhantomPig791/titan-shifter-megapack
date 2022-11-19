@@ -1,0 +1,10 @@
+{
+    "powers": [
+        "phantom:shifter/warhammer_shift"
+    ],
+    "name": "Warhammer Titan",
+    "description": "The \"architect\" of the Nine Titans — capable of manifesting giant, titan versions of ordinary weapons at will, the Warhammer Titan is truly a worthy foe to even the most skilled of Titan Shifters.",
+    "impact": 3,
+    "order": 4,
+    "icon": "minecraft:dead_brain_coral_fan"
+}

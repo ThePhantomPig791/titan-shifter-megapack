@@ -1,0 +1,19 @@
+{
+    "type": "origins:active_self",
+    "name": "Crystal Harden",
+    "comment": "Yes, this power name is (also) paying homage to Null's original titan crystal hardening power",
+    "description": "In titan form, you can perform a special type of untransformation that hardens your old titan body into a permanent, dense, skeleton-filled crystal.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Crystal untransform with %s."
+        }
+    ],
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

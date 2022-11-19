@@ -1,0 +1,10 @@
+{
+    "powers": [
+        "phantom:shifter/armor_shift"
+    ],
+    "name": "Armored Titan",
+    "description": "As the most defensive of the Nine Titans, the Armored Titan is a slow, lumbering, heavy-hitting giant — until it decides to shed away some of its armor.",
+    "impact": 3,
+    "order": 3,
+    "icon": "minecraft:horn_coral_fan"
+}

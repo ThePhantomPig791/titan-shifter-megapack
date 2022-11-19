@@ -1,0 +1,12 @@
+{
+    "type": "origins:simple",
+    "name": "Insufficient Nutrients",
+    "description": "As a titan, you won't gain much value from eating measley human food. Instead, consuming (killing) mobs is a much better way to eat.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Keep this in mind, as getting too low on hunger will force eject you."
+        }
+    ]
+}

@@ -1,0 +1,41 @@
+{
+    "origins": [
+        {
+            "condition": {
+                "type": "origins:origin",
+                "origin": "phantom:titan",
+                "layer": "origins:origin"
+            },
+            "origins": [
+                "phantom:attack_titan",
+                "phantom:female_titan",
+                "phantom:armor_titan",
+                "phantom:colossal_titan",
+                "phantom:warhammer_titan"
+            ]
+        },
+        {
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "appli:name",
+                        "name": "ThePhantomPig791"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:titan",
+                        "layer": "origins:origin"
+                    }
+                ]
+            },
+            "origins": [
+                "phantom:name_origin_test"
+            ]
+        }
+    ],
+    "order": 1,
+    "name": "Titan",
+    "missing_name": "No Titan",
+    "missing_description": "You are a regular human (at least when it comes to Titan Shifting)."
+}

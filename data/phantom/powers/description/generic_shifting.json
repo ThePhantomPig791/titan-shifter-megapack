@@ -1,0 +1,15 @@
+{
+    "type": "origins:active_self",
+    "name": "Titan Shifting",
+    "description": "All Titan Shifters possess the power to turn into a titan (duh) which varies in size, speed, strength, and special abilities.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "After taking damage, transform with %s."
+        }
+    ],
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

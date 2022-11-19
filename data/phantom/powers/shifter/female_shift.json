@@ -1,0 +1,2988 @@
+{
+    "type": "origins:multiple",
+    "name": "Stats:",
+    "description": "§oMax Shifts§r: 2\nHeight: 14, 13.5\n§oSpeed§r: 4, 3.75\n§oStrength§r: 6.5, 5\n§oHealth§r: 1.7, 1.5\n§oDefense§r: 1\n§oDurability§r: 21\n§oMinutes between shifts§r: 0.25, 2\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 5",
+    "badges": [],
+    "is_shifted": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
+    "amount_of_shifts": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 2,
+        "start_value": 0
+    },
+    "shift": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 120,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_can_shift_from_damage",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:gamemode",
+                            "gamemode": "creative"
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_shifting_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "!=",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_actual_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_amount_of_shifts",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "*:*_is_shifted",
+                                        "change": 1
+                                    },
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "*:*_amount_of_shifts",
+                                        "change": 1
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 5,
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/female_titan/first_shift",
+                                            "permission_level": 4
+                                        }             
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:feed",
+                                        "food": -4,
+                                        "saturation": 1
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:sneaking",
+                                            "inverted": true
+                                        },
+                                        "if_action": {
+                                            "type": "origins:explode",
+                                            "power": 5,
+                                            "destruction_type": "break",
+                                            "damage_self": false
+                                        },
+                                        "else_action": {
+                                            "type": "origins:explode",
+                                            "power": 1,
+                                            "destruction_type": "break",
+                                            "damage_self": false
+                                        }
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_amount_of_shifts",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "*:*_is_shifted",
+                                        "change": 1
+                                    },
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "*:*_amount_of_shifts",
+                                        "change": 1
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 5,
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/female_titan/second_shift",
+                                            "permission_level": 4
+                                        }              
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.5 1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:feed",
+                                        "food": -5,
+                                        "saturation": 1
+                                    },
+                                    {
+                                        "type": "origins:if_else",
+                                        "condition": {
+                                            "type": "origins:sneaking",
+                                            "inverted": true
+                                        },
+                                        "if_action": {
+                                            "type": "origins:explode",
+                                            "power": 3,
+                                            "destruction_type": "break",
+                                            "damage_self": false
+                                        },
+                                        "else_action": {
+                                            "type": "origins:explode",
+                                            "power": 0,
+                                            "destruction_type": "break",
+                                            "damage_self": false
+                                        }      
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:instant_health 1 10 true",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 30,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:instant_health 1 10 true",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:power_active",
+                        "power": "*:*_crystalize"
+                    },
+                    "if_action": {
+                        "type": "origins:toggle",
+                        "power": "*:*_crystalize"
+                    }
+                }
+            ]
+        }
+    },
+    "unshift": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active"
+        },
+        "cooldown": 120,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_shift",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_is_shifted",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_amount_of_shifts",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "resource set @s phantom:shifter/female_shift_shifting_cooldown 11000",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function phantom:shift/female_titan/unshift",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_amount_of_shifts",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "resource set @s phantom:shifter/female_shift_shifting_cooldown 10000",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function phantom:shift/female_titan/unshift2",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:instant_health 1 0 true",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 30,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:instant_health 1 0 true",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        }
+    },
+    "high_shifts_overlay": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/misc/nausea.png",
+        "red": 0.3,
+        "green": 0.3,
+        "blue": 0.1,
+        "strength": 0.1,
+        "draw_mode": "nausea",
+        "draw_phase": "above_hud",
+        "visible_in_third_person": false,
+        "hide_with_hud": false,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_amount_of_shifts",
+            "comparison": "==",
+            "compare_to": 2
+        }
+    },
+    "prevent_nametag": {
+        "type": "apugli:prevent_label_render",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "has_been_damaged": {
+        "type": "origins:self_action_when_hit",
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:out_of_world",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:amount",
+                    "comparison": ">=",
+                    "compare_to": 3
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:trigger_cooldown",
+            "power": "*:*_can_shift_from_damage"
+        }
+    },
+    "can_shift_from_damage": {
+        "type": "origins:cooldown",
+        "cooldown": 200,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "shifting_cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 12000,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/resource_bar.png",
+            "bar_index": 2
+        }
+    },
+    "low_energy_debuffs": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_shifting_cooldown",
+            "comparison": ">=",
+            "compare_to": 7000
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:slowness",
+                            "amplifier": 0,
+                            "duration": 20,
+                            "show_particles": false,
+                            "show_icon": false
+                        }
+                    ]
+                }
+            ]
+        }
+    },
+    "high_hunger_energy_buff": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:food_level",
+                    "comparison": ">=",
+                    "compare_to": 18
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "!=",
+                    "compare_to": 2
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_shifting_cooldown",
+            "change": -10,
+            "operation": "add"
+        }
+    },
+    "skin_base": {
+        "type": "apugli:set_texture",
+        "texture_location": "minecraft:textures/entity/bee/bee_stinger.png",
+        "player_model": "slim",
+        "show_first_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "female_titan_skin": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/SX4t5Xq/Female-Titan.png",
+        "player_model": "slim",
+        "show_first_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_hardened",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "female_titan_skin_kind_of_weary": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/YDVcXkx/Female-Weary.png",
+        "player_model": "slim",
+        "show_first_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_hardened",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "female_titan_skin_hardened": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/dg9X4W0/Female-Titan-Hardened.png",
+        "player_model": "slim",
+        "show_first_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_hardened",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "female_titan_skin_hardened_and_weary": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/F3SDMSh/Female-Weary-Hardened.png",
+        "player_model": "slim",
+        "show_first_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_hardened",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "is_hardened": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1800,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 4,
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_is_hardened",
+                "comparison": "!=",
+                "compare_to": 0
+            }
+        }
+    },
+    "harden": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_hardened",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_has_hardened",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_crystalize_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_is_hardened",
+                    "change": 1800,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_has_hardened",
+                    "change": 1,
+                    "operation": "set"
+                }
+            ]
+        }
+    },
+    "has_hardened": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "harden_loop": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_hardened",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_is_hardened",
+                    "change": -1,
+                    "operation": "add"
+                }
+            ]
+        },
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function phantom:shift/female_titan/harden",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "function phantom:shift/female_titan/unharden",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "crystalize": {
+        "type": "origins:toggle",
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "active_by_default": false,
+        "retain_state": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_crystalize_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "crystalize_cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 12000,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 4,
+            "inverted": true
+        }
+    },
+    "crystalize_loop": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:power_active",
+                    "power": "*:*_crystalize"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_crystalize_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute align xyz run tp @s ~0.5 ~0.1 ~0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~1 ~ 1 1 1 0.1 500",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dripping_water ~ ~0.7 ~ 0.3 0.5 0.3 10 300",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "y": 0
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~ ~ ~ run setblock ~ ~ ~ air destroy",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "y": 1
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~ ~1 ~ run setblock ~ ~ ~ air destroy",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..16] ~ ~ ~ 1 0.3",
+                    "permission_level": 4 
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 1 0.5",
+                    "permission_level": 4 
+                }
+            ]
+        },
+        "falling_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_crystalize_cooldown"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dripping_dripstone_water ~ ~0.7 ~ 0.3 0.5 0.3 10 150",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..16] ~ ~ ~ 0.5 2",
+                    "permission_level": 4 
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.glass.break player @a[distance=..16] ~ ~ ~ 1 1.7 0.7",
+                    "permission_level": 4 
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~ ~-1 ~ if block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ air destroy",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~ ~2 ~ if block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ air destroy",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~1 ~ ~ if block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ air destroy",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-1 ~ ~ if block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ air destroy",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~ ~ ~1 if block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ air destroy",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~ ~ ~-1 if block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ air destroy",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~1 ~1 ~ if block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ air destroy",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~-1 ~1 ~ if block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ air destroy",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~ ~1 ~1 if block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ air destroy",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute positioned ~ ~1 ~-1 if block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ air destroy",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:slowness",
+                            "duration": 400,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:weakness",
+                            "duration": 400,
+                            "amplifier": 1,
+                            "show_particles": false,
+                            "show_icon": true
+                        },
+                        {
+                            "effect": "minecraft:darkness",
+                            "duration": 40,
+                            "show_particles": false,
+                            "show_icon": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dripping_water ~ ~0.7 ~ 0.3 0.5 0.3 10 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:slowness",
+                            "amplifier": 9,
+                            "duration": 10,
+                            "show_particles": false,
+                            "show_icon": false
+                        },
+                        {
+                            "effect": "minecraft:slow_falling",
+                            "amplifier": 0,
+                            "duration": 10,
+                            "show_particles": false,
+                            "show_icon": false
+                        },
+                        {
+                            "effect": "minecraft:blindness",
+                            "amplifier": 2,
+                            "duration": 50,
+                            "show_particles": false,
+                            "show_icon": false
+                        },
+                        {
+                            "effect": "minecraft:resistance",
+                            "amplifier": 199,
+                            "duration": 10,
+                            "show_particles": false,
+                            "show_icon": false
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s ~ ~ ~ 0 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "y": -1
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~ ~-1 ~ unless block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ ice destroy",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "y": 2
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~ ~2 ~ unless block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ ice destroy",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "x": 1
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~1 ~ ~ unless block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ ice destroy",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "x": -1
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~-1 ~ ~ unless block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ ice destroy",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "z": 1
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~ ~ ~1 unless block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ ice destroy",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "z": -1
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~ ~ ~-1 unless block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ ice destroy",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "x": 1,
+                            "y": 1
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~1 ~1 ~ unless block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ ice destroy",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "x": -1,
+                            "y": 1
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~-1 ~1 ~ unless block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ ice destroy",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "z": 1,
+                            "y": 1
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~ ~1 ~1 unless block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ ice destroy",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:in_block",
+                        "block_condition": {
+                            "type": "origins:offset",
+                            "condition": {
+                                "type": "origins:or",
+                                "conditions": [
+                                    {
+                                        "type": "origins:hardness",
+                                        "comparison": "<",
+                                        "compare_to": 4.5
+                                    },
+                                    {
+                                        "type": "origins:block",
+                                        "block": "minecraft:water"
+                                    }
+                                ]
+                            },
+                            "z": -1,
+                            "y": 1
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "execute positioned ~ ~1 ~-1 unless block ~ ~ ~ minecraft:ice run setblock ~ ~ ~ ice destroy",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        }
+    },
+    "can_shift_loop": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_can_shift_from_damage",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_shifting_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_actual_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "!=",
+                    "compare_to": 2
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @s at @s run particle dust 1.0 1.0 0.0 1 ~ ~1 ~ 0.3 0.5 0.3 100 1 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute as @s at @s run particle minecraft:electric_spark ~ ~1 ~ 0.3 0.5 0.3 0 1 normal",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "too_many_shifts_loop": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:slowness 1 0 true",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:weakness 1 1 true",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "death": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:relative_health",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_actual_cooldown"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_is_shifted",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function phantom:shift/female_titan/unshift2",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 30,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:instant_health 1 0 true",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @s phantom:shifter/female_shift_shifting_cooldown 7000",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect clear @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "sleep": {
+        "type": "origins:action_on_wake_up",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_shifting_cooldown",
+                    "change": 12000,
+                    "operation": "set"
+                }
+            ]
+        }
+    },
+    "golden_apple": {
+        "type": "origins:action_on_item_use",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_shifting_cooldown",
+                    "change": 12000,
+                    "operation": "set"
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:golden_apple"
+            }
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_actual_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "notch_apple": {
+        "type": "origins:action_on_item_use",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_shifting_cooldown",
+                    "change": 12000,
+                    "operation": "set"
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "minecraft:enchanted_golden_apple"
+            }
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_actual_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "steam_healing": {
+        "type": "origins:action_over_time",
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:relative_health",
+                            "comparison": "<",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:relative_health",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_is_shifted",
+                        "comparison": "==",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:if_else",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "data get entity @s Rotation[1] 1",
+                                    "comparison": "<=",
+                                    "compare_to": 50
+                                },
+                                "if_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:dust 1 1 1 0.8 ^ ^1 ^-0.5 0.2 0.4 0.2 0.1 30",
+                                    "permission_level": 4
+                                },
+                                "else_action": {
+                                    "type": "origins:execute_command",
+                                    "command": "execute positioned ~ ~1 ~ run particle minecraft:dust 1 1 1 0.8 ^ ^-0.5 ^ 0.2 0.4 0.2 0.1 30",
+                                    "permission_level": 4
+                                }
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..16] ~ ~ ~ 0.02 0.1",
+                                "permission_level": 4
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "particle minecraft:cloud ^ ^ ^-3 2 8 2 0.1 150",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..16] ~ ~ ~ 0.3 0.1",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                }
+            ]
+        }
+    },
+    "steam_healing_2": {
+        "type": "origins:action_over_time",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:relative_health",
+                    "comparison": "<",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:relative_health",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "interval": 40,
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:heal",
+                    "amount": 1
+                }
+            ]
+        }
+    },
+    "prevent_sleep": {
+        "type": "origins:prevent_sleep",
+        "message": "You're too big to sleep",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "sink": {
+        "type": "origins:ignore_water",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "sink2": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:in_block",
+                    "block_condition": {
+                        "type": "origins:block",
+                        "block": "minecraft:water"
+                    }
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effects": [
+                {
+                    "effect": "minecraft:weakness",
+                    "duration": 20,
+                    "show_particles": false,
+                    "show_icon": false
+                }
+            ]
+        }
+    },
+    "no_weapons": {
+        "type": "origins:modify_damage_dealt",
+        "modifier": {
+            "operation": "multiply_total",
+            "value": -1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:explosive",
+                    "inverted": true
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "c:swords"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "c:axes"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "c:shovels"
+                                }
+                            }
+                        },
+                        {
+                            "type": "origins:equipped_item",
+                            "equipment_slot": "mainhand",
+                            "item_condition": {
+                                "type": "origins:ingredient",
+                                "ingredient": {
+                                    "tag": "c:pickaxes"
+                                }
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "self_action": {
+            "type": "origins:execute_command",
+            "command": "title @s actionbar \"This weapon is too small for you\"",
+            "permission_level": 4
+        }
+    },
+    "actual_cooldown": {
+        "type": "origins:cooldown",
+        "cooldown": 2000,
+        "hud_render": {
+            "should_render": false
+        }
+    },
+    "actual_cooldown_particle_loop": {
+        "type": "origins:action_over_time",
+        "interval": 10,
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_actual_cooldown",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:dust 1 1 1 0.8 ^ ^1 ^-0.3 0.2 0.4 0.2 0.1 5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle smoke ^ ^1 ^-0.3 0.2 0.4 0.2 0.001 5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..16] ~ ~ ~ 0.015 0.1",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_amount_of_shifts",
+                        "change": 0,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_actual_cooldown",
+                        "change": 2000,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_can_shift_from_damage",
+                        "change": 200,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_shifting_cooldown",
+                        "change": 12000,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_crystalize_cooldown",
+                        "change": 12000,
+                        "operation": "set"
+                    }
+                ]
+            }
+        },
+        "entity_action_respawned": {
+            "type": "origins:delay",
+            "ticks": 1,
+            "action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_amount_of_shifts",
+                        "change": 0,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_actual_cooldown",
+                        "change": 2000,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_can_shift_from_damage",
+                        "change": 200,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:power_active",
+                            "power": "*:*_crystalize"
+                        },
+                        "if_action": {
+                            "type": "origins:toggle",
+                            "power": "*:*_crystalize"
+                        }
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_crystalize_cooldown",
+                        "change": 12000,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_shifting_cooldown",
+                        "change": 12000,
+                        "operation": "set"
+                    }
+                ]
+            }
+        }
+    },
+    "death_stuff": {
+        "type": "origins:prevent_death",
+        "cooldown": 500,
+        "damage_condition": {
+            "type": "origins:amount",
+            "comparison": "<=",
+            "compare_to": 16
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_amount_of_shifts",
+                "comparison": "!=",
+                "compare_to": 2
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "*:*_actual_cooldown"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_is_shifted",
+                        "change": -1
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function phantom:shift/female_titan/unshift",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 30,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "effect give @s minecraft:instant_health 1 0 true",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "resource set @s phantom:shifter/female_shift_shifting_cooldown 6000",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "effect clear @s",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
+                        "permission_level": 4
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "*:*_actual_cooldown"
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 35,
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 5,
+                            "source": {
+                                "name": "generic"
+                            }
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 5,
+                        "action": {
+                            "type": "origins:apply_effect",
+                            "effects": [
+                                {
+                                    "effect": "minecraft:blindness",
+                                    "duration": 400,
+                                    "show_particles": false,
+                                    "show_icon": false
+                                },
+                                {
+                                    "effect": "minecraft:mining_fatigue",
+                                    "duration": 400,
+                                    "show_particles": false,
+                                    "show_icon": false
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_is_shifted",
+                        "change": -1
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function phantom:shift/female_titan/unshift2",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 30,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "effect give @s minecraft:instant_health 1 0 true",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "resource set @s phantom:shifter/female_shift_shifting_cooldown 4000",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "effect clear @s",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
+                        "permission_level": 4
+                    }
+                ]
+            }
+        }
+    },
+    "titan_marks": {
+        "type": "apugli:entity_texture_overlay",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_shifting_cooldown",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_shifting_cooldown",
+                    "comparison": "<",
+                    "compare_to": 3500
+                }
+            ]
+        },
+        "texture_url": "https://i.ibb.co/5jR8pSm/f1.png"
+    },
+    "titan_marks_worse": {
+        "type": "apugli:entity_texture_overlay",
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_shifting_cooldown",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_shifting_cooldown",
+                            "comparison": "<",
+                            "compare_to": 5000
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_shifting_cooldown",
+                            "comparison": ">=",
+                            "compare_to": 3500
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 2
+                }
+            ]
+        },
+        "texture_url": "https://i.ibb.co/3hTP4Tz/f2.png"
+    },
+    "titan_marks_even_worse": {
+        "type": "apugli:entity_texture_overlay",
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_shifting_cooldown",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_shifting_cooldown",
+                            "comparison": "<",
+                            "compare_to": 6800
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_shifting_cooldown",
+                            "comparison": ">=",
+                            "compare_to": 5000
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_actual_cooldown",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "texture_url": "https://i.ibb.co/jMvknf1/f3.png"
+    },
+    "titan_marks_the_worst": {
+        "type": "apugli:entity_texture_overlay",
+        "condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_shifting_cooldown",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_shifting_cooldown",
+                            "comparison": ">=",
+                            "compare_to": 6800
+                        }
+                    ]
+                }
+            ]
+        },
+        "texture_url": "https://i.ibb.co/qxvYwQv/f4.png"
+    },
+    "force_eject": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:food_level",
+                    "comparison": "<=",
+                    "compare_to": 4
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_shift",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_is_shifted",
+                    "change": -1
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_amount_of_shifts",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "resource set @s phantom:shifter/female_shift_shifting_cooldown 9000",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function phantom:shift/female_titan/unshift",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_amount_of_shifts",
+                                "comparison": "==",
+                                "compare_to": 2
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "resource set @s phantom:shifter/female_shift_shifting_cooldown 7000",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function phantom:shift/female_titan/unshift2",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:instant_health 1 0 true",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 30,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:instant_health 1 0 true",
+                        "permission_level": 4
+                    }
+                }
+            ]
+        }
+    },
+    "food": {
+        "type": "origins:modify_food",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "food_modifier": {
+            "name": "0.3 percent of normal food points",
+            "operation": "multiply_total",
+            "value": -0.7
+        },
+        "saturation_modifier": {
+            "name": "No saturation points",
+            "operation": "multiply_total",
+            "value": -1
+        }
+    },
+    "no_armor": {
+        "type": "origins:conditioned_restrict_armor",
+        "head": {
+            "type": "origins:constant",
+            "value": true
+        },
+        "chest": {
+            "type": "origins:constant",
+            "value": true
+        },
+        "legs": {
+            "type": "origins:constant",
+            "value": true
+        },
+        "feet": {
+            "type": "origins:constant",
+            "value": true
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "tick_rate": 20
+    },
+    "half_unwieldy_plus_bows_and_such": {
+        "type": "origins:prevent_item_use",
+        "item_condition": {
+          "type": "origins:ingredient",
+          "ingredient": [
+                {
+                    "item": "minecraft:shield"
+                },
+                {
+                    "item": "minecraft:bow"
+                },
+                {
+                    "tag": "minecraft:trident"
+                },
+                {
+                    "tag": "minecraft:crossbow"
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "titan_jump_thanks_null": {
+        "type": "origins:modify_jump",
+        "modifier": {
+            "name": "Bonus jump force while sprinting",
+            "value": 0.5,
+            "operation": "multiply_base"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:sprinting"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "big_land": {
+        "type": "origins:action_on_land",
+        "entity_action": {
+            "type": "origins:explode",
+            "power": 2,
+            "destruction_type": "break",
+            "damage_self": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fall_distance",
+                    "comparison": ">=",
+                    "compare_to": 10
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "bigger_land": {
+        "type": "origins:action_on_land",
+        "entity_action": {
+            "type": "origins:explode",
+            "power": 6,
+            "destruction_type": "break",
+            "damage_self": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:fall_distance",
+                    "comparison": ">=",
+                    "compare_to": 26
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "exhaust": {
+        "type": "origins:exhaust",
+        "interval": 70,
+        "exhaustion": 0.3,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "eat": {
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:feed",
+            "food": 4,
+            "saturation": 2
+        },
+        "cooldown": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:explosive",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:projectile",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "amount_of_shifts_reset_eventually": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_amount_of_shifts",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "rising_action": {
+            "type": "origins:delay",
+            "ticks": 4000,
+            "action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_amount_of_shifts",
+                            "comparison": "==",
+                            "compare_to": 1
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_shifted",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "phantom:titan",
+                            "layer": "origins:origin"
+                        }
+                    ]
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_amount_of_shifts",
+                            "change": -1
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beacon.power_select player @s ~ ~ ~ 1 2",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "amount_of_shifts_reset_eventually_longer": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_amount_of_shifts",
+            "comparison": "==",
+            "compare_to": 2
+        },
+        "rising_action": {
+            "type": "origins:delay",
+            "ticks": 6000,
+            "action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_amount_of_shifts",
+                            "comparison": "==",
+                            "compare_to": 2
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_shifted",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:origin",
+                            "origin": "phantom:titan",
+                            "layer": "origins:origin"
+                        }
+                    ]
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_amount_of_shifts",
+                            "change": -1
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:block.beacon.power_select player @s ~ ~ ~ 1 2",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "arrows": {
+        "type": "origins:prevent_feature_render",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        },
+        "features": [
+            "stuck_objects",
+            "cape"
+        ]
+    },
+    "taunt": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.primary_active",
+            "continuous": true
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_can_shift_from_damage",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_shifting_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "!=",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_actual_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:execute_command",
+            "command": "particle dust 1.0 1.0 0.0 1 ~ ~1 ~ 1 1 1 100 1 normal",
+            "permission_level": 4
+        }
+    },
+    "prevent_riding": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:riding"
+                }
+            ]
+        },
+        "rising_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:dismount"
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "title @s actionbar \"You're too big to ride that\"",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "grab_start": {
+        "type": "origins:action_on_entity_use",
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "hands": [
+            "off_hand"
+        ],
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @e[tag=BeingGrabbedByTitan,distance=..30]",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "priority": 100,
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[type=#phantom:ungrabbable]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[tag=TSMP.Titan]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/skeleton\"}]}}}]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:living"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[tag=BeingGrabbedByTitan]",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        "if_action": {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s phantom:assign/being_grabbed",
+                            "permission_level": 4
+                        },
+                        "else_action": {
+                            "type": "origins:execute_command",
+                            "command": "power revoke @s phantom:assign/being_grabbed",
+                            "permission_level": 4
+                        }
+                    }
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:swing_hand",
+                        "hand": "OFF_HAND"
+                    }
+                }
+            ]
+        }
+    },
+    "grab_loop": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @e[tag=BeingGrabbedByTitan,distance=..30]",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=BeingGrabbedByTitan]",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute anchored feet facing ^1 ^ ^ run tp @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] ^ ^4 ^2.5",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "grab_drop": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.saveToolbarActivator"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @e[tag=BeingGrabbedByTitan,distance=..30]",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:sneaking",
+                "inverted": true
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
+                "permission_level": 4
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:area_of_effect",
+                        "radius": 30,
+                        "bientity_condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:command",
+                                        "command": "execute if entity @s[tag=BeingGrabbedByTitan]",
+                                        "comparison": "!=",
+                                        "compare_to": 0
+                                    }
+                                },
+                                {
+                                    "type": "origins:can_see"
+                                }
+                            ]
+                        },
+                        "bientity_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:add_velocity",
+                                    "x": -3,
+                                    "y": 1
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:swing_hand",
+                        "hand": "OFF_HAND"
+                    }
+                ]
+            }
+        }
+    },
+    "grab_kill": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.loadToolbarActivator"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @e[tag=BeingGrabbedByTitan,distance=..30]",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 30,
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute if entity @s[tag=BeingGrabbedByTitan]",
+                                    "comparison": "!=",
+                                    "compare_to": 0
+                                }
+                            },
+                            {
+                                "type": "origins:can_see"
+                            }
+                        ]
+                    },
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:damage",
+                                "amount": 18,
+                                "source": {
+                                    "name": "cramming.player"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "OFF_HAND"
+                }
+            ]
+        }
+    }
+}

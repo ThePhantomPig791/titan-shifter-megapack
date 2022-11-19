@@ -1,0 +1,222 @@
+{
+    "type": "origins:active_self",
+    "key": {
+        "key": "key.use"
+    },
+    "name": "Self-Stab",
+    "description": "All Shifters need to sustain at least a minor injury in order to shift, so they are all capable of cutting themselves with a sword by holding one in their main hand and emptying their other hand.",
+    "badges": [
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "In Creative mode, you §ldo§r §lnot§r need to take damage to shift, so just pressing the key will cause you to transform. Keep this in mind, as transformations can damage surrounding blocks."
+        }
+    ],
+    "cooldown": 60,
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "c:swords"
+                    }
+                }
+            },
+            {
+                "type": "origins:equipped_item",
+                "equipment_slot": "offhand",
+                "item_condition": {
+                    "type": "origins:is_damageable"
+                },
+                "inverted": true
+            },
+            {
+                "type": "origins:command",
+                "command": "execute if entity @s[tag=TSMP.Titan]",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            {
+                "type": "origins:sneaking",
+                "inverted": true
+            },
+            {
+                "type": "origins:gamemode",
+                "gamemode": "creative",
+                "inverted": true
+            }
+        ]
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:delay",
+                "ticks": 1,
+                "action": {
+                    "type": "origins:equipped_item_action",
+                    "equipment_slot": "mainhand",
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 1
+                    }
+                }
+            },
+            {
+                "type": "origins:swing_hand"
+            },
+            {
+                "type": "origins:if_else_list",
+                "actions": [
+                    {
+                        "condition": {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "mainhand",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "minecraft:wooden_sword"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "mainhand",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "minecraft:golden_sword"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 4,
+                            "source": {
+                                "name": "generic"
+                            }
+                        }
+                    },
+                    {
+                        "condition": {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "mainhand",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "minecraft:stone_sword"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 5,
+                            "source": {
+                                "name": "generic"
+                            }
+                        }
+                    },
+                    {
+                        "condition": {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "mainhand",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "minecraft:iron_sword"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 6,
+                            "source": {
+                                "name": "generic"
+                            }
+                        }
+                    },
+                    {
+                        "condition": {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "mainhand",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "minecraft:diamond_sword"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 7,
+                            "source": {
+                                "name": "generic"
+                            }
+                        }
+                    },
+                    {
+                        "condition": {
+                            "type": "origins:or",
+                            "conditions": [
+                                {
+                                    "type": "origins:equipped_item",
+                                    "equipment_slot": "mainhand",
+                                    "item_condition": {
+                                        "type": "origins:ingredient",
+                                        "ingredient": {
+                                            "item": "minecraft:netherite_sword"
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 8,
+                            "source": {
+                                "name": "generic"
+                            }
+                        }
+                    },
+                    {
+                        "condition": {
+                            "type": "origins:constant",
+                            "value": true
+                        },
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 4,
+                            "source": {
+                                "name": "generic"
+                            }
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

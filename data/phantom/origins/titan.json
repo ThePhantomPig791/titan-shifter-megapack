@@ -1,0 +1,18 @@
+{
+    "powers": [
+        "phantom:description/generic_shifting",
+        "phantom:self_stab",
+        "phantom:description/food",
+        "phantom:description/skeleton",
+        "phantom:description/marks",
+        "phantom:description/death_ejection",
+        "phantom:description/extra_stats",
+        "phantom:description/particles"
+    ],
+    "name": "Titan Shifter",
+    "description": "Subject of Ymir, Devil of Paradis, Monster. You have been called many things, but one thing is for certain: You hold the Power of The Titans.",
+    "comment": "By the way, me ~~stealing~~ reusing Null's descriptions and power names definitely is just me paying homage, not me being lazy. Trust me. 100%. Yup, don't fact check.",
+    "impact": 3,
+    "order": 0,
+    "icon": "minecraft:bone_meal"
+}

@@ -1,0 +1,186 @@
+{
+    "type": "origins:multiple",
+    "resource": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 5400,
+        "min_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:health",
+                        "comparison": "!=",
+                        "compare_to": 0
+                    },
+                    "if_action": {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:white_ash ~ ~10 ~ 10 10 10 1 50000 normal",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tp @s[type=skeleton] ~ -1000 ~",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "kill @s[type=skeleton]",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "resource_down": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_resource",
+            "comparison": "!=",
+            "compare_to": 5400
+        },
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_resource",
+            "change": -1,
+            "operation": "add"
+        }
+    },
+    "gained": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust 1.0 1.0 1.0 500 ~ ~10 ~ 2 2 2 100 500 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle dust 1.0 0.0 0.0 500 ~ ~10 ~ 2 2 2 100 100 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 900,
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 5,
+                        "source": {
+                            "name": "generic"
+                        }
+                    }
+                }
+            ]
+        }
+    },
+    "loop": {
+        "type": "origins:action_over_time",
+        "interval": 5,
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:command",
+                "command": "execute if entity @s[tag=titan_skeleton]",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_colossal_skeleton",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..32] ~ ~ ~ 0.1 0.1",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:white_ash ~ ~10 ~ 10 10 10 0.1 50",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:cloud ~ ~7 ~ 3 5 3 0.1 250",
+                            "permission_level": 4
+                        }
+                    ]
+                },
+                "else_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:execute_command",
+                            "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..32] ~ ~ ~ 0.1 0.1",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:white_ash ~ ~10 ~ 10 20 10 0.1 50",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "particle minecraft:cloud ~ ~25 ~ 8 40 8 0.1 2000",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..32] ~ ~ ~ 0.1 0.1",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:white_ash ~ ~5 ~ 5 5 5 0.1 30",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "particle minecraft:cloud ~ ~3 ~ 1.5 2.5 1.5 0.1 100",
+                        "permission_level": 4
+                    }
+                ]
+            }
+        }
+    },
+    "fire_res": {
+        "type": "origins:fire_immunity"
+    },
+    "berserk_skin": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/FhcjVgz/berserk-skeleton.png",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_berserk_skeleton",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "is_berserk_skeleton": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "is_colossal_skeleton": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    }
+}

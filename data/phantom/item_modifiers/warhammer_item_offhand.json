@@ -1,0 +1,6 @@
+{
+    "function": "apoli:add_power",
+    "power": "phantom:assign/warhammer_item",
+    "slot": "offhand",
+    "hidden": true
+}

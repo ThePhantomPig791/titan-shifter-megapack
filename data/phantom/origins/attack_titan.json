@@ -1,0 +1,13 @@
+{
+    "powers": [
+        "phantom:shifter/attack_shift",
+        "phantom:description/titan_abilities/attack_crystal",
+        "phantom:description/titan_abilities/attack_berserk",
+        "phantom:description/titan_abilities/attack_third_shift"
+    ],
+    "name": "Attack Titan",
+    "description": "As the fiercest out of the Nine Titans, the Attack Titan has an overwhelming urge to fight for what's right — and its inheritor won't stop fighting until the day they die.",
+    "impact": 3,
+    "order": 1,
+    "icon": "minecraft:fire_coral"
+}

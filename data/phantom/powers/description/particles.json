@@ -1,0 +1,5 @@
+{
+    "type": "origins:simple",
+    "name": "Smoke Indication",
+    "description": "As a Titan Shifter, your smoke and electricity emissions are a great indicator to the status of your body's health, both human and titan forms.\n§eELectric§r §eSparks§r mean you're able to shift right now.\n§fWhite§r §fSmoke§r, in human form, means your body is actively healing it's wounds via steam. In titan form, you will always be emitting white smoke.\n§0Dark§r §0Smoke§r particles mean you're unable to shift, no matter what your energy bar says. This is usually from overuse of your titan, whether it be from too many shifts, death, or force ejection."
+}

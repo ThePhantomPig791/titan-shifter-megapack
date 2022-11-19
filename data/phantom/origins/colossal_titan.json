@@ -1,0 +1,10 @@
+{
+    "powers": [
+        "phantom:shifter/colossal_shift"
+    ],
+    "name": "Colossal Titan",
+    "description": "A literal god of destruction, capable of comitting mass murder and detonating an extreme energy blast with a thought, the Colossal Titan is, put simply, a ticking time bomb — don't get on the inheritor's bad side.",
+    "impact": 3,
+    "order": 9,
+    "icon": "minecraft:fire_coral_block"
+}

@@ -1,0 +1,18 @@
+{
+    "type": "origins:active_self",
+    "name": "Indestructible Crystal",
+    "description": "In human form, you can create an indestructible crystal around you that blocks most damage. Upon exiting the crystal, you'll receive negative effects.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Create and destroy the crystal with %s."
+        }
+    ],
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}
