@@ -11,8 +11,10 @@
                 "phantom:female_titan",
                 "phantom:armor_titan",
                 "phantom:colossal_titan",
-                "phantom:warhammer_titan"
-            ]
+                "phantom:warhammer_titan",
+                "phantom:beast_titan"
+            ],
+            "comment": "The order of the origins above is actually the order I made them in!"
         },
         {
             "condition": {

@@ -1,0 +1,18 @@
+{
+    "type": "origins:active_self",
+    "name": "Hardened Weapons",
+    "description": "In titan form, you can manifest titan-sized weapons to aid you in combat. Be careful not to overuse this ability, as it can rapidly drain hunger.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Press %s to cycle through a list of weapons."
+        }
+    ],
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

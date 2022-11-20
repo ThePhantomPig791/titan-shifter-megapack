@@ -1,7 +1,7 @@
 {
     "type": "origins:multiple",
     "name": "Stats:",
-    "description": "§oMax Shifts§r: 3\nHeight: 15, 14, 13\n§oSpeed§r: 2.5, 2.25, 2.1\n§oStrength§r: 7, 6.5, 6\n§oHealth§r: 2, 1.9, 1.7\n§oDefense§r: 1.5, 1.3, 1.25\n§oDurability§r: 18\n§oMinutes between shifts§r: 0.25, 3, 5\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 7",
+    "description": "§oMax Shifts§r: 4\nHeight: 17, 16.6, 16, 15.4\n§oSpeed§r: 2.5, 2.3, 2, 1.9\n§oStrength§r: 8, 7, 6.5, 6\n§oHealth§r: 2, 1.9, 1.8, 1.7\n§oDefense§r: 1.3, 1.2, 1.1, 1\n§oDurability§r: 20\n§oMinutes between shifts§r: 0.5, 3, 5\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 7",
     "badges": [],
     "is_shifted": {
         "type": "origins:resource",
@@ -55,7 +55,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "!=",
-                    "compare_to": 3
+                    "compare_to": 4
                 },
                 {
                     "type": "origins:resource",
@@ -96,7 +96,7 @@
                                         "ticks": 5,
                                         "action": {
                                             "type": "origins:execute_command",
-                                            "command": "function phantom:shift/warhammer_titan/first_shift",
+                                            "command": "function phantom:shift/beast_titan/first_shift",
                                             "permission_level": 4
                                         }             
                                     },
@@ -162,7 +162,7 @@
                                         "ticks": 5,
                                         "action": {
                                             "type": "origins:execute_command",
-                                            "command": "function phantom:shift/warhammer_titan/second_shift",
+                                            "command": "function phantom:shift/beast_titan/second_shift",
                                             "permission_level": 4
                                         }              
                                     },
@@ -228,7 +228,7 @@
                                         "ticks": 5,
                                         "action": {
                                             "type": "origins:execute_command",
-                                            "command": "function phantom:shift/warhammer_titan/third_shift",
+                                            "command": "function phantom:shift/beast_titan/third_shift",
                                             "permission_level": 4
                                         }              
                                     },
@@ -342,62 +342,6 @@
                     "actions": [
                         {
                             "condition": {
-                                "type": "origins:command",
-                                "command": "execute if entity @s[tag=HasCrystalDown]",
-                                "comparison": "!=",
-                                "compare_to": 0
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 7000",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "function phantom:shift/warhammer_titan/unshift",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:area_of_effect",
-                                        "radius": 110,
-                                        "bientity_condition": {
-                                            "type": "appli:nbt",
-                                            "actor_nbt": "UUID",
-                                            "target_nbt": "data.TSMPtestUUID"
-                                        },
-                                        "bientity_action": {
-                                            "type": "origins:and",
-                                            "actions": [
-                                                {
-                                                    "type": "appli:teleport"
-                                                },
-                                                {
-                                                    "type": "origins:target_action",
-                                                    "action": {
-                                                        "type": "origins:execute_command",
-                                                        "command": "fill ~ ~ ~ ~ ~1 ~ air replace blue_ice",
-                                                        "permission_level": 4
-                                                    }
-                                                },
-                                                {
-                                                    "type": "origins:target_action",
-                                                    "action": {
-                                                        "type": "origins:execute_command",
-                                                        "command": "kill @s[type=marker]",
-                                                        "permission_level": 4
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "condition": {
                                 "type": "origins:resource",
                                 "resource": "*:*_amount_of_shifts",
                                 "comparison": "==",
@@ -408,12 +352,12 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 10800",
+                                        "command": "resource set @s phantom:shifter/beast_shift_shifting_cooldown 9000",
                                         "permission_level": 4
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "function phantom:shift/warhammer_titan/unshift",
+                                        "command": "function phantom:shift/beast_titan/unshift",
                                         "permission_level": 4
                                     }
                                 ]
@@ -431,12 +375,12 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 8000",
+                                        "command": "resource set @s phantom:shifter/beast_shift_shifting_cooldown 8000",
                                         "permission_level": 4
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "function phantom:shift/warhammer_titan/unshift",
+                                        "command": "function phantom:shift/beast_titan/unshift",
                                         "permission_level": 4
                                     }
                                 ]
@@ -454,12 +398,35 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 6000",
+                                        "command": "resource set @s phantom:shifter/beast_shift_shifting_cooldown 6000",
                                         "permission_level": 4
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "function phantom:shift/warhammer_titan/unshift",
+                                        "command": "function phantom:shift/beast_titan/unshift",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_amount_of_shifts",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "resource set @s phantom:shifter/beast_shift_shifting_cooldown 5000",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function phantom:shift/beast_titan/unshift",
                                         "permission_level": 4
                                     }
                                 ]
@@ -503,7 +470,7 @@
             "type": "origins:resource",
             "resource": "*:*_amount_of_shifts",
             "comparison": "==",
-            "compare_to": 3
+            "compare_to": 4
         }
     },
     "prevent_nametag": {
@@ -594,7 +561,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "!=",
-                    "compare_to": 3
+                    "compare_to": 4
                 }
             ]
         },
@@ -622,10 +589,10 @@
             ]
         }
     },
-    "warhammer_titan_skin": {
+    "beast_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/JC4WCVk/Warhammer.png",
-        "player_model": "slim",
+        "texture_url": "https://i.ibb.co/mvBgk5n/beast-1.png",
+        "player_model": "default",
         "show_first_person": true,
         "condition": {
             "type": "origins:and",
@@ -645,10 +612,10 @@
             ]
         }
     },
-    "warhammer_titan_skin_kind_of_weary": {
+    "beast_titan_skin_kind_of_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/BqsJqF4/Warhammer-Weary.png",
-        "player_model": "slim",
+        "texture_url": "https://i.ibb.co/bH5kpXG/beast-2.png",
+        "player_model": "default",
         "show_first_person": true,
         "condition": {
             "type": "origins:and",
@@ -668,10 +635,10 @@
             ]
         }
     },
-    "warhammer_titan_skin_slightly_more_weary": {
+    "beast_titan_skin_slightly_more_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/vX7HR0M/Warhammer-Weary-More.png",
-        "player_model": "slim",
+        "texture_url": "https://i.ibb.co/x37fbTm/beast-3.png",
+        "player_model": "default",
         "show_first_person": true,
         "condition": {
             "type": "origins:and",
@@ -687,6 +654,29 @@
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "==",
                     "compare_to": 3
+                }
+            ]
+        }
+    },
+    "beast_titan_skin_most_weary": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/t3NLS14/beast-4.png",
+        "player_model": "default",
+        "show_first_person": true,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 4
                 }
             ]
         }
@@ -729,7 +719,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "!=",
-                    "compare_to": 3
+                    "compare_to": 4
                 }
             ]
         },
@@ -759,7 +749,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "==",
-                    "compare_to": 3
+                    "compare_to": 4
                 },
                 {
                     "type": "origins:resource",
@@ -818,7 +808,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "function phantom:shift/warhammer_titan/unshift",
+                    "command": "function phantom:shift/beast_titan/unshift",
                     "permission_level": 4
                 },
                 {
@@ -832,7 +822,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 7000",
+                    "command": "resource set @s phantom:shifter/beast_shift_shifting_cooldown 7000",
                     "permission_level": 4
                 },
                 {
@@ -1001,12 +991,12 @@
                                 },
                                 "if_action": {
                                     "type": "origins:execute_command",
-                                    "command": "particle minecraft:dust 1 1 1 0.8 ^ ^1 ^-0.5 0.2 0.4 0.2 0.1 30",
+                                    "command": "particle minecraft:dust 1 1 1 0.8 ^ ^1 ^-0.5 0.2 0.4 0.2 0.1 5",
                                     "permission_level": 4
                                 },
                                 "else_action": {
                                     "type": "origins:execute_command",
-                                    "command": "execute positioned ~ ~1 ~ run particle minecraft:dust 1 1 1 0.8 ^ ^-0.5 ^ 0.2 0.4 0.2 0.1 30",
+                                    "command": "execute positioned ~ ~1 ~ run particle minecraft:dust 1 1 1 0.8 ^ ^-0.5 ^ 0.2 0.4 0.2 0.1 5",
                                     "permission_level": 4
                                 }
                             },
@@ -1225,7 +1215,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "==",
-                    "compare_to": 3
+                    "compare_to": 4
                 }
             ]
         },
@@ -1342,14 +1332,18 @@
         "entity_action": {
             "type": "origins:if_else",
             "condition": {
-                "type": "origins:command",
-                "command": "execute if entity @s[tag=HasCrystalDown]",
+                "type": "origins:resource",
+                "resource": "*:*_amount_of_shifts",
                 "comparison": "!=",
-                "compare_to": 0
+                "compare_to": 4
             },
             "if_action": {
                 "type": "origins:and",
                 "actions": [
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "*:*_actual_cooldown"
+                    },
                     {
                         "type": "origins:change_resource",
                         "resource": "*:*_is_shifted",
@@ -1357,60 +1351,8 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
+                        "command": "function phantom:shift/beast_titan/unshift",
                         "permission_level": 4
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 4000",
-                        "permission_level": 4
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "function phantom:shift/warhammer_titan/unshift",
-                        "permission_level": 4
-                    },
-                    {
-                        "type": "origins:area_of_effect",
-                        "radius": 110,
-                        "bientity_condition": {
-                            "type": "appli:nbt",
-                            "actor_nbt": "UUID",
-                            "target_nbt": "data.TSMPtestUUID"
-                        },
-                        "bientity_action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "appli:teleport"
-                                },
-                                {
-                                    "type": "origins:target_action",
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "fill ~ ~ ~ ~ ~1 ~ air replace blue_ice",
-                                        "permission_level": 4
-                                    }
-                                },
-                                {
-                                    "type": "origins:target_action",
-                                    "action": {
-                                        "type": "origins:execute_command",
-                                        "command": "kill @s[type=marker]",
-                                        "permission_level": 4
-                                    }
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "origins:delay",
-                        "ticks": 5,
-                        "action": {
-                            "type": "origins:execute_command",
-                            "command": "effect give @s minecraft:instant_health 1 0 true",
-                            "permission_level": 4
-                        }
                     },
                     {
                         "type": "origins:delay",
@@ -1420,135 +1362,98 @@
                             "command": "effect give @s minecraft:instant_health 1 0 true",
                             "permission_level": 4
                         }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "resource set @s phantom:shifter/beast_shift_shifting_cooldown 7000",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "effect clear @s",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
+                        "permission_level": 4
                     }
                 ]
             },
             "else_action": {
-                "type": "origins:if_else",
-                "condition": {
-                    "type": "origins:resource",
-                    "resource": "*:*_amount_of_shifts",
-                    "comparison": "!=",
-                    "compare_to": 3
-                },
-                "if_action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:trigger_cooldown",
-                            "power": "*:*_actual_cooldown"
-                        },
-                        {
-                            "type": "origins:change_resource",
-                            "resource": "*:*_is_shifted",
-                            "change": -1
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "function phantom:shift/warhammer_titan/unshift",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 30,
-                            "action": {
-                                "type": "origins:execute_command",
-                                "command": "effect give @s minecraft:instant_health 1 0 true",
-                                "permission_level": 4
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:trigger_cooldown",
+                        "power": "*:*_actual_cooldown"
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 35,
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 5,
+                            "source": {
+                                "name": "generic"
                             }
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 7000",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "effect clear @s",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
-                            "permission_level": 4
                         }
-                    ]
-                },
-                "else_action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:trigger_cooldown",
-                            "power": "*:*_actual_cooldown"
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 35,
-                            "action": {
-                                "type": "origins:damage",
-                                "amount": 5,
-                                "source": {
-                                    "name": "generic"
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 5,
+                        "action": {
+                            "type": "origins:apply_effect",
+                            "effects": [
+                                {
+                                    "effect": "minecraft:blindness",
+                                    "duration": 400,
+                                    "show_particles": false,
+                                    "show_icon": false
+                                },
+                                {
+                                    "effect": "minecraft:mining_fatigue",
+                                    "duration": 400,
+                                    "show_particles": false,
+                                    "show_icon": false
                                 }
-                            }
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 5,
-                            "action": {
-                                "type": "origins:apply_effect",
-                                "effects": [
-                                    {
-                                        "effect": "minecraft:blindness",
-                                        "duration": 400,
-                                        "show_particles": false,
-                                        "show_icon": false
-                                    },
-                                    {
-                                        "effect": "minecraft:mining_fatigue",
-                                        "duration": 400,
-                                        "show_particles": false,
-                                        "show_icon": false
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "type": "origins:change_resource",
-                            "resource": "*:*_is_shifted",
-                            "change": -1
-                        },
-                        {
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_is_shifted",
+                        "change": -1
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "function phantom:shift/beast_titan/unshift",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 30,
+                        "action": {
                             "type": "origins:execute_command",
-                            "command": "function phantom:shift/warhammer_titan/unshift",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:delay",
-                            "ticks": 30,
-                            "action": {
-                                "type": "origins:execute_command",
-                                "command": "effect give @s minecraft:instant_health 1 0 true",
-                                "permission_level": 4
-                            }
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 6000",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "effect clear @s",
-                            "permission_level": 4
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
+                            "command": "effect give @s minecraft:instant_health 1 0 true",
                             "permission_level": 4
                         }
-                    ]
-                }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "resource set @s phantom:shifter/beast_shift_shifting_cooldown 6000",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "effect clear @s",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
+                        "permission_level": 4
+                    }
+                ]
             }
         }
     },
@@ -1571,7 +1476,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/L9GGxWY/w1.png"
+        "texture_url": "https://i.ibb.co/z6s0vcV/b1.png"
     },
     "titan_marks_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1598,7 +1503,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/f1gbYYn/w2.png"
+        "texture_url": "https://i.ibb.co/0Fty9mG/b2.png"
     },
     "titan_marks_even_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1636,7 +1541,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/GFd9Rf2/w3.png"
+        "texture_url": "https://i.ibb.co/DRtZNtX/b3.png"
     },
     "titan_marks_the_worst": {
         "type": "apugli:entity_texture_overlay",
@@ -1664,11 +1569,11 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "==",
-                    "compare_to": 3
+                    "compare_to": 4
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/PFYJgSp/w4.png"
+        "texture_url": "https://i.ibb.co/3zLRn4Q/b4.png"
     },
     "force_eject": {
         "type": "origins:action_over_time",
@@ -1713,90 +1618,6 @@
                     "actions": [
                         {
                             "condition": {
-                                "type": "origins:command",
-                                "command": "execute if entity @s[tag=HasCrystalDown]",
-                                "comparison": "!=",
-                                "compare_to": 0
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:change_resource",
-                                        "resource": "*:*_is_shifted",
-                                        "change": -1
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 6000",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "function phantom:shift/warhammer_titan/unshift",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:area_of_effect",
-                                        "radius": 110,
-                                        "bientity_condition": {
-                                            "type": "appli:nbt",
-                                            "actor_nbt": "UUID",
-                                            "target_nbt": "data.TSMPtestUUID"
-                                        },
-                                        "bientity_action": {
-                                            "type": "origins:and",
-                                            "actions": [
-                                                {
-                                                    "type": "appli:teleport"
-                                                },
-                                                {
-                                                    "type": "origins:target_action",
-                                                    "action": {
-                                                        "type": "origins:execute_command",
-                                                        "command": "fill ~ ~ ~ ~ ~1 ~ air replace blue_ice",
-                                                        "permission_level": 4
-                                                    }
-                                                },
-                                                {
-                                                    "type": "origins:target_action",
-                                                    "action": {
-                                                        "type": "origins:execute_command",
-                                                        "command": "kill @s[type=marker]",
-                                                        "permission_level": 4
-                                                    }
-                                                }
-                                            ]
-                                        }
-                                    },
-                                    {
-                                        "type": "origins:delay",
-                                        "ticks": 5,
-                                        "action": {
-                                            "type": "origins:execute_command",
-                                            "command": "effect give @s minecraft:instant_health 1 0 true",
-                                            "permission_level": 4
-                                        }
-                                    },
-                                    {
-                                        "type": "origins:delay",
-                                        "ticks": 30,
-                                        "action": {
-                                            "type": "origins:execute_command",
-                                            "command": "effect give @s minecraft:instant_health 1 0 true",
-                                            "permission_level": 4
-                                        }
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "condition": {
                                 "type": "origins:resource",
                                 "resource": "*:*_amount_of_shifts",
                                 "comparison": "==",
@@ -1807,12 +1628,12 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 9000",
+                                        "command": "resource set @s phantom:shifter/beast_shift_shifting_cooldown 9000",
                                         "permission_level": 4
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "function phantom:shift/warhammer_titan/unshift",
+                                        "command": "function phantom:shift/beast_titan/unshift",
                                         "permission_level": 4
                                     }
                                 ]
@@ -1830,12 +1651,12 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 7000",
+                                        "command": "resource set @s phantom:shifter/beast_shift_shifting_cooldown 7000",
                                         "permission_level": 4
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "function phantom:shift/warhammer_titan/unshift",
+                                        "command": "function phantom:shift/beast_titan/unshift",
                                         "permission_level": 4
                                     }
                                 ]
@@ -1853,12 +1674,35 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/warhammer_shift_shifting_cooldown 5000",
+                                        "command": "resource set @s phantom:shifter/beast_shift_shifting_cooldown 5000",
                                         "permission_level": 4
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "function phantom:shift/warhammer_titan/unshift",
+                                        "command": "function phantom:shift/beast_titan/unshift",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_amount_of_shifts",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "resource set @s phantom:shifter/beast_shift_shifting_cooldown 4000",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function phantom:shift/beast_titan/unshift",
                                         "permission_level": 4
                                     }
                                 ]
@@ -1976,7 +1820,7 @@
         "type": "origins:modify_jump",
         "modifier": {
             "name": "Bonus jump force while sprinting",
-            "value": 0.5,
+            "value": 0.35,
             "operation": "multiply_base"
         },
         "condition": {
@@ -2050,7 +1894,7 @@
     },
     "exhaust": {
         "type": "origins:exhaust",
-        "interval": 60,
+        "interval": 66.666,
         "exhaustion": 0.3,
         "condition": {
             "type": "origins:resource",
@@ -2063,8 +1907,8 @@
         "type": "origins:self_action_on_kill",
         "entity_action": {
             "type": "origins:feed",
-            "food": 5,
-            "saturation": 2
+            "food": 3,
+            "saturation": 3
         },
         "cooldown": 0,
         "hud_render": {
@@ -2296,7 +2140,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "!=",
-                    "compare_to": 3
+                    "compare_to": 4
                 },
                 {
                     "type": "origins:resource",
@@ -2462,7 +2306,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute anchored feet facing ^1 ^ ^ run tp @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] ^ ^4.25 ^3",
+                    "command": "execute anchored feet facing ^1 ^ ^ run tp @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] ^ ^5.25 ^3",
                     "permission_level": 4
                 }
             ]
@@ -2529,8 +2373,8 @@
                             "actions": [
                                 {
                                     "type": "origins:add_velocity",
-                                    "x": -3.5,
-                                    "y": 1
+                                    "x": -6,
+                                    "y": 2.5
                                 }
                             ]
                         }
@@ -2626,8 +2470,113 @@
             ]
         }
     },
-    "drop_player_crystal": {
+    "hurl_boulder_visuals_and_sounds": {
         "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 2400,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 21
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle block dirt ~ ~ ~ 2 0 2 0.1 100 normal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:block.grass.break player @a[distance=..64] ~ ~ ~ 1 0.1 1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "particle block dirt ~ ~ ~ 3 0 3 0.1 100 normal",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.grass.break player @a[distance=..64] ~ ~ ~ 1 0.1 1",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 15,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "particle block stone ~ ~ ~ 3 0 3 0.1 100 normal",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 15,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.wet_grass.break player @a[distance=..64] ~ ~ ~ 1 0.1 1",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "amplifier": 4,
+                        "duration": 15,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 15,
+                    "action": {
+                        "type": "origins:feed",
+                        "food": -4,
+                        "saturation": 0
+                    }
+                }
+            ]
+        }
+    },
+    "hurl_boulder": {
+        "type": "origins:fire_projectile",
+        "entity_type": "minecraft:snowball",
+        "cooldown": 2400,
+        "hud_render": {
+            "should_render": false
+        },
+        "start_delay": 17,
+        "speed": 0.5,
+        "divergence": 0,
+        "tag": "{Item: {id: 'minecraft:stone', Count: 1b}, Tags:[\"BeastTitanBigRock\"]}",
         "key": {
             "key": "key.origins.secondary_active"
         },
@@ -2642,181 +2591,73 @@
                 },
                 {
                     "type": "origins:sneaking"
-                },
-                {
-                    "type": "origins:command",
-                    "command": "execute if entity @s[tag=HasCrystalDown]",
-                    "comparison": "==",
-                    "compare_to": 0
-                }
-            ]
-        },
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:execute_command",
-                    "command": "function phantom:shift/warhammer_titan/drop_player_crystal",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..8] ~ ~3 ~ 0.5 0.1",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..8] ~ ~ ~ 0.7",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..8] ~ ~ ~ 0.3 0.5",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "tag @s add HasCrystalDown",
-                    "permission_level": 4
                 }
             ]
         }
     },
-    "crystal_loop": {
+    "big_rock_loop": {
         "type": "origins:action_over_time",
         "interval": 1,
         "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:command",
-                    "command": "execute if entity @s[tag=HasCrystalDown]",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_is_shifted",
-                    "comparison": "==",
-                    "compare_to": 1
-                }
-            ]
+            "type": "origins:command",
+            "command": "execute if entity @e[type=snowball,tag=BeastTitanBigRock]",
+            "comparison": "!=",
+            "compare_to": 0
         },
         "entity_action": {
             "type": "origins:area_of_effect",
             "radius": 300,
             "bientity_condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "appli:nbt",
-                        "actor_nbt": "UUID",
-                        "target_nbt": "data.TSMPtestUUID"
-                    }
-                ]
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[type=snowball,tag=BeastTitanBigRock]",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute unless blocks ~3 ~3 ~3 ~-3 ~-3 ~-3 ~ ~ ~ all",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        }
+                    ]
+                }
             },
             "bientity_action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:target_action",
-                        "action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~ ~ ~ blue_ice run setblock ~ ~ ~ blue_ice destroy",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~ ~1 ~ blue_ice run setblock ~ ~1 ~ blue_ice destroy",
-                                    "permission_level": 4
-                                },
-
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~ ~-1 ~ blue_ice run setblock ~ ~-1 ~ blue_ice destroy",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~ ~2 ~ blue_ice run setblock ~ ~2 ~ blue_ice destroy",
-                                    "permission_level": 4
-                                },
-                                
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~1 ~ ~ blue_ice run setblock ~1 ~ ~ blue_ice destroy",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~ ~ ~1 blue_ice run setblock ~ ~ ~1 blue_ice destroy",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~-1 ~ ~ blue_ice run setblock ~-1 ~ ~ blue_ice destroy",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~ ~ ~-1 blue_ice run setblock ~ ~ ~-1 blue_ice destroy",
-                                    "permission_level": 4
-                                },
-
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~1 ~1 ~ blue_ice run setblock ~1 ~1 ~ blue_ice destroy",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~ ~1 ~1 blue_ice run setblock ~ ~1 ~1 blue_ice destroy",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~-1 ~1 ~ blue_ice run setblock ~-1 ~1 ~ blue_ice destroy",
-                                    "permission_level": 4
-                                },
-                                {
-                                    "type": "origins:execute_command",
-                                    "command": "execute unless block ~ ~1 ~-1 blue_ice run setblock ~ ~1 ~-1 blue_ice destroy",
-                                    "permission_level": 4
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "origins:if_else",
-                        "condition": {
-                            "type": "origins:distance",
-                            "comparison": ">=",
-                            "compare_to": 109
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:explode",
+                            "power": 10,
+                            "create_fire": false,
+                            "damage_self": true
                         },
-                        "if_action": {
-                            "type": "origins:invert",
-                            "action": {
-                                "type": "origins:add_velocity",
-                                "z": -0.1
-                            }
+                        {
+                            "type": "origins:execute_command",
+                            "command": "kill @s[type=snowball,tag=BeastTitanBigRock]",
+                            "permission_level": 4
                         }
-                    }
-                ]
+                    ]
+                }
             }
         }
     },
-    "hardened_weapon": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 2
-    },
-    "hardened_weapons_generate": {
+    "hurl_rocks_visuals_and_sounds": {
         "type": "origins:active_self",
         "key": {
             "key": "key.origins.secondary_active"
+        },
+        "cooldown": 1200,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 17
         },
         "condition": {
             "type": "origins:and",
@@ -2838,218 +2679,119 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                    "command": "scale set pehkui:projectiles 1.5",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                    "command": "particle block dirt ~ ~ ~ 2 0 2 0.1 100 normal",
                     "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                    "command": "playsound minecraft:block.grass.break player @a[distance=..64] ~ ~ ~ 1 0.1 1",
                     "permission_level": 4
                 },
                 {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
-                    "permission_level": 4
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "particle block dirt ~ ~ ~ 3 0 3 0.1 100 normal",
+                        "permission_level": 4
+                    }
                 },
                 {
-                    "type": "origins:feed",
-                    "food": -1,
-                    "saturation": 0
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.grass.break player @a[distance=..64] ~ ~ ~ 1 0.1 1",
+                        "permission_level": 4
+                    }
                 },
                 {
-                    "type": "origins:if_else_list",
-                    "actions": [
-                        {
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "*:*_hardened_weapon",
-                                "comparison": "==",
-                                "compare_to": 2
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:change_resource",
-                                        "resource": "*:*_hardened_weapon",
-                                        "change": 0,
-                                        "operation": "set"
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "*:*_hardened_weapon",
-                                "comparison": "==",
-                                "compare_to": 0
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:change_resource",
-                                        "resource": "*:*_hardened_weapon",
-                                        "change": 1,
-                                        "operation": "set"
-                                    },
-                                    {
-                                        "type": "origins:drop_inventory",
-                                        "slot": "weapon.mainhand"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "item replace entity @s weapon.mainhand with appli:titan_skin_warhammer{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Lore:['{\"text\":\"Only usable by Titans\"}'],Name:'{\"text\":\"Titan-Skin Warhammer\",\"color\":\"white\",\"bold\":true}'},Unbreakable:1b,WarhammerHardenedItem:1} 1",
-                                        "permission_level": 4
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "*:*_hardened_weapon",
-                                "comparison": "==",
-                                "compare_to": 1
-                            },
-                            "action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:change_resource",
-                                        "resource": "*:*_hardened_weapon",
-                                        "change": 2
-                                    },
-                                    {
-                                        "type": "origins:drop_inventory",
-                                        "slot": "weapon.mainhand"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "item replace entity @s weapon.mainhand with appli:titan_skin_crossbow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},Unbreakable:1b,WarhammerHardenedItem:1,ChargedProjectiles:[{id:\"minecraft:arrow\",Count:1b},{},{}],Charged:1b} 1",
-                                        "permission_level": 4
-                                    }
-                                ]
-                            }
-                        }
-                    ]
+                    "type": "origins:delay",
+                    "ticks": 15,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "particle block stone ~ ~10 ~ 1 0 1 0.1 100 normal",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 15,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.wet_grass.break player @a[distance=..64] ~ ~ ~ 1 0.1 1",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 15,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.cobblestone.break player @a[distance=..64] ~ ~ ~ 1 0.1 1",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 15,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:block.grindstone.use player @a[distance=..64] ~ ~ ~ 1 0.5 1",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:slowness",
+                        "amplifier": 4,
+                        "duration": 15,
+                        "show_particles": false,
+                        "show_icon": false
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 15,
+                    "action": {
+                        "type": "origins:feed",
+                        "food": -4,
+                        "saturation": 0
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 18,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "scale set pehkui:projectiles 7",
+                        "permission_level": 4
+                    }
                 }
             ]
         }
     },
-    "spikes_resource": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 10,
+    "hurl_rocks": {
+        "type": "origins:fire_projectile",
+        "entity_type": "minecraft:snowball",
+        "cooldown": 1200,
         "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 12,
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_spikes_resource",
-                        "comparison": ">=",
-                        "compare_to": 4
-                    },
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_is_shifted",
-                        "comparison": "==",
-                        "compare_to": 1
-                    }
-                ]
-            }
+            "should_render": false
         },
-        "max_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:area_of_effect",
-                    "radius": 48,
-                    "include_self": false,
-                    "bientity_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:target_condition",
-                                "condition": {
-                                    "type": "origins:or",
-                                    "conditions": [
-                                        {
-                                            "type": "origins:in_tag",
-                                            "tag": "phantom:hostile"
-                                        },
-                                        {
-                                            "type": "origins:command",
-                                            "command": "execute if entity @s[tag=TSMP.Titan]",
-                                            "comparison": "!=",
-                                            "compare_to": 0
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "origins:target_condition",
-                                "condition": {
-                                    "type": "origins:living"
-                                }
-                            },
-                            {
-                                "type": "origins:can_see"
-                            }
-                        ]
-                    },
-                    "bientity_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:target_action",
-                                "action": {
-                                    "type": "origins:grant_power",
-                                    "power": "phantom:assign/spiked",
-                                    "source": "phantom:warhammer_titan"
-                                }
-                            },
-                            {
-                                "type": "origins:delay",
-                                "ticks": 1,
-                                "action": {
-                                    "type": "origins:damage",
-                                    "amount": 4,
-                                    "comment": "This is more than 4 HP, because you already deal extra damage to begin with",
-                                    "source": {
-                                        "name": "trident",
-                                        "bypasses_armor": true
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:trigger_cooldown",
-                    "power": "*:*_spikes_cooldown"
-                },
-                {
-                    "type": "origins:feed",
-                    "food": -4,
-                    "saturation": 1
-                }
-            ]
-        }
-    },
-    "spikes_loop": {
-        "type": "origins:action_over_time",
-        "interval": 10,
+        "start_delay": 17,
+        "speed": 2,
+        "count": 20,
+        "divergence": 5,
+        "tag": "{Item: {id: 'minecraft:cobblestone', Count: 1b}, Tags:[\"BeastTitanSmallRock\"]}",
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -3060,46 +2802,63 @@
                     "compare_to": 1
                 },
                 {
-                    "type": "origins:sneaking"
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_spikes_cooldown",
-                    "comparison": "==",
-                    "compare_to": 0
-                }
-            ]
-        },
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_spikes_resource",
-                    "change": 1
-                }
-            ]
-        },
-        "falling_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_spikes_resource",
-                    "change": 0,
-                    "operation": "set"
+                    "type": "origins:sneaking",
+                    "inverted": true
                 }
             ]
         }
     },
-    "spikes_cooldown": {
-        "type": "origins:cooldown",
-        "cooldown": 6000,
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 9,
-            "inverted": true
+    "small_rocks_loop": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @e[type=snowball,tag=BeastTitanSmallRock]",
+            "comparison": "!=",
+            "compare_to": 0
+        },
+        "entity_action": {
+            "type": "origins:area_of_effect",
+            "radius": 300,
+            "bientity_condition": {
+                "type": "origins:target_condition",
+                "condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[type=snowball,tag=BeastTitanSmallRock]",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute unless blocks ~3 ~3 ~3 ~-3 ~-3 ~-3 ~ ~ ~ all",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        }
+                    ]
+                }
+            },
+            "bientity_action": {
+                "type": "origins:target_action",
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:explode",
+                            "power": 5,
+                            "create_fire": false,
+                            "damage_self": true
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "kill @s[type=snowball,tag=BeastTitanSmallRock]",
+                            "permission_level": 4
+                        }
+                    ]
+                }
+            }
         }
     }
 }

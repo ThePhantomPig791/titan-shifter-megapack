@@ -1,5 +1,4 @@
-A little bit of code from: user_NULL#3958
-Attack Titan Crystal Harden function: user_NULL#3958
+A *little* (seriously, less than a function's worth) bit of code from (most notably the Attack Titan's crystal): user_NULL#3958
 Idea/inspiration/motivation: user_NULL#3958 + Valy#0662, AKA TheKattInTheHat
 The rest of the coding: ThePhantomPig791#0003
 
@@ -23,3 +22,6 @@ Colossal Titan Modifications (steaming): Valy#0662
 
 Warhammer Titan: Don't know yet
 Warhammer Titan Modifications (weary): ThePhantomPig791#0003
+
+Beast Titan: Michiru (https://www.planetminecraft.com/skin/beast-titan-shingeki-no-kyojin/)
+Beast Titan Modifications (weary): ThePhantomPig791#0003

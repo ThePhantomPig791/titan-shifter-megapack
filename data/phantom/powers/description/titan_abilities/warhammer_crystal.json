@@ -1,0 +1,18 @@
+{
+    "type": "origins:active_self",
+    "name": "Remote Operation",
+    "description": "In titan form, you can place down a near-indestructable crystal containing your humanoid body, while maintaining consciousness in your titan form. Due to the cable connecting your titan body and the crystal, you won't be able to travel over 100 blocks away from it. Upon any untransformation, you'll find yourself inside of the crystal.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Sneak and press %s to manifest a crystal."
+        }
+    ],
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

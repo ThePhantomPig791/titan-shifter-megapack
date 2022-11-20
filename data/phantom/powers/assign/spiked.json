@@ -1,0 +1,631 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:command",
+                "command": "execute if entity @s[tag=TSMP.Titan]",
+                "comparison": "!=",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:apply_effect",
+                        "effects": [
+                            {
+                                "effect": "minecraft:blindness",
+                                "duration": 20,
+                                "show_particles": false,
+                                "show_icon": false
+                            },
+                            {
+                                "effect": "minecraft:slowness",
+                                "duration": 140,
+                                "amplifier": 255,
+                                "show_particles": false,
+                                "show_icon": false
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 1,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-3 ~ ~-3 ~3 ~ ~3 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 2,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-3 ~1 ~-3 ~3 ~1 ~3 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 3,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-3 ~2 ~-3 ~3 ~2 ~3 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 4,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-2 ~3 ~-2 ~2 ~3 ~2 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 5,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-2 ~4 ~-2 ~2 ~4 ~2 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 6,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-2 ~5 ~-2 ~2 ~5 ~2 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 7,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-2 ~6 ~-2 ~2 ~6 ~2 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 8,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-1 ~7 ~-1 ~1 ~7 ~1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 9,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-1 ~8 ~-1 ~1 ~8 ~1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 10,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-1 ~9 ~-1 ~1 ~9 ~1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 11,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-1 ~10 ~-1 ~1 ~10 ~1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 12,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-1 ~11 ~-1 ~1 ~11 ~1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 13,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-1 ~12 ~-1 ~1 ~12 ~1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 14,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-1 ~13 ~-1 ~1 ~13 ~1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 15,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-1 ~14 ~-1 ~1 ~14 ~1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 16,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~ ~15 ~ ~ ~15 ~ blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 17,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~ ~16 ~ ~ ~16 ~ blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 18,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~ ~17 ~ ~ ~17 ~ blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 18,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "tp ~ ~10 ~",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 19,
+                        "action": {
+                            "type": "origins:revoke_power",
+                            "power": "phantom:assign/spiked",
+                            "source": "phantom:warhammer_titan"
+                        }
+                    },
+                    {
+                        "type": "origins:choice",
+                        "actions": [
+                            {
+                                "element": {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                    "permission_level": 4
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 1,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 2,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 3,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 4,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 5,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 6,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 7,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 8,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 9,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 10,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 11,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 12,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 13,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 14,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 15,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            }
+                        ]
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:apply_effect",
+                        "effects": [
+                            {
+                                "effect": "minecraft:blindness",
+                                "duration": 30,
+                                "show_particles": false,
+                                "show_icon": false
+                            },
+                            {
+                                "effect": "minecraft:slowness",
+                                "duration": 200,
+                                "amplifier": 255,
+                                "show_particles": false,
+                                "show_icon": false
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 1,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-1 ~ ~-1 ~1 ~ ~1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 2,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-1 ~1 ~-1 ~1 ~1 ~1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 3,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~ ~2 ~ ~ ~2 ~ blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 3,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~ ~3 ~ ~ ~3 ~ blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 3,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~1 ~2 ~ ~1 ~2 ~ blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 3,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~-1 ~2 ~ ~-1 ~2 ~ blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 3,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~ ~2 ~1 ~ ~2 ~1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 3,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~ ~2 ~-1 ~ ~2 ~-1 blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 4,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "fill ~ ~4 ~ ~ ~4 ~ blue_ice destroy",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 5,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "tp ~ ~2 ~",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 6,
+                        "action": {
+                            "type": "origins:revoke_power",
+                            "power": "phantom:assign/spiked",
+                            "source": "phantom:warhammer_titan"
+                        }
+                    },
+                    {
+                        "type": "origins:choice",
+                        "actions": [
+                            {
+                                "element": {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                    "permission_level": 4
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 1,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 2,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 3,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 4,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 5,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 6,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            },
+                            {
+                                "element": {    
+                                    "type": "origins:delay",
+                                    "ticks": 7,
+                                    "action": {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..52] ~ ~ ~ 3 2 1",
+                                        "permission_level": 4
+                                    }
+                                },
+                                "weight": 1
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

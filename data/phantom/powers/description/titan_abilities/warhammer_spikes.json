@@ -1,0 +1,18 @@
+{
+    "type": "origins:active_self",
+    "name": "Hardened Spikes",
+    "description": "In titan form, you can manifest permanent spikes under surrounding enemies.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Hold down %s for five seconds to summon spikes under all nearby titans and hostile mobs that you can see in a 48 block radius."
+        }
+    ],
+    "key": {
+        "key": "key.sneak"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

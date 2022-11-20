@@ -1,0 +1,18 @@
+{
+    "type": "origins:active_self",
+    "name": "Rock Shotgun",
+    "description": "Your titan can grab a boulder from the ground, crush it up, and hurl those smaller, remaining rocks towards a target at rapid speeds.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "guh!"
+        }
+    ],
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

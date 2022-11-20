@@ -1,0 +1,18 @@
+{
+    "type": "origins:active_self",
+    "name": "Precise Pitcher",
+    "description": "In titan form, you can pull a boulder out of the earth and hurl it with great accuracy. When one of these lands, it will exploding the surrounding terrain.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Throw a large boulder by sneaking and pressing %s."
+        }
+    ],
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

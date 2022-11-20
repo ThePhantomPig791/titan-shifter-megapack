@@ -1,0 +1,12 @@
+{
+    "powers": [
+        "phantom:shifter/beast_shift",
+        "phantom:description/titan_abilities/beast_rock",
+        "phantom:description/titan_abilities/beast_rocks"
+    ],
+    "name": "Beast Titan",
+    "description": "Placeholder",
+    "impact": 3,
+    "order": 4,
+    "icon": "minecraft:tube_coral"
+}

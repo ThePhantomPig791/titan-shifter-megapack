@@ -1,10 +1,13 @@
 {
     "powers": [
-        "phantom:shifter/warhammer_shift"
+        "phantom:shifter/warhammer_shift",
+        "phantom:description/titan_abilities/warhammer_weapons",
+        "phantom:description/titan_abilities/warhammer_spikes",
+        "phantom:description/titan_abilities/warhammer_crystal"
     ],
     "name": "Warhammer Titan",
-    "description": "The \"architect\" of the Nine Titans — capable of manifesting giant, titan versions of ordinary weapons at will, the Warhammer Titan is truly a worthy foe to even the most skilled of Titan Shifters.",
+    "description": "The \"architect\" of the Nine Titans — capable of manifesting giant, titan versions of ordinary weapons at will, the Warhammer Titan is truly a worthy foe, to even the most skilled of Titan Shifters.",
     "impact": 3,
-    "order": 4,
+    "order": 5,
     "icon": "minecraft:dead_brain_coral_fan"
 }

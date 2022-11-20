@@ -11,3 +11,5 @@
 - [ ] Fix nametags
 
 - [ ] Titan ability stacking
+
+- [ ] Beast spinal fluid, titan injections, pure titans

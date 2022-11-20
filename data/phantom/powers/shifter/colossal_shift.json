@@ -156,6 +156,15 @@
                         "command": "effect give @s minecraft:instant_health 1 10 true",
                         "permission_level": 4
                     }
+                },
+                {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect give @s minecraft:regeneration 1 200 true",
+                    "permission_level": 4
                 }
             ]
         }
@@ -2001,6 +2010,14 @@
                                 "amount": 30,
                                 "source": {
                                     "name": "cramming.player"
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.player.hurt_on_fire player @a[distance=..64] ~ ~ ~ 2 0.1 1",
+                                    "permission_level": 4
                                 }
                             }
                         ]

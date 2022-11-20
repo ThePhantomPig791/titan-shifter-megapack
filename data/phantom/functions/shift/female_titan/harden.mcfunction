@@ -4,4 +4,4 @@ scale set pehkui:motion 3.5
 playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 5 0.1
 playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 10
 playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 10 0.5
-particle dust 0.9 0.9 1.0 100 ~ ~2 ~ 4 10 4 0.1 5000
+particle dust 0.9 0.9 1.0 100 ~ ~2 ~ 4 10 4 0.1 1000

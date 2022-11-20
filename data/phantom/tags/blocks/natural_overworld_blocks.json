@@ -1,0 +1,12 @@
+{
+	"description": "Natural overworld blocks — most notably used for the Beast Titan's rock throwing abilities.",
+	"values": [
+		"#minecraft:base_stone_overworld",
+		"minecraft:grass_block",
+		"minecraft:grass",
+		"minecraft:podzol",
+		"minecraft:dirt_path",
+		"minecraft:coarse_dirt",
+		"minecraft:rooted_dirt"
+	]
+}
