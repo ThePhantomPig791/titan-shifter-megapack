@@ -12,4 +12,4 @@
 
 - [ ] Titan injections
 
-- [-] Pure titans
+- [ ] Finishing pure titans
