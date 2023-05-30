@@ -5,7 +5,7 @@
         "phantom:description/titan_abilities/beast_rocks"
     ],
     "name": "Beast Titan",
-    "description": "Placeholder",
+    "description": "As the best thrower out of the Nine Titans, the Beast Titan can raze any particular area in mere seconds just by chucking a few rocks.",
     "impact": 3,
     "order": 4,
     "icon": "minecraft:tube_coral"

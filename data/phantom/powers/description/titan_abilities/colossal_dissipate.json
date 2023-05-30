@@ -1,12 +1,12 @@
 {
     "type": "origins:active_self",
-    "name": "Rock Shotgun",
-    "description": "Your titan can grab a boulder from the ground, crush it up, and hurl those smaller, remaining rocks towards a target at rapid speeds.",
+    "name": "Dissipate",
+    "description": "You can evaporate your entire titan body at once to make it disappear, the only trace left behind being a few large puffs of smoke.",
     "badges": [
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/active.png",
-            "text": "Shotgun boulders by pressing %s."
+            "text": "Sneak and press %s to dissipate your titan form."
         }
     ],
     "key": {

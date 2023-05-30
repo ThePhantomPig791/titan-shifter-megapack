@@ -111,11 +111,6 @@
                                         "permission_level": 4
                                     },
                                     {
-                                        "type": "origins:feed",
-                                        "food": -6,
-                                        "saturation": 1
-                                    },
-                                    {
                                         "type": "origins:if_else",
                                         "condition": {
                                             "type": "origins:sneaking",
@@ -552,28 +547,13 @@
             "operation": "add"
         }
     },
-    "skin_base": {
-        "type": "apugli:set_texture",
-        "texture_location": "minecraft:textures/entity/bee/bee_stinger.png",
-        "player_model": "default",
-        "show_first_person": true,
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_is_shifted",
-                    "comparison": "==",
-                    "compare_to": 1
-                }
-            ]
-        }
-    },
     "attack_titan_skin": {
         "type": "apugli:entity_texture_overlay",
         "texture_url": "https://i.ibb.co/xsh64Bx/1.png",
         "player_model": "default",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -603,6 +583,8 @@
         "texture_url": "https://i.ibb.co/yYwRPDG/2.png",
         "player_model": "default",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -632,6 +614,8 @@
         "texture_url": "https://i.ibb.co/Khxzqcs/3.png",
         "player_model": "default",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -661,6 +645,8 @@
         "texture_url": "https://i.ibb.co/LxqbJqT/berserk.png",
         "player_model": "default",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -2029,6 +2015,11 @@
                     "resource": "*:*_shift",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:gamemode",
+                    "gamemode": "creative",
+                    "inverted": true
                 }
             ]
         },

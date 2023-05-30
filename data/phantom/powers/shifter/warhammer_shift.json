@@ -111,11 +111,6 @@
                                         "permission_level": 4
                                     },
                                     {
-                                        "type": "origins:feed",
-                                        "food": -3,
-                                        "saturation": 1
-                                    },
-                                    {
                                         "type": "origins:if_else",
                                         "condition": {
                                             "type": "origins:sneaking",
@@ -605,28 +600,13 @@
             "operation": "add"
         }
     },
-    "skin_base": {
-        "type": "apugli:set_texture",
-        "texture_location": "minecraft:textures/entity/bee/bee_stinger.png",
-        "player_model": "slim",
-        "show_first_person": true,
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_is_shifted",
-                    "comparison": "==",
-                    "compare_to": 1
-                }
-            ]
-        }
-    },
     "warhammer_titan_skin": {
         "type": "apugli:entity_texture_overlay",
         "texture_url": "https://i.ibb.co/JC4WCVk/Warhammer.png",
         "player_model": "slim",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -650,6 +630,8 @@
         "texture_url": "https://i.ibb.co/BqsJqF4/Warhammer-Weary.png",
         "player_model": "slim",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -673,6 +655,8 @@
         "texture_url": "https://i.ibb.co/vX7HR0M/Warhammer-Weary-More.png",
         "player_model": "slim",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -1692,6 +1676,11 @@
                     "resource": "*:*_shift",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:gamemode",
+                    "gamemode": "creative",
+                    "inverted": true
                 }
             ]
         },
@@ -2905,7 +2894,7 @@
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "item replace entity @s weapon.mainhand with appli:titan_skin_warhammer{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Lore:['{\"text\":\"Only usable by Titans\"}'],Name:'{\"text\":\"Titan-Skin Warhammer\",\"color\":\"white\",\"bold\":true}'},Unbreakable:1b,WarhammerHardenedItem:1} 1",
+                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_warhammer{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Lore:['{\"text\":\"Only usable by Titans\"}'],Name:'{\"text\":\"Titan-Skin Warhammer\",\"color\":\"white\",\"bold\":true}'},Unbreakable:1b,WarhammerHardenedItem:1} 1",
                                         "permission_level": 4
                                     }
                                 ]
@@ -2932,7 +2921,7 @@
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "item replace entity @s weapon.mainhand with appli:titan_skin_crossbow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},Unbreakable:1b,WarhammerHardenedItem:1,ChargedProjectiles:[{id:\"minecraft:arrow\",Count:1b},{},{}],Charged:1b} 1",
+                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_crossbow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},Unbreakable:1b,WarhammerHardenedItem:1,ChargedProjectiles:[{id:\"minecraft:arrow\",Count:1b},{},{}],Charged:1b} 1",
                                         "permission_level": 4
                                     }
                                 ]

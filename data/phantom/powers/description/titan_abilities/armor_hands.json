@@ -1,12 +1,12 @@
 {
     "type": "origins:active_self",
-    "name": "Rock Shotgun",
-    "description": "Your titan can grab a boulder from the ground, crush it up, and hurl those smaller, remaining rocks towards a target at rapid speeds.",
+    "name": "Half-Shifted Hands",
+    "description": "In human form, you can partially shift to generate a pair of titan hands that can shield you and anything nearby from harm.",
     "badges": [
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/active.png",
-            "text": "Shotgun boulders by pressing %s."
+            "text": "Generate a pair of titan hands with %s."
         }
     ],
     "key": {

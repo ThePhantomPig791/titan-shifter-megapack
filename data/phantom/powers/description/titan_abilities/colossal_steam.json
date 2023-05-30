@@ -1,12 +1,12 @@
 {
     "type": "origins:active_self",
-    "name": "Rock Shotgun",
-    "description": "Your titan can grab a boulder from the ground, crush it up, and hurl those smaller, remaining rocks towards a target at rapid speeds.",
+    "name": "'You fought well...'",
+    "description": "'...right up to the end.' You can rapidly emit steam from your titan body to ignite and fling away any entities nearby.",
     "badges": [
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/active.png",
-            "text": "Shotgun boulders by pressing %s."
+            "text": "Hold down %s to emit steam."
         }
     ],
     "key": {

@@ -16,6 +16,7 @@ scale set pehkui:width 1
 scale set pehkui:height 1
 scale set pehkui:motion 1
 scale set pehkui:reach 1
+scale set pehkui:entity_reach 1
 scale set pehkui:attack 1
 scale set pehkui:health 1
 scale set pehkui:step_height 1

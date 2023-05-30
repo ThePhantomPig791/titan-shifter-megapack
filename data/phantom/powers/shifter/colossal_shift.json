@@ -111,11 +111,6 @@
                                         "permission_level": 4
                                     },
                                     {
-                                        "type": "origins:feed",
-                                        "food": -2,
-                                        "saturation": 1
-                                    },
-                                    {
                                         "type": "origins:if_else",
                                         "condition": {
                                             "type": "origins:sneaking",
@@ -371,28 +366,13 @@
             "operation": "add"
         }
     },
-    "skin_base": {
-        "type": "apugli:set_texture",
-        "texture_location": "minecraft:textures/entity/bee/bee_stinger.png",
-        "player_model": "slim",
-        "show_first_person": true,
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_is_shifted",
-                    "comparison": "==",
-                    "compare_to": 1
-                }
-            ]
-        }
-    },
     "colossal_titan_skin": {
         "type": "apugli:entity_texture_overlay",
         "texture_url": "https://i.ibb.co/gmC4fM4/colossal.png",
         "player_model": "slim",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -416,6 +396,8 @@
         "texture_url": "https://i.ibb.co/7Sdh79C/colossal-steam.png",
         "player_model": "slim",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -1295,6 +1277,11 @@
                     "resource": "*:*_shift",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:gamemode",
+                    "gamemode": "creative",
+                    "inverted": true
                 }
             ]
         },

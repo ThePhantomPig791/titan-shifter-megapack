@@ -1,0 +1,23 @@
+{
+    "type": "origins:active_self",
+    "name": "Charge",
+    "description": "After sheding your armor in titan form, you can charge forward, sprinting at whatever is in front of you and smashing it to pieces.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Charge with %s, after your armor has been shed."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Be careful not to charge while low on health, as slamming into something with such force will hurt your titan body."
+        }
+    ],
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

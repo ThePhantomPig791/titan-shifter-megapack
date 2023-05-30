@@ -1,6 +1,9 @@
 {
     "powers": [
-        "phantom:shifter/colossal_shift"
+        "phantom:shifter/colossal_shift",
+        "phantom:description/titan_abilities/colossal_steam",
+        "phantom:description/titan_abilities/colossal_dissipate",
+        "phantom:description/titan_abilities/colossal_punch"
     ],
     "name": "Colossal Titan",
     "description": "A literal god of destruction, capable of comitting mass murder and detonating an extreme energy blast with a thought, the Colossal Titan is, put simply, a ticking time bomb — don't get on the inheritor's bad side.",

@@ -1,6 +1,9 @@
 {
     "powers": [
-        "phantom:shifter/armor_shift"
+        "phantom:shifter/armor_shift",
+        "phantom:description/titan_abilities/armor_shed",
+        "phantom:description/titan_abilities/armor_charge",
+        "phantom:description/titan_abilities/armor_hands"
     ],
     "name": "Armored Titan",
     "description": "As the most defensive of the Nine Titans, the Armored Titan is a slow, lumbering, heavy-hitting giant — until it decides to shed away some of its armor.",

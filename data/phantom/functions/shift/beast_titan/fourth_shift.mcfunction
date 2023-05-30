@@ -1,7 +1,7 @@
-execute as @s at @s run summon minecraft:lightning_bolt ~ ~-300 ~
-execute as @s at @s run summon minecraft:lightning_bolt ~ ~-300 ~
-execute as @s at @s run summon minecraft:lightning_bolt ~ ~-300 ~
-execute as @s at @s run summon minecraft:lightning_bolt ~ ~-300 ~
+execute as @s at @s run summon minecraft:lightning_bolt ~ ~-30 ~
+execute as @s at @s run summon minecraft:lightning_bolt ~ ~-30 ~
+execute as @s at @s run summon minecraft:lightning_bolt ~ ~-30 ~
+execute as @s at @s run summon minecraft:lightning_bolt ~ ~-30 ~
 playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 1 1.5 1
 playsound minecraft:block.end_portal.spawn player @a[distance=..32] ~ ~ ~ 10 2 0.5
 playsound minecraft:entity.generic.explode player @a[distance=..32] ~ ~ ~ 10 0.1 1

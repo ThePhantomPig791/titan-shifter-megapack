@@ -1,0 +1,9 @@
+- Minecraft 1.19.3
+
+- Origins (therefore Apoli, which the former includes): https://modrinth.com/mod/origins/version/1.8.1
+
+- Apugli: https://modrinth.com/mod/apugli/version/1.13.3+1.19.3
+
+- Appli: N/A ATM
+
+- Pehkui: https://modrinth.com/mod/pehkui/version/3.7.4+1.14.4-1.20

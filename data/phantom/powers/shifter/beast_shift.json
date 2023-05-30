@@ -111,11 +111,6 @@
                                         "permission_level": 4
                                     },
                                     {
-                                        "type": "origins:feed",
-                                        "food": -3,
-                                        "saturation": 1
-                                    },
-                                    {
                                         "type": "origins:if_else",
                                         "condition": {
                                             "type": "origins:sneaking",
@@ -572,28 +567,13 @@
             "operation": "add"
         }
     },
-    "skin_base": {
-        "type": "apugli:set_texture",
-        "texture_location": "minecraft:textures/entity/bee/bee_stinger.png",
-        "player_model": "slim",
-        "show_first_person": true,
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_is_shifted",
-                    "comparison": "==",
-                    "compare_to": 1
-                }
-            ]
-        }
-    },
     "beast_titan_skin": {
         "type": "apugli:entity_texture_overlay",
         "texture_url": "https://i.ibb.co/mvBgk5n/beast-1.png",
         "player_model": "default",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -617,6 +597,8 @@
         "texture_url": "https://i.ibb.co/bH5kpXG/beast-2.png",
         "player_model": "default",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -640,6 +622,8 @@
         "texture_url": "https://i.ibb.co/x37fbTm/beast-3.png",
         "player_model": "default",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -663,6 +647,8 @@
         "texture_url": "https://i.ibb.co/t3NLS14/beast-4.png",
         "player_model": "default",
         "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -1597,6 +1583,11 @@
                     "resource": "*:*_shift",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:gamemode",
+                    "gamemode": "creative",
+                    "inverted": true
                 }
             ]
         },
@@ -2475,7 +2466,7 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
-        "cooldown": 2400,
+        "cooldown": 1800,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -2569,12 +2560,12 @@
     "hurl_boulder": {
         "type": "origins:fire_projectile",
         "entity_type": "minecraft:snowball",
-        "cooldown": 2400,
+        "cooldown": 1800,
         "hud_render": {
             "should_render": false
         },
         "start_delay": 17,
-        "speed": 0.5,
+        "speed": 1,
         "divergence": 0,
         "tag": "{Item: {id: 'minecraft:stone', Count: 1b}, Tags:[\"BeastTitanBigRock\"]}",
         "key": {
@@ -2653,7 +2644,7 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
-        "cooldown": 1200,
+        "cooldown": 600,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
@@ -2780,7 +2771,7 @@
     "hurl_rocks": {
         "type": "origins:fire_projectile",
         "entity_type": "minecraft:snowball",
-        "cooldown": 1200,
+        "cooldown": 600,
         "hud_render": {
             "should_render": false
         },
@@ -2788,6 +2779,7 @@
         "speed": 2,
         "count": 20,
         "divergence": 5,
+        "interval": 1,
         "tag": "{Item: {id: 'minecraft:cobblestone', Count: 1b}, Tags:[\"BeastTitanSmallRock\"]}",
         "key": {
             "key": "key.origins.secondary_active"

@@ -201,7 +201,7 @@
                                 {
                                     "type": "origins:ingredient",
                                     "ingredient": {
-                                        "item": "appli:titan_skin_crossbow"
+                                        "item": "titan_shifter_megapack:titan_skin_crossbow"
                                     }
                                 },
                                 {
