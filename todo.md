@@ -2,14 +2,14 @@
 
 - [x] Fix grabing multiple entities at the same time, sort of
 
-- [ ] Fix the todo list
-
 - [x] Make some damage types not sate titans (explosions, for instance)
 
 - [x] Fix the colossal titan grabbing other entities glitch
 
-- [ ] Fix nametags
+- [x] Fix nametags
 
-- [ ] Titan ability stacking
+- [ ] Titan spinal fluid
 
-- [ ] Beast spinal fluid, titan injections, pure titans
+- [ ] Titan injections
+
+- [-] Pure titans
