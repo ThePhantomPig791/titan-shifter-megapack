@@ -12,4 +12,8 @@
 
 - [x] Finishing pure titans
 
-- [ ] Founding
+- [ ] Founding Titan
+
+- [ ] Jaw Titan
+
+- [ ] Cart Titan
