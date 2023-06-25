@@ -2,7 +2,8 @@
     "powers": [
         "phantom:shifter/beast_shift",
         "phantom:description/titan_abilities/beast_rock",
-        "phantom:description/titan_abilities/beast_rocks"
+        "phantom:description/titan_abilities/beast_rocks",
+        "phantom:description/titan_abilities/beast_scream"
     ],
     "name": "Beast Titan",
     "description": "As the best thrower out of the Nine Titans, the Beast Titan can raze any particular area in mere seconds just by chucking a few rocks.",

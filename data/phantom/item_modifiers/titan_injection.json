@@ -1,0 +1,6 @@
+{
+    "function": "apoli:add_power",
+    "power": "phantom:assign/titan_injection",
+    "slot": "mainhand",
+    "hidden": true
+}

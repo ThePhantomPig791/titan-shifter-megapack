@@ -1438,10 +1438,37 @@
     "big_land": {
         "type": "origins:action_on_land",
         "entity_action": {
-            "type": "origins:explode",
-            "power": 20,
-            "destruction_type": "break",
-            "damage_self": false
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:explode",
+                    "power": 10,
+                    "destruction_type": "break",
+                    "damage_self": false
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 3,
+                    "action": {
+                        "type": "origins:area_of_effect",
+                        "radius": 300,
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:set_on_fire",
+                                "duration": 10
+                            }
+                        },
+                        "bientity_condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:item"
+                            }
+                        }
+                    }             
+                }
+            ]
         },
         "condition": {
             "type": "origins:and",
@@ -1467,10 +1494,37 @@
     "bigger_land": {
         "type": "origins:action_on_land",
         "entity_action": {
-            "type": "origins:explode",
-            "power": 30,
-            "destruction_type": "break",
-            "damage_self": false
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:explode",
+                    "power": 20,
+                    "destruction_type": "break",
+                    "damage_self": false
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 3,
+                    "action": {
+                        "type": "origins:area_of_effect",
+                        "radius": 300,
+                        "bientity_action": {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:set_on_fire",
+                                "duration": 10
+                            }
+                        },
+                        "bientity_condition": {
+                            "type": "origins:target_condition",
+                            "condition": {
+                                "type": "origins:entity_type",
+                                "entity_type": "minecraft:item"
+                            }
+                        }
+                    }             
+                }
+            ]
         },
         "condition": {
             "type": "origins:and",
@@ -1478,7 +1532,7 @@
                 {
                     "type": "origins:fall_distance",
                     "comparison": ">=",
-                    "compare_to": 10
+                    "compare_to": 13
                 },
                 {
                     "type": "origins:resource",
@@ -2097,6 +2151,14 @@
                                         "change": 1
                                     },
                                     {
+                                        "type": "origins:area_of_effect",
+                                        "radius": 300,
+                                        "bientity_action": {
+                                            "type": "origins:add_velocity",
+                                            "z": 10
+                                        }
+                                    },
+                                    {
                                         "type": "origins:delay",
                                         "ticks": 5,
                                         "action": {
@@ -2125,6 +2187,46 @@
                                         "power": 150,
                                         "destruction_type": "break",
                                         "damage_self": false
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 10,
+                                        "action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 200,
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:set_on_fire",
+                                                    "duration": 5
+                                                }
+                                            },
+                                            "bientity_condition": {
+                                                "type": "origins:can_see"
+                                            }
+                                        }             
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 10,
+                                        "action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 300,
+                                            "bientity_action": {
+                                                "type": "origins:target_action",
+                                                "action": {
+                                                    "type": "origins:set_on_fire",
+                                                    "duration": 20
+                                                }
+                                            },
+                                            "bientity_condition": {
+                                                "type": "origins:target_condition",
+                                                "condition": {
+                                                    "type": "origins:entity_type",
+                                                    "entity_type": "minecraft:item"
+                                                }
+                                            }
+                                        }             
                                     }
                                 ]
                             }
@@ -2343,6 +2445,22 @@
                     }
                 }
             ]
+        }
+    },
+    "knockback_resistance": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.knockback_resistance",
+            "operation": "addition",
+            "value": 1,
+            "name": "Increased knockback resistance"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
         }
     }
 }

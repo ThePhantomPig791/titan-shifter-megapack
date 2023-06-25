@@ -8,8 +8,8 @@
 
 - [x] Fix nametags
 
-- [ ] Titan spinal fluid
+- [x] Titan injections
 
-- [ ] Titan injections
+- [x] Finishing pure titans
 
-- [ ] Finishing pure titans
+- [ ] Founding

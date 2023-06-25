@@ -1,0 +1,1038 @@
+{
+    "type": "origins:multiple",
+    "hidden": true,
+    "loop": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:and",
+                    "conditions": [
+                        {
+                            "type": "origins:ingredient",
+                            "ingredient": {
+                                "item": "titan_shifter_megapack:titan_injection"
+                            }
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:0}",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:1}",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:2}",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:3}",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:4}",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:5}",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:6}",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:7}",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:8}",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:9}",
+                            "inverted": true
+                        },
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:10}",
+                            "inverted": true
+                        }
+                    ]
+                }
+            },
+            "if_action": {
+                "type": "origins:equipped_item_action",
+                "equipment_slot": "mainhand",
+                "action": {
+                    "type": "origins:merge_nbt",
+                    "nbt": "{CustomModelData: 0}"
+                }
+            }
+        }
+    },
+    "use": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.use"
+        },
+        "cooldown": 0,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:equipped_item",
+                    "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:ingredient",
+                        "ingredient": {
+                            "item": "titan_shifter_megapack:titan_injection"
+                        }
+                    }
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:equipped_item",
+                "equipment_slot": "mainhand",
+                "item_condition": {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:nbt",
+                            "nbt": "{CustomModelData:0}"
+                        }
+                    ]
+                }
+            },
+            "if_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:raycast",
+                    "distance": 5,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
+                    "block_condition": {
+                        "type": "origins:constant",
+                        "value": false
+                    },
+                    "hit_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:living"
+                                },
+                                {
+                                    "type": "origins:command",
+                                    "command": "execute if entity @s[tag=TSMP.Titan]",
+                                    "comparison": "!=",
+                                    "compare_to": 0
+                                }
+                            ]
+                        }
+                    }
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "mainhand",
+                            "action": {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{CustomModelData: 10}"
+                            }
+                        },
+                        {
+                            "type": "origins:swing_hand",
+                            "hand": "MAIN_HAND"
+                        },
+                        {
+                            "type": "origins:play_sound",
+                            "sound": "minecraft:block.beacon.activate",
+                            "pitch": 1.7,
+                            "volume": 0.1
+                        },
+                        {
+                            "type": "origins:play_sound",
+                            "sound": "minecraft:block.brewing_stand.brew",
+                            "pitch": 2,
+                            "volume": 0.3
+                        },
+                        {
+                            "type": "origins:if_else_list",
+                            "actions": [
+                                {
+                                    "condition": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "block_condition": {
+                                            "type": "origins:constant",
+                                            "value": false
+                                        },
+                                        "hit_bientity_condition": {
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/attack_shift_is_shifted\",Data:1}]}}}]",
+                                                "comparison": "!=",
+                                                "compare_to": 0
+                                            }
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:equipped_item_action",
+                                        "equipment_slot": "mainhand",
+                                        "action": {
+                                            "type": "origins:merge_nbt",
+                                            "nbt": "{CustomModelData: 1}"
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "block_condition": {
+                                            "type": "origins:constant",
+                                            "value": false
+                                        },
+                                        "hit_bientity_condition": {
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/female_shift_is_shifted\",Data:1}]}}}]",
+                                                "comparison": "!=",
+                                                "compare_to": 0
+                                            }
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:equipped_item_action",
+                                        "equipment_slot": "mainhand",
+                                        "action": {
+                                            "type": "origins:merge_nbt",
+                                            "nbt": "{CustomModelData: 2}"
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "block_condition": {
+                                            "type": "origins:constant",
+                                            "value": false
+                                        },
+                                        "hit_bientity_condition": {
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/armor_shift_is_shifted\",Data:1}]}}}]",
+                                                "comparison": "!=",
+                                                "compare_to": 0
+                                            }
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:equipped_item_action",
+                                        "equipment_slot": "mainhand",
+                                        "action": {
+                                            "type": "origins:merge_nbt",
+                                            "nbt": "{CustomModelData: 3}"
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "block_condition": {
+                                            "type": "origins:constant",
+                                            "value": false
+                                        },
+                                        "hit_bientity_condition": {
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/colossal_shift_is_shifted\",Data:1}]}}}]",
+                                                "comparison": "!=",
+                                                "compare_to": 0
+                                            }
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:equipped_item_action",
+                                        "equipment_slot": "mainhand",
+                                        "action": {
+                                            "type": "origins:merge_nbt",
+                                            "nbt": "{CustomModelData: 4}"
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "block_condition": {
+                                            "type": "origins:constant",
+                                            "value": false
+                                        },
+                                        "hit_bientity_condition": {
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/warhammer_shift_is_shifted\",Data:1}]}}}]",
+                                                "comparison": "!=",
+                                                "compare_to": 0
+                                            }
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:equipped_item_action",
+                                        "equipment_slot": "mainhand",
+                                        "action": {
+                                            "type": "origins:merge_nbt",
+                                            "nbt": "{CustomModelData: 5}"
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "block_condition": {
+                                            "type": "origins:constant",
+                                            "value": false
+                                        },
+                                        "hit_bientity_condition": {
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/jaw_shift_is_shifted\",Data:1}]}}}]",
+                                                "comparison": "!=",
+                                                "compare_to": 0
+                                            }
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:equipped_item_action",
+                                        "equipment_slot": "mainhand",
+                                        "action": {
+                                            "type": "origins:merge_nbt",
+                                            "nbt": "{CustomModelData: 6}"
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "block_condition": {
+                                            "type": "origins:constant",
+                                            "value": false
+                                        },
+                                        "hit_bientity_condition": {
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/cart_shift_is_shifted\",Data:1}]}}}]",
+                                                "comparison": "!=",
+                                                "compare_to": 0
+                                            }
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:equipped_item_action",
+                                        "equipment_slot": "mainhand",
+                                        "action": {
+                                            "type": "origins:merge_nbt",
+                                            "nbt": "{CustomModelData: 7}"
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "block_condition": {
+                                            "type": "origins:constant",
+                                            "value": false
+                                        },
+                                        "hit_bientity_condition": {
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/beast_shift_is_shifted\",Data:1}]}}}]",
+                                                "comparison": "!=",
+                                                "compare_to": 0
+                                            }
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:equipped_item_action",
+                                        "equipment_slot": "mainhand",
+                                        "action": {
+                                            "type": "origins:merge_nbt",
+                                            "nbt": "{CustomModelData: 8}"
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "block_condition": {
+                                            "type": "origins:constant",
+                                            "value": false
+                                        },
+                                        "hit_bientity_condition": {
+                                            "type": "origins:target_condition",
+                                            "condition": {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/founding_shift_is_shifted\",Data:1}]}}}]",
+                                                "comparison": "!=",
+                                                "compare_to": 0
+                                            }
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:equipped_item_action",
+                                        "equipment_slot": "mainhand",
+                                        "action": {
+                                            "type": "origins:merge_nbt",
+                                            "nbt": "{CustomModelData: 9}"
+                                        }
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "else_action": {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[tag=TSMP.Titan]",
+                                "comparison": "!=",
+                                "compare_to": 0
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "phantom:attack_titan",
+                                    "layer": "phantom:titan"
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:merge_nbt",
+                                        "nbt": "{CustomModelData: 1}"
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "phantom:female_titan",
+                                    "layer": "phantom:titan"
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:merge_nbt",
+                                        "nbt": "{CustomModelData: 2}"
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "phantom:armor_titan",
+                                    "layer": "phantom:titan"
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:merge_nbt",
+                                        "nbt": "{CustomModelData: 3}"
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "phantom:colossal_titan",
+                                    "layer": "phantom:titan"
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:merge_nbt",
+                                        "nbt": "{CustomModelData: 4}"
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "phantom:warhammer_titan",
+                                    "layer": "phantom:titan"
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:merge_nbt",
+                                        "nbt": "{CustomModelData: 5}"
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "phantom:jaw_titan",
+                                    "layer": "phantom:titan"
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:merge_nbt",
+                                        "nbt": "{CustomModelData: 6}"
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "phantom:cart_titan",
+                                    "layer": "phantom:titan"
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:merge_nbt",
+                                        "nbt": "{CustomModelData: 7}"
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "phantom:beast_titan",
+                                    "layer": "phantom:titan"
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:merge_nbt",
+                                        "nbt": "{CustomModelData: 8}"
+                                    }
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:origin",
+                                    "origin": "phantom:founding_titan",
+                                    "layer": "phantom:titan"
+                                },
+                                "action": {
+                                    "type": "origins:equipped_item_action",
+                                    "equipment_slot": "mainhand",
+                                    "action": {
+                                        "type": "origins:merge_nbt",
+                                        "nbt": "{CustomModelData: 9}"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            },
+            "else_action": {
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:raycast",
+                    "distance": 5,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "none",
+                    "block_condition": {
+                        "type": "origins:constant",
+                        "value": false
+                    },
+                    "hit_bientity_condition": {
+                        "type": "origins:target_condition",
+                        "condition": {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[tag=TSMP.Titan]",
+                            "comparison": "==",
+                            "compare_to": 0
+                        }
+                    }
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:play_sound",
+                            "sound": "minecraft:item.bottle.empty",
+                            "pitch": 1.9,
+                            "volume": 0.5
+                        },
+                        {
+                            "type": "origins:play_sound",
+                            "sound": "minecraft:block.honey_block.step",
+                            "pitch": 2,
+                            "volume": 0.5
+                        },
+                        {
+                            "type": "origins:swing_hand",
+                            "hand": "MAIN_HAND"
+                        },
+                        {
+                            "type": "origins:if_else_list",
+                            "actions": [
+                                {
+                                    "condition": {
+                                        "type": "origins:equipped_item",
+                                        "equipment_slot": "mainhand",
+                                        "item_condition": {
+                                            "type": "origins:nbt",
+                                            "nbt": "{CustomModelData: 10}"
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "power grant @s phantom:assign/pure_shift"
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:equipped_item",
+                                        "equipment_slot": "mainhand",
+                                        "item_condition": {
+                                            "type": "origins:nbt",
+                                            "nbt": "{CustomModelData:1}"
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s phantom:assign/pure_shift"
+                                                    },
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "phantom:assign/pure_shift_injection_type",
+                                                        "operation": "set",
+                                                        "change": 1
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:equipped_item",
+                                        "equipment_slot": "mainhand",
+                                        "item_condition": {
+                                            "type": "origins:nbt",
+                                            "nbt": "{CustomModelData:2}"
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s phantom:assign/pure_shift"
+                                                    },
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "phantom:assign/pure_shift_injection_type",
+                                                        "operation": "set",
+                                                        "change": 2
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:equipped_item",
+                                        "equipment_slot": "mainhand",
+                                        "item_condition": {
+                                            "type": "origins:nbt",
+                                            "nbt": "{CustomModelData:3}"
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s phantom:assign/pure_shift"
+                                                    },
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "phantom:assign/pure_shift_injection_type",
+                                                        "operation": "set",
+                                                        "change": 3
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:equipped_item",
+                                        "equipment_slot": "mainhand",
+                                        "item_condition": {
+                                            "type": "origins:nbt",
+                                            "nbt": "{CustomModelData:4}"
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s phantom:assign/pure_shift"
+                                                    },
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "phantom:assign/pure_shift_injection_type",
+                                                        "operation": "set",
+                                                        "change": 4
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:equipped_item",
+                                        "equipment_slot": "mainhand",
+                                        "item_condition": {
+                                            "type": "origins:nbt",
+                                            "nbt": "{CustomModelData:5}"
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s phantom:assign/pure_shift"
+                                                    },
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "phantom:assign/pure_shift_injection_type",
+                                                        "operation": "set",
+                                                        "change": 5
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:equipped_item",
+                                        "equipment_slot": "mainhand",
+                                        "item_condition": {
+                                            "type": "origins:nbt",
+                                            "nbt": "{CustomModelData:6}"
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s phantom:assign/pure_shift"
+                                                    },
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "phantom:assign/pure_shift_injection_type",
+                                                        "operation": "set",
+                                                        "change": 6
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:equipped_item",
+                                        "equipment_slot": "mainhand",
+                                        "item_condition": {
+                                            "type": "origins:nbt",
+                                            "nbt": "{CustomModelData:7}"
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s phantom:assign/pure_shift"
+                                                    },
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "phantom:assign/pure_shift_injection_type",
+                                                        "operation": "set",
+                                                        "change": 7
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:equipped_item",
+                                        "equipment_slot": "mainhand",
+                                        "item_condition": {
+                                            "type": "origins:nbt",
+                                            "nbt": "{CustomModelData:8}"
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s phantom:assign/pure_shift"
+                                                    },
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "phantom:assign/pure_shift_injection_type",
+                                                        "operation": "set",
+                                                        "change": 8
+                                                    },
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "phantom:assign/pure_shift_should_shift",
+                                                        "operation": "set",
+                                                        "change": 0
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                },
+                                {
+                                    "condition": {
+                                        "type": "origins:equipped_item",
+                                        "equipment_slot": "mainhand",
+                                        "item_condition": {
+                                            "type": "origins:nbt",
+                                            "nbt": "{CustomModelData:9}"
+                                        }
+                                    },
+                                    "action": {
+                                        "type": "origins:raycast",
+                                        "distance": 5,
+                                        "block": true,
+                                        "entity": true,
+                                        "shape_type": "collider",
+                                        "fluid_handling": "none",
+                                        "bientity_action": {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:execute_command",
+                                                        "command": "power grant @s phantom:assign/pure_shift"
+                                                    },
+                                                    {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "phantom:assign/pure_shift_injection_type",
+                                                        "operation": "set",
+                                                        "change": 9
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:equipped_item_action",
+                            "equipment_slot": "mainhand",
+                            "action": {
+                                "type": "origins:merge_nbt",
+                                "nbt": "{CustomModelData: 0}"
+                            }
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

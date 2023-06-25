@@ -1,0 +1,18 @@
+{
+    "type": "origins:active_self",
+    "name": "Scream",
+    "description": "You can scream, causing any humans injected with your titan's spinal fluid to transform into Pure Titans.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Scream with %s (the \"spectator outlines\" key, set it in controls)."
+        }
+    ],
+    "key": {
+        "key": "key.spectatorOutlines"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

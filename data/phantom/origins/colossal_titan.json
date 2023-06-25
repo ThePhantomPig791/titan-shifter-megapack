@@ -1,6 +1,7 @@
 {
     "powers": [
         "phantom:shifter/colossal_shift",
+        "phantom:description/titan_abilities/colossal_nuke",
         "phantom:description/titan_abilities/colossal_steam",
         "phantom:description/titan_abilities/colossal_dissipate",
         "phantom:description/titan_abilities/colossal_punch"

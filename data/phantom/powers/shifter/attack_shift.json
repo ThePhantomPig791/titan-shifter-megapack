@@ -2850,5 +2850,21 @@
                 }
             ]
         }
+    },
+    "knockback_resistance": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.knockback_resistance",
+            "operation": "addition",
+            "value": 0.8,
+            "name": "Increased knockback resistance"
+        },
+        "tick_rate": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        }
     }
 }

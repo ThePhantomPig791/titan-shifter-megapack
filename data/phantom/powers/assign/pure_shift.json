@@ -11,10 +11,10 @@
         "min": 0,
         "max": 9,
         "comment": [
-            "0 = unset",
+            "0 = unset    -NOTE: uses injection CustomModelData 10",
             "1 = Attack",
             "2 = Female",
-            "3 = Armored",
+            "3 = Armor",
             "4 = Colossal",
             "5 = Warhammer",
             "6 = Jaw",
@@ -22,7 +22,7 @@
             "8 = Beast",
             "9 = Founding",
 
-            "Beast is almost the same as unset, except for the scream activation and nocturnal titans",
+            "Beast is the same as unset, except for the scream activation and nocturnal titans",
             "Attack has a higher average attack damage, Female/Jaw/Cart a higher average speed, Armored/Warhammer higher average defense, Colossal higher size, and Founding also makes nocturnal titans"
         ]
     },
@@ -66,10 +66,27 @@
             "actions": [
                 {
                     "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_injection_type",
-                        "comparison": "==",
-                        "compare_to": 0
+                        "type": "origins:or",
+                        "conditions": [
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_injection_type",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_injection_type",
+                                "comparison": "==",
+                                "compare_to": 8
+                            },
+                            {
+                                "type": "origins:resource",
+                                "resource": "*:*_injection_type",
+                                "comparison": "==",
+                                "compare_to": 9
+                            }
+                        ]
                     },
                     "action": {
                         "type": "origins:and",
@@ -2653,12 +2670,160 @@
                 {
                     "type": "origins:resource",
                     "resource": "*:*_skin",
-                    "comparison": "!=",
-                    "compare_to": 2
+                    "comparison": "==",
+                    "compare_to": 3
                 }
             ]
         }
     },
+    "skin_4": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/C0VyGjB/pure-4.png",
+        "player_model": "slim",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_skin",
+                    "comparison": "==",
+                    "compare_to": 4
+                }
+            ]
+        }
+    },
+    "skin_5": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/JBVR5Sn/pure-5.png",
+        "player_model": "slim",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_skin",
+                    "comparison": "==",
+                    "compare_to": 5
+                }
+            ]
+        }
+    },
+    "skin_6": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/tbzw9Bm/pure-6.png",
+        "player_model": "slim",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_skin",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+            ]
+        }
+    },
+    "skin_7": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/NrgYdsp/pure-7.png",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_skin",
+                    "comparison": "==",
+                    "compare_to": 7
+                }
+            ]
+        }
+    },
+    "skin_8": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/gm5rH12/pure-8.png",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_skin",
+                    "comparison": "==",
+                    "compare_to": 8
+                }
+            ]
+        }
+    },
+    "skin_9": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/CPsWcR4/pure-9.png",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_skin",
+                    "comparison": "==",
+                    "compare_to": 9
+                }
+            ]
+        }
+    },
+
     "steam_healing": {
         "type": "origins:action_over_time",
         "condition": {
@@ -3575,9 +3740,24 @@
             ]
         }
     },
-
     "prevent_keyboard": {
         "type": "appli:prevent_keys",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "knockback_resistance": {
+        "type": "origins:conditioned_attribute",
+        "modifier": {
+            "attribute": "minecraft:generic.knockback_resistance",
+            "operation": "addition",
+            "value": 0.6,
+            "name": "Increased knockback resistance"
+        },
+        "tick_rate": 20,
         "condition": {
             "type": "origins:resource",
             "resource": "*:*_is_shifted",
