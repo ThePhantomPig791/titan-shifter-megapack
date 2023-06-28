@@ -1363,6 +1363,10 @@
                         "type": "origins:execute_command",
                         "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
                         "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @p [\"The Beast Titan was slain\"]"
                     }
                 ]
             },
@@ -1438,6 +1442,10 @@
                         "type": "origins:execute_command",
                         "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
                         "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tellraw @p [\"The Beast Titan was slain\"]"
                     }
                 ]
             }

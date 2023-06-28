@@ -4,8 +4,8 @@ execute as @e[tag=titan_skeleton,limit=1,distance=..5,sort=nearest] run power gr
 execute as @e[tag=titan_skeleton,limit=1,distance=..5,sort=nearest] run resource set @s phantom:shifter/skeleton_resource 1800
 execute as @e[tag=titan_skeleton,limit=1,distance=..5,sort=nearest] run scale delay set pehkui:width 0
 execute as @e[tag=titan_skeleton,limit=1,distance=..5,sort=nearest] run scale delay set pehkui:height 0
-execute as @e[tag=titan_skeleton,limit=1,distance=..5,sort=nearest] run scale set pehkui:width 4
-execute as @e[tag=titan_skeleton,limit=1,distance=..5,sort=nearest] run scale set pehkui:height 4
+execute as @e[tag=titan_skeleton,limit=1,distance=..5,sort=nearest] run scale set pehkui:width 7
+execute as @e[tag=titan_skeleton,limit=1,distance=..5,sort=nearest] run scale set pehkui:height 7
 execute at @e[tag=titan_corpse,limit=1,distance=..5,sort=nearest] run tp @s ~ ~10 ~
 tp @s ^ ^ ^-1
 effect give @s minecraft:invisibility 1 1 true
@@ -21,8 +21,9 @@ scale set pehkui:attack 1
 scale set pehkui:health 1
 scale set pehkui:step_height 1
 scale set pehkui:held_item 1
+scale set pehkui:projectiles 1
 effect give @s minecraft:instant_health 1 10 true
-effect give @s minecraft:regeneration 3 5 true
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
 tag @s remove TSMP.Titan
-power revoke @s phantom:assign/pure_shift_client
+tag @s remove HasCrystalDown
+resource set @s phantom:shifter/founding_shift_titan 0

@@ -1045,78 +1045,82 @@
         },
         "entity_action": {
             "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:trigger_cooldown",
-                        "power": "*:*_actual_cooldown"
-                    },
-                    {
-                        "type": "origins:delay",
-                        "ticks": 35,
-                        "action": {
-                            "type": "origins:damage",
-                            "amount": 5,
-                            "source": {
-                                "name": "generic"
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_actual_cooldown"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 35,
+                    "action": {
+                        "type": "origins:damage",
+                        "amount": 5,
+                        "source": {
+                            "name": "generic"
+                        }
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:apply_effect",
+                        "effects": [
+                            {
+                                "effect": "minecraft:blindness",
+                                "duration": 800,
+                                "show_particles": false,
+                                "show_icon": false
+                            },
+                            {
+                                "effect": "minecraft:mining_fatigue",
+                                "duration": 800,
+                                "show_particles": false,
+                                "show_icon": false
                             }
-                        }
-                    },
-                    {
-                        "type": "origins:delay",
-                        "ticks": 5,
-                        "action": {
-                            "type": "origins:apply_effect",
-                            "effects": [
-                                {
-                                    "effect": "minecraft:blindness",
-                                    "duration": 800,
-                                    "show_particles": false,
-                                    "show_icon": false
-                                },
-                                {
-                                    "effect": "minecraft:mining_fatigue",
-                                    "duration": 800,
-                                    "show_particles": false,
-                                    "show_icon": false
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_is_shifted",
-                        "change": -1
-                    },
-                    {
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_is_shifted",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function phantom:shift/colossal_titan/unshift",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 30,
+                    "action": {
                         "type": "origins:execute_command",
-                        "command": "function phantom:shift/colossal_titan/unshift",
-                        "permission_level": 4
-                    },
-                    {
-                        "type": "origins:delay",
-                        "ticks": 30,
-                        "action": {
-                            "type": "origins:execute_command",
-                            "command": "effect give @s minecraft:instant_health 1 0 true",
-                            "permission_level": 4
-                        }
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "resource set @s phantom:shifter/colossal_shift_shifting_cooldown 0",
-                        "permission_level": 4
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "effect clear @s",
-                        "permission_level": 4
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
+                        "command": "effect give @s minecraft:instant_health 1 0 true",
                         "permission_level": 4
                     }
-                ]
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "resource set @s phantom:shifter/colossal_shift_shifting_cooldown 0",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "effect clear @s",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tellraw @p [\"The Colossal Titan was slain\"]"
+                }
+            ]
         }
     },
     "titan_marks": {
@@ -2048,7 +2052,7 @@
                         "actions": [
                             {
                                 "type": "origins:damage",
-                                "amount": 30,
+                                "amount": 40,
                                 "source": {
                                     "name": "cramming.player"
                                 }

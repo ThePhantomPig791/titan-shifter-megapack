@@ -1,0 +1,37 @@
+{
+    "type": "origins:multiple",
+    "glow": {
+        "type": "origins:entity_glow",
+        "bientity_condition": {
+            "type": "origins:can_see"
+        },
+        "entity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:living"
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                }
+            ]
+        },
+        "use_teams": false,
+        "red": 1,
+        "green": 0.1,
+        "blue": 0.1
+    },
+    "overlay": {
+        "type": "origins:overlay",
+        "texture": "minecraft:textures/misc/nausea.png",
+        "red": 1,
+        "green": 0.1,
+        "blue": 0.1,
+        "strength": 1,
+        "draw_mode": "nausea",
+        "draw_phase": "above_hud",
+        "visible_in_third_person": false,
+        "hide_with_hud": false
+    }
+}

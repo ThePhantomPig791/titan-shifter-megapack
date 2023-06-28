@@ -7,9 +7,11 @@ scale set pehkui:width 1
 scale set pehkui:height 1
 scale set pehkui:motion 1
 scale set pehkui:reach 1
+scale set pehkui:entity_reach 1
 scale set pehkui:attack 1
 scale set pehkui:health 1
 scale set pehkui:step_height 1
+scale set pehkui:held_item 1
 effect give @s minecraft:instant_health 1 10 true
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
 tag @s remove TSMP.Titan
