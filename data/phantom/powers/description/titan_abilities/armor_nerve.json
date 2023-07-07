@@ -1,0 +1,18 @@
+{
+    "type": "origins:active_self",
+    "name": "Last Resort",
+    "description": "If you're about to die, you can spread your consciousness throughout your titan's nervous system to stay alive at the cost of all of your movement.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Spread your consciousness with %s while sneaking in Titan form."
+        }
+    ],
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

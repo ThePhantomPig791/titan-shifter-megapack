@@ -1,0 +1,21 @@
+{
+    "type": "origins:entity_glow",
+    "entity_condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:living"
+            },
+            {
+                "type": "origins:status_effect",
+                "effect": "minecraft:unluck",
+                "min_amplifier": 76,
+                "max_amplifier": 76
+            }
+        ]
+    },
+    "use_teams": false,
+    "red": 0.5,
+    "green": 0.1,
+    "blue": 0.1
+}

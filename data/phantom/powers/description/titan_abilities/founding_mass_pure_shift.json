@@ -1,0 +1,18 @@
+{
+    "type": "origins:active_self",
+    "name": "Ymir's Power",
+    "description": "While §4Royal§r §4Blood§r is active, you can transform any entity you see into a Pure Titan.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "To iniate this mass shifting, press %s (the \"spectator outlines\" key, set it in controls). Then, for the next ten seconds, pressing the key again while looking directly at an entity will mark it to transform, and at the end of the ten seconds, every marked entity will be transformed."
+        }
+    ],
+    "key": {
+        "key": "key.spectatorOutlines"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

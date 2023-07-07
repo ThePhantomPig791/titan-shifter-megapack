@@ -1,5 +1,5 @@
 {
     "type": "origins:simple",
     "name": "Safe Ejection",
-    "description": "Instead of force ejecting upon low stamina (hunger) like the other shifters, you are force ejected from your titan when below 3 hearts, which comes with a lesser punishment than if you had been force ejected from your titan form dying."
+    "description": "Instead of force ejecting upon low stamina (hunger) like the other shifters, you are force ejected from your titan when below 15% health, which comes with a lesser punishment than if you had been force ejected from your titan form dying."
 }

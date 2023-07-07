@@ -1407,7 +1407,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "tellraw @p [\"The Warhammer Titan was slain\"]"
+                        "command": "tellraw @a [\"The Warhammer Titan was slain\"]"
                     }
                 ]
             },
@@ -1462,7 +1462,7 @@
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "tellraw @p [\"The Warhammer Titan was slain\"]"
+                            "command": "tellraw @a [\"The Warhammer Titan was slain\"]"
                         }
                     ]
                 },
@@ -1541,7 +1541,7 @@
                         },
                         {
                             "type": "origins:execute_command",
-                            "command": "tellraw @p [\"The Warhammer Titan was slain\"]"
+                            "command": "tellraw @a [\"The Warhammer Titan was slain\"]"
                         }
                     ]
                 }
@@ -1564,6 +1564,12 @@
                     "resource": "*:*_shifting_cooldown",
                     "comparison": "<",
                     "compare_to": 3500
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1591,6 +1597,12 @@
                     "resource": "*:*_shifting_cooldown",
                     "comparison": ">=",
                     "compare_to": 3500
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1621,6 +1633,12 @@
                             "resource": "*:*_shifting_cooldown",
                             "comparison": ">=",
                             "compare_to": 5000
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_shifted",
+                            "comparison": "==",
+                            "compare_to": 0
                         }
                     ]
                 },
@@ -1653,6 +1671,12 @@
                             "resource": "*:*_shifting_cooldown",
                             "comparison": ">=",
                             "compare_to": 6800
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_shifted",
+                            "comparison": "==",
+                            "compare_to": 0
                         }
                     ]
                 },
@@ -2390,6 +2414,12 @@
                                 "compare_to": 0
                             },
                             {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/female_shift_crystalize\", Data:1b}]}}}]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
                                 "type": "origins:living"
                             }
                         ]
@@ -3112,6 +3142,17 @@
             "name": "Increased knockback resistance"
         },
         "tick_rate": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "slim_arms": {
+        "type": "apugli:set_texture",
+        "texture_location": "minecraft:textures/entity/bee/bee_stinger.png",
+        "player_model": "slim",
         "condition": {
             "type": "origins:resource",
             "resource": "*:*_is_shifted",

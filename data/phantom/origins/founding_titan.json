@@ -2,7 +2,8 @@
     "powers": [
         "phantom:shifter/founding_shift",
         "phantom:description/titan_abilities/founding_eject",
-        "phantom:description/titan_abilities/founding_skin"
+        "phantom:description/titan_abilities/founding_skin",
+        "phantom:description/titan_abilities/founding_mass_pure_shift"
     ],
     "name": "Founding Titan",
     "description": "The one and only Founding Titan. Though this Titan may not seem all too powerful on the outside, it has the potential to outperform any other Subject of Ymir, for their paths all converge at this coordinate.",

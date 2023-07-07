@@ -17,7 +17,6 @@ scale set pehkui:step_height 3
 scale set pehkui:held_item 0.14
 scale set pehkui:defense 1.5
 scale set pehkui:projectiles 7
-scale set pehkui:projectiles 1
 effect give @s minecraft:instant_health 1 10 true
 effect give @s minecraft:saturation 1 255 true
 execute as @s at @s run particle dust 1.0 1.0 0.0 100 ~ ~2 ~ 2 5 2 100 5000 normal

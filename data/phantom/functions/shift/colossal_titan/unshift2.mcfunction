@@ -15,7 +15,7 @@ scale set pehkui:defense 1
 scale set pehkui:held_item 1
 effect clear @s minecraft:speed
 effect give @s minecraft:instant_health 1 10 true
-particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
-particle campfire_signal_smoke ~ ~ ~ 1 30 1 100 1000 normal
+particle minecraft:flash ~ ~2 ~ 2 7 2 0 100
+particle campfire_signal_smoke ~ ~ ~ 1 30 1 10 1500 normal
 tag @s remove TSMP.Titan
 tag @s remove TSMP.HugeTitan

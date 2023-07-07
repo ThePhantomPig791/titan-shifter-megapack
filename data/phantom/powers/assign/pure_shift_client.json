@@ -14,6 +14,13 @@
                 {
                     "type": "origins:sneaking",
                     "inverted": true
+                },
+                {
+                    "type": "origins:status_effect",
+                    "effect": "minecraft:unluck",
+                    "min_amplifier": 76,
+                    "max_amplifier": 76,
+                    "inverted": true
                 }
             ]
         },

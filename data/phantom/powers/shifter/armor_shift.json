@@ -529,6 +529,10 @@
                     "resource": "*:*_is_shifted",
                     "comparison": "==",
                     "compare_to": 1
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
                 }
             ]
         },
@@ -1254,7 +1258,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "tellraw @p [\"The Armored Titan was slain\"]"
+                        "command": "tellraw @a [\"The Armored Titan was slain\"]"
                     }
                 ]
             },
@@ -1333,7 +1337,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "tellraw @p [\"The Armored Titan was slain\"]"
+                        "command": "tellraw @a [\"The Armored Titan was slain\"]"
                     }
                 ]
             }
@@ -1355,6 +1359,12 @@
                     "resource": "*:*_shifting_cooldown",
                     "comparison": "<",
                     "compare_to": 3500
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1382,6 +1392,12 @@
                     "resource": "*:*_shifting_cooldown",
                     "comparison": ">=",
                     "compare_to": 3500
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1412,6 +1428,12 @@
                             "resource": "*:*_shifting_cooldown",
                             "comparison": ">=",
                             "compare_to": 5000
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_shifted",
+                            "comparison": "==",
+                            "compare_to": 0
                         }
                     ]
                 },
@@ -1450,6 +1472,12 @@
                             "resource": "*:*_shifting_cooldown",
                             "comparison": ">=",
                             "compare_to": 6800
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_shifted",
+                            "comparison": "==",
+                            "compare_to": 0
                         }
                     ]
                 }
@@ -2035,6 +2063,10 @@
                 },
                 {
                     "type": "origins:sprinting"
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
                 }
             ]
         },
@@ -2297,6 +2329,12 @@
                                 "compare_to": 0
                             },
                             {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/female_shift_crystalize\", Data:1b}]}}}]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
                                 "type": "origins:living"
                             }
                         ]
@@ -2548,6 +2586,47 @@
             "resource": "*:*_is_shifted",
             "comparison": "==",
             "compare_to": 1
+        }
+    },
+    "nerve_active": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.secondary_active"
+        },
+        "cooldown": 18000,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 23,
+            "inverted": true
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_is_shedded",
+                    "change": 600,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function phantom:shift/armor_titan/nerve"
+                }
+            ]
         }
     }
 }

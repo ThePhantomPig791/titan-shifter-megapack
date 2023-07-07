@@ -1,0 +1,2 @@
+summon minecraft:item ~ ~ ~ {Item:{id:"minecraft:potion",Count:1b,tag:{display:{Name:'{"text":"Royal Blood","color":"dark_red"}'},TSMP_RoyalBlood:1,Enchantments:[{}],CustomPotionColor:7864320}}}
+playsound minecraft:block.beacon.power_select player @a[distance=..16] ~ ~ ~ 0.3 1.1

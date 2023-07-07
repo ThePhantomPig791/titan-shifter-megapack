@@ -636,10 +636,21 @@
                     "hit_bientity_condition": {
                         "type": "origins:target_condition",
                         "condition": {
-                            "type": "origins:command",
-                            "command": "execute if entity @s[tag=TSMP.Titan]",
-                            "comparison": "==",
-                            "compare_to": 0
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:command",
+                                    "command": "execute if entity @s[tag=TSMP.Titan]",
+                                    "comparison": "==",
+                                    "compare_to": 0
+                                },
+                                {
+                                    "type": "origins:command",
+                                    "command": "execute if entity @s[tag=titan_skeleton]",
+                                    "comparison": "==",
+                                    "compare_to": 0
+                                }
+                            ]
                         }
                     }
                 },

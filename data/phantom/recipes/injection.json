@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "#  ",
+        " GD",
+        " Dg"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:iron_nugget"
+        },
+        "G": {
+            "item": "minecraft:glass"
+        },
+        "D": {
+            "item": "minecraft:gold_nugget"
+        },
+        "g": {
+            "item": "minecraft:gold_ingot"
+        }
+    },
+    "result": {
+        "item": "titan_shifter_megapack:titan_injection",
+        "count": 1
+    }
+}

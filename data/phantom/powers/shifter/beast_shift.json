@@ -1366,7 +1366,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "tellraw @p [\"The Beast Titan was slain\"]"
+                        "command": "tellraw @a [\"The Beast Titan was slain\"]"
                     }
                 ]
             },
@@ -1445,7 +1445,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "tellraw @p [\"The Beast Titan was slain\"]"
+                        "command": "tellraw @a [\"The Beast Titan was slain\"]"
                     }
                 ]
             }
@@ -1467,6 +1467,12 @@
                     "resource": "*:*_shifting_cooldown",
                     "comparison": "<",
                     "compare_to": 3500
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1494,6 +1500,12 @@
                     "resource": "*:*_shifting_cooldown",
                     "comparison": ">=",
                     "compare_to": 3500
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -1524,6 +1536,12 @@
                             "resource": "*:*_shifting_cooldown",
                             "comparison": ">=",
                             "compare_to": 5000
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_shifted",
+                            "comparison": "==",
+                            "compare_to": 0
                         }
                     ]
                 },
@@ -1556,6 +1574,12 @@
                             "resource": "*:*_shifting_cooldown",
                             "comparison": ">=",
                             "compare_to": 6800
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_shifted",
+                            "comparison": "==",
+                            "compare_to": 0
                         }
                     ]
                 },
@@ -2232,6 +2256,12 @@
                                 "compare_to": 0
                             },
                             {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/female_shift_crystalize\", Data:1b}]}}}]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
                                 "type": "origins:living"
                             }
                         ]
@@ -2872,6 +2902,12 @@
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png"
         },
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_royal_blood",
+            "comparison": "!=",
+            "compare_to": 0
+        },
         "entity_action": {
             "type": "origins:and",
             "actions": [
@@ -2991,6 +3027,80 @@
             "resource": "*:*_is_shifted",
             "comparison": "==",
             "compare_to": 1
+        }
+    },
+    "slim_arms": {
+        "type": "apugli:set_texture",
+        "texture_location": "minecraft:textures/entity/bee/bee_stinger.png",
+        "player_model": "slim",
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_is_shifted",
+            "comparison": "==",
+            "compare_to": 1
+        }
+    },
+    "royal_blood": {
+        "type": "origins:cooldown",
+        "cooldown": 3000,
+        "hud_render": {
+            "should_render": true,
+            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
+            "bar_index": 5,
+            "inverted": true
+        }
+    },
+    "drink_blood": {
+        "type": "origins:action_on_item_use",
+        "trigger": "finish",
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:trigger_cooldown",
+                    "power": "*:*_royal_blood"
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "change": 0,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:apply_effect",
+                    "effects": [
+                        {
+                            "effect": "minecraft:resistance",
+                            "duration": 800,
+                            "amplifier": 4,
+                            "show_particles": false,
+                            "show_icon": false
+                        },
+                        {
+                            "effect": "minecraft:regeneration",
+                            "duration": 1200,
+                            "amplifier": 5,
+                            "show_particles": false,
+                            "show_icon": false
+                        }
+                    ]
+                }
+            ]
+        },
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "minecraft:potion"
+                    }
+                },
+                {
+                    "type": "origins:nbt",
+                    "nbt": "{TSMP_RoyalBlood:1}"
+                }
+            ]
         }
     }
 }
