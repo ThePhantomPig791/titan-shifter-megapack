@@ -12,7 +12,7 @@
     "amount_of_shifts": {
         "type": "origins:resource",
         "min": 0,
-        "max": 3,
+        "max": 4,
         "start_value": 0
     },
     "shift": {
