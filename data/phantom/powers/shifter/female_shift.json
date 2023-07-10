@@ -124,7 +124,7 @@
                                         },
                                         "else_action": {
                                             "type": "origins:explode",
-                                            "power": 1,
+                                            "power": 2,
                                             "destruction_type": "break",
                                             "damage_self": false
                                         }
@@ -190,7 +190,7 @@
                                         },
                                         "else_action": {
                                             "type": "origins:explode",
-                                            "power": 0,
+                                            "power": 1,
                                             "destruction_type": "break",
                                             "damage_self": false
                                         }      
@@ -2446,10 +2446,16 @@
                     "item": "minecraft:bow"
                 },
                 {
-                    "tag": "minecraft:trident"
+                    "item": "minecraft:trident"
                 },
                 {
-                    "tag": "minecraft:crossbow"
+                    "item": "minecraft:crossbow"
+                },
+                {
+                    "item": "minecraft:ender_pearl"
+                },
+                {
+                    "item": "minecraft:snowball"
                 }
             ]
         },

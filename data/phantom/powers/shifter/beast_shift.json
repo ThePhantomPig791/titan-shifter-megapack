@@ -263,6 +263,59 @@
                                     }
                                 ]
                             }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_amount_of_shifts",
+                                "comparison": "==",
+                                "compare_to": 3
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "*:*_is_shifted",
+                                        "change": 1
+                                    },
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "*:*_amount_of_shifts",
+                                        "change": 1
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 5,
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/beast_titan/fourth_shift",
+                                            "permission_level": 4
+                                        }              
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.5 1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:feed",
+                                        "food": -5,
+                                        "saturation": 1
+                                    },
+                                    {
+                                        "type": "origins:explode",
+                                        "power": 2,
+                                        "destruction_type": "break",
+                                        "damage_self": false   
+                                    }
+                                ]
+                            }
                         }
                     ]
                 },
@@ -1811,10 +1864,16 @@
                     "item": "minecraft:bow"
                 },
                 {
-                    "tag": "minecraft:trident"
+                    "item": "minecraft:trident"
                 },
                 {
-                    "tag": "minecraft:crossbow"
+                    "item": "minecraft:crossbow"
+                },
+                {
+                    "item": "minecraft:ender_pearl"
+                },
+                {
+                    "item": "minecraft:snowball"
                 }
             ]
         },
