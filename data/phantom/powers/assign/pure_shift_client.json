@@ -40,5 +40,8 @@
         "draw_phase": "above_hud",
         "visible_in_third_person": false,
         "hide_with_hud": false
+    },
+    "prevent_nametag": {
+        "type": "apugli:prevent_label_render"
     }
 }

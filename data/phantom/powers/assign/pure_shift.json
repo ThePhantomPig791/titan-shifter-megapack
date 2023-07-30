@@ -2685,13 +2685,20 @@
             ]
         }
     },
-    "prevent_nametag": {
-        "type": "apugli:prevent_label_render",
+    "prevent_being_used": {
+        "type": "apugli:prevent_being_used",
         "condition": {
             "type": "origins:resource",
             "resource": "*:*_is_shifted",
             "comparison": "==",
             "compare_to": 1
+        },
+        "item_condition": {
+            "type": "origins:ingredient",
+            "ingredient": {
+                "item": "titan_shifter_megapack:titan_injection"
+            },
+            "inverted": true
         }
     },
     "skin_1": {
