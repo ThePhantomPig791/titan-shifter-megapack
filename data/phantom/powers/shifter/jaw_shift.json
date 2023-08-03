@@ -123,7 +123,7 @@
                                                                 "comparison": "==",
                                                                 "compare_to": 0
                                                             },
-                                                            "if_action": {
+                                                            "action": {
                                                                 "type": "origins:and",
                                                                 "actions": [
                                                                     {
@@ -144,7 +144,7 @@
                                                                 "comparison": "==",
                                                                 "compare_to": 1
                                                             },
-                                                            "if_action": {
+                                                            "action": {
                                                                 "type": "origins:and",
                                                                 "actions": [
                                                                     {
@@ -165,7 +165,7 @@
                                                                 "comparison": "==",
                                                                 "compare_to": 2
                                                             },
-                                                            "if_action": {
+                                                            "action": {
                                                                 "type": "origins:and",
                                                                 "actions": [
                                                                     {
@@ -257,7 +257,7 @@
                                                                 "comparison": "==",
                                                                 "compare_to": 0
                                                             },
-                                                            "if_action": {
+                                                            "action": {
                                                                 "type": "origins:and",
                                                                 "actions": [
                                                                     {
@@ -278,7 +278,7 @@
                                                                 "comparison": "==",
                                                                 "compare_to": 1
                                                             },
-                                                            "if_action": {
+                                                            "action": {
                                                                 "type": "origins:and",
                                                                 "actions": [
                                                                     {
@@ -299,7 +299,7 @@
                                                                 "comparison": "==",
                                                                 "compare_to": 2
                                                             },
-                                                            "if_action": {
+                                                            "action": {
                                                                 "type": "origins:and",
                                                                 "actions": [
                                                                     {
@@ -449,7 +449,7 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 11000",
+                                        "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 10000",
                                         "permission_level": 4
                                     },
                                     {
@@ -472,7 +472,7 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 10000",
+                                        "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 8000",
                                         "permission_level": 4
                                     },
                                     {
@@ -814,7 +814,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 7000",
+                    "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 5000",
                     "permission_level": 4
                 },
                 {
@@ -1010,7 +1010,7 @@
                         "actions": [
                             {
                                 "type": "origins:execute_command",
-                                "command": "particle minecraft:cloud ^ ^ ^-3 2 8 2 0.1 150",
+                                "command": "particle minecraft:cloud ^ ^ ^-3 1.5 3 1.5 0.1 100",
                                 "permission_level": 4
                             },
                             {
@@ -1385,7 +1385,7 @@
                     },
                     {
                         "type": "origins:execute_command",
-                        "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 6000",
+                        "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 5000",
                         "permission_level": 4
                     },
                     {
@@ -1685,7 +1685,7 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 9000",
+                                        "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 6500",
                                         "permission_level": 4
                                     },
                                     {
@@ -1708,7 +1708,7 @@
                                 "actions": [
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 7000",
+                                        "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 5000",
                                         "permission_level": 4
                                     },
                                     {
@@ -1855,7 +1855,7 @@
                 {
                     "type": "origins:fall_distance",
                     "comparison": ">=",
-                    "compare_to": 10
+                    "compare_to": 16
                 },
                 {
                     "type": "origins:resource",
@@ -1870,11 +1870,11 @@
             ]
         }
     },
-    "bigger_land": {
+    "softer_land": {
         "type": "origins:action_on_land",
         "entity_action": {
             "type": "origins:explode",
-            "power": 6,
+            "power": 1,
             "destruction_type": "break",
             "damage_self": false
         },
@@ -1884,13 +1884,16 @@
                 {
                     "type": "origins:fall_distance",
                     "comparison": ">=",
-                    "compare_to": 26
+                    "compare_to": 16
                 },
                 {
                     "type": "origins:resource",
                     "resource": "*:*_is_shifted",
                     "comparison": "==",
                     "compare_to": 1
+                },
+                {
+                    "type": "origins:sneaking"
                 }
             ]
         }
@@ -2261,7 +2264,7 @@
             "actions": [
                 {
                     "type": "origins:execute_command",
-                    "command": "execute anchored feet facing ^1 ^ ^ run tp @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] ^ ^4 ^2.5",
+                    "command": "execute anchored feet facing ^1 ^ ^ run tp @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] ^-2.25 ^3 ^",
                     "permission_level": 4
                 }
             ]
@@ -2290,61 +2293,9 @@
             ]
         },
         "entity_action": {
-            "type": "origins:if_else",
-            "condition": {
-                "type": "origins:sneaking",
-                "inverted": true
-            },
-            "if_action": {
-                "type": "origins:execute_command",
-                "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
-                "permission_level": 4
-            },
-            "else_action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:area_of_effect",
-                        "radius": 30,
-                        "bientity_condition": {
-                            "type": "origins:and",
-                            "conditions": [
-                                {
-                                    "type": "origins:target_condition",
-                                    "condition": {
-                                        "type": "origins:command",
-                                        "command": "execute if entity @s[tag=BeingGrabbedByTitan]",
-                                        "comparison": "!=",
-                                        "compare_to": 0
-                                    }
-                                },
-                                {
-                                    "type": "origins:can_see"
-                                }
-                            ]
-                        },
-                        "bientity_action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:add_velocity",
-                                    "x": -3,
-                                    "y": 1
-                                }
-                            ]
-                        }
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
-                        "permission_level": 4
-                    },
-                    {
-                        "type": "origins:swing_hand",
-                        "hand": "OFF_HAND"
-                    }
-                ]
-            }
+            "type": "origins:execute_command",
+            "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
+            "permission_level": 4
         }
     },
     "grab_kill": {

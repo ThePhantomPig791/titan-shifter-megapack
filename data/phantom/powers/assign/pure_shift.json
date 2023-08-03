@@ -2673,7 +2673,7 @@
         }
     },
     "prevent_being_used": {
-        "type": "apugli:prevent_being_used",
+        "type": "origins:prevent_being_used",
         "condition": {
             "type": "origins:resource",
             "resource": "*:*_is_shifted",

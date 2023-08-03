@@ -117,24 +117,53 @@
                         "compare_to": 0
                     },
                     "if_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:execute_command",
-                                "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..32] ~ ~ ~ 0.1 0.1",
-                                "permission_level": 4
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "particle minecraft:white_ash ~ ~10 ~ 10 10 10 0.1 50",
-                                "permission_level": 4
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "particle minecraft:cloud ~ ~7 ~ 3 5 3 0.1 250",
-                                "permission_level": 4
-                            }
-                        ]
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_small_skeleton",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..32] ~ ~ ~ 0.1 0.1",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:white_ash ~ ~10 ~ 10 10 10 0.1 50",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:cloud ~ ~7 ~ 3 5 3 0.1 250",
+                                    "permission_level": 4
+                                }
+                            ]
+                        },
+                        "else_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..32] ~ ~ ~ 0.1 0.1",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:white_ash ~ ~10 ~ 10 10 10 0.1 30",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "particle minecraft:cloud ~ ~3 ~ 1.75 3.25 1.75 0.1 150",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
                     },
                     "else_action": {
                         "type": "origins:and",
@@ -151,7 +180,7 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "particle minecraft:cloud ~ ~25 ~ 8 40 8 0.1 2000",
+                                "command": "particle minecraft:cloud ~ ~25 ~ 8 40 8 0.1 1500",
                                 "permission_level": 4
                             }
                         ]
@@ -234,6 +263,11 @@
         "max": 1
     },
     "is_wall_skeleton": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
+    "is_small_skeleton": {
         "type": "origins:resource",
         "min": 0,
         "max": 1
