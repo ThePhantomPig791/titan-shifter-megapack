@@ -161,19 +161,6 @@
                                                 "command": "function phantom:shift/pure/shift"
                                             },
                                             {
-                                                "type": "origins:if_else",
-                                                "condition": {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_injection_type",
-                                                    "comparison": "!=",
-                                                    "compare_to": 0
-                                                },
-                                                "if_action": {
-                                                    "type": "origins:execute_command",
-                                                    "command": "power grant @s phantom:assign/pure_glow_beast_founding"
-                                                }
-                                            },
-                                            {
                                                 "type": "origins:and",
                                                 "actions": [
                                                     {
@@ -3868,6 +3855,67 @@
                     "compare_to": 1
                 }
             ]
+        }
+    },
+    "revoke_because_titan_shifter": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:or",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:attack_titan",
+                        "layer": "phantom:titan"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:female_titan",
+                        "layer": "phantom:titan"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:armor_titan",
+                        "layer": "phantom:titan"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:beast_titan",
+                        "layer": "phantom:titan"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:colossal_titan",
+                        "layer": "phantom:titan"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:jaw_titan",
+                        "layer": "phantom:titan"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:cart_titan",
+                        "layer": "phantom:titan"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:warhammer_titan",
+                        "layer": "phantom:titan"
+                    },
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:founding_titan",
+                        "layer": "phantom:titan"
+                    }
+                ]
+            },
+            "if_action": {
+                "type": "origins:revoke_power",
+                "power": "*:*",
+                "source": "apoli:command"
+            }
         }
     }
 }

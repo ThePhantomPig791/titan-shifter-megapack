@@ -1,6 +1,6 @@
-A *little* (seriously, less than a function's worth) bit of code from (most notably the Attack Titan's crystal): user_NULL#3958
-Idea/inspiration/motivation: user_NULL#3958 + Valy#0662, AKA TheKattInTheHat (AKA @the_valy because of new discord usernames)
-The rest of the coding: ThePhantomPig791#0003 (AKA @phantompig also because of the username thing) (who is also me lmao)
+A *little* (seriously, less than a function's worth) bit of code (most notably the Attack Titan's crystal) from: user_NULL#3958
+Idea/inspiration/motivation: user_NULL#3958 + @lordratio. + Valy#0662, AKA TheKattInTheHat (AKA @the_valy because of new discord usernames)
+The rest of the coding: ThePhantomPig791#0003 (AKA @phantompig also because of the username thing) (that's me! lmao)
 
 
 
@@ -11,21 +11,23 @@ Attack Titan: elquelavale (https://www.minecraftskins.com/skin/18237555/titan-de
 Attack Titan Modifications (berserk + weary + berserk skeleton): @phantompig
 
 Female Titan: Michiru (https://www.planetminecraft.com/skin/female-titan-shingeki-no-kyojin/)
-Female Titan Modifications (hardened): Valy#0662
+Female Titan Modifications (hardened): @the_valy
 Female Titan Modifications (weary): @phantompig
 
 Armored Titan: Michiru (https://www.planetminecraft.com/skin/reiner-s-armored-titan-shingeki-no-kyojin/)
-Armored Titan Modifications (shedded): Valy#0662
+Armored Titan Modifications (shedded): @the_valy
 
 Colossal Titan: Michiru (https://www.planetminecraft.com/skin/bertolt-s-colossus-titan-shingeki-no-kyojin/)
-Colossal Titan Modifications (steaming): Valy#0662
+Colossal Titan Modifications (steaming): @the_valy
 
-Warhammer Titan: Don't know yet
+Warhammer Titan: Jqeger (https://www.planetminecraft.com/skin/the-warhammer-titan/)
 Warhammer Titan Modifications (weary): @phantompig
 
 Beast Titan: Michiru (https://www.planetminecraft.com/skin/beast-titan-shingeki-no-kyojin/)
 Beast Titan Modifications (weary): @phantompig
 
 Founding Titan: Modified by @phantompig from arminARIANO (https://www.minecraftskins.com/skin/21080542/founding-titan/)
+
+Jaw Titan: Jqeger (https://www.planetminecraft.com/skin/the-jaw-titan/)
 
 Wall Titan: KnightSeraphim (https://www.planetminecraft.com/skin/colossal-titan-shingeki-no-kyojin/)

@@ -1042,6 +1042,380 @@
                             }
                         }
                     ]
+                },
+                "else_action": {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:sneaking"
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[tag=TSMP.Titan]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            }
+                        ]
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "minecraft:item.bottle.empty",
+                                "pitch": 1.9,
+                                "volume": 0.5
+                            },
+                            {
+                                "type": "origins:play_sound",
+                                "sound": "minecraft:block.honey_block.step",
+                                "pitch": 2,
+                                "volume": 0.5
+                            },
+                            {
+                                "type": "origins:swing_hand",
+                                "hand": "MAIN_HAND"
+                            },
+                            {
+                                "type": "origins:if_else_list",
+                                "actions": [
+                                    {
+                                        "condition": {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:origin",
+                                                    "origin": "phantom:jaw_titan",
+                                                    "layer": "phantom:titan"
+                                                },
+                                                {
+                                                    "type": "origins:equipped_item",
+                                                    "equipment_slot": "mainhand",
+                                                    "item_condition": {
+                                                        "type": "origins:nbt",
+                                                        "nbt": "{CustomModelData: 10}"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "action": {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:shifter/jaw_shift_jaw_type",
+                                            "change": 1,
+                                            "operation": "set"
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:origin",
+                                                    "origin": "phantom:jaw_titan",
+                                                    "layer": "phantom:titan"
+                                                },
+                                                {
+                                                    "type": "origins:equipped_item",
+                                                    "equipment_slot": "mainhand",
+                                                    "item_condition": {
+                                                        "type": "origins:nbt",
+                                                        "nbt": "{CustomModelData: 8}"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "action": {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:shifter/jaw_shift_jaw_type",
+                                            "change": 2,
+                                            "operation": "set"
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:and",
+                                            "conditions": [
+                                                {
+                                                    "type": "origins:origin",
+                                                    "origin": "phantom:jaw_titan",
+                                                    "layer": "phantom:titan"
+                                                },
+                                                {
+                                                    "type": "origins:equipped_item",
+                                                    "equipment_slot": "mainhand",
+                                                    "item_condition": {
+                                                        "type": "origins:nbt",
+                                                        "nbt": "{CustomModelData: 8}"
+                                                    }
+                                                }
+                                            ]
+                                        },
+                                        "action": {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:shifter/jaw_shift_jaw_type",
+                                            "change": 0,
+                                            "operation": "set"
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:equipped_item",
+                                            "equipment_slot": "mainhand",
+                                            "item_condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{CustomModelData: 10}"
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "power grant @s phantom:assign/pure_shift"
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:equipped_item",
+                                            "equipment_slot": "mainhand",
+                                            "item_condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{CustomModelData:1}"
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "power grant @s phantom:assign/pure_shift"
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "phantom:assign/pure_shift_injection_type",
+                                                    "operation": "set",
+                                                    "change": 1
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:equipped_item",
+                                            "equipment_slot": "mainhand",
+                                            "item_condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{CustomModelData:2}"
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "power grant @s phantom:assign/pure_shift"
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "phantom:assign/pure_shift_injection_type",
+                                                    "operation": "set",
+                                                    "change": 2
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:equipped_item",
+                                            "equipment_slot": "mainhand",
+                                            "item_condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{CustomModelData:3}"
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "power grant @s phantom:assign/pure_shift"
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "phantom:assign/pure_shift_injection_type",
+                                                    "operation": "set",
+                                                    "change": 3
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:equipped_item",
+                                            "equipment_slot": "mainhand",
+                                            "item_condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{CustomModelData:4}"
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "power grant @s phantom:assign/pure_shift"
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "phantom:assign/pure_shift_injection_type",
+                                                    "operation": "set",
+                                                    "change": 4
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:equipped_item",
+                                            "equipment_slot": "mainhand",
+                                            "item_condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{CustomModelData:5}"
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "power grant @s phantom:assign/pure_shift"
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "phantom:assign/pure_shift_injection_type",
+                                                    "operation": "set",
+                                                    "change": 5
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:equipped_item",
+                                            "equipment_slot": "mainhand",
+                                            "item_condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{CustomModelData:6}"
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "power grant @s phantom:assign/pure_shift"
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "phantom:assign/pure_shift_injection_type",
+                                                    "operation": "set",
+                                                    "change": 6
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:equipped_item",
+                                            "equipment_slot": "mainhand",
+                                            "item_condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{CustomModelData:7}"
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "power grant @s phantom:assign/pure_shift"
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "phantom:assign/pure_shift_injection_type",
+                                                    "operation": "set",
+                                                    "change": 7
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:equipped_item",
+                                            "equipment_slot": "mainhand",
+                                            "item_condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{CustomModelData:8}"
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "power grant @s phantom:assign/pure_shift"
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "phantom:assign/pure_shift_injection_type",
+                                                    "operation": "set",
+                                                    "change": 8
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "phantom:assign/pure_shift_should_shift",
+                                                    "operation": "set",
+                                                    "change": 0
+                                                }
+                                            ]
+                                        }
+                                    },
+                                    {
+                                        "condition": {
+                                            "type": "origins:equipped_item",
+                                            "equipment_slot": "mainhand",
+                                            "item_condition": {
+                                                "type": "origins:nbt",
+                                                "nbt": "{CustomModelData:9}"
+                                            }
+                                        },
+                                        "action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "power grant @s phantom:assign/pure_shift"
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "phantom:assign/pure_shift_injection_type",
+                                                    "operation": "set",
+                                                    "change": 9
+                                                }
+                                            ]
+                                        }
+                                    }
+                                ]
+                            },
+                            {
+                                "type": "origins:equipped_item_action",
+                                "equipment_slot": "mainhand",
+                                "action": {
+                                    "type": "origins:merge_nbt",
+                                    "nbt": "{CustomModelData: 0}"
+                                }
+                            }
+                        ]
+                    }
                 }
             }
         }

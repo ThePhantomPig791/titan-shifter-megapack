@@ -1,0 +1,10 @@
+{
+    "powers": [
+        "phantom:shifter/jaw_shift"
+    ],
+    "name": "Jaw Titan",
+    "description": "As the most mobility-oriented Titan possible, the Jaw Titan can out manuever any other Titan on the battlefield. Its small stature and razer-sharp claws and teeth combine with this fact to result in a formidable opponent.",
+    "impact": 3,
+    "order": 6,
+    "icon": "minecraft:tube_coral_fan"
+}

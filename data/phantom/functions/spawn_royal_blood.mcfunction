@@ -1,4 +1,4 @@
-execute if predicate phantom:0.01_chance run function phantom:give_royal_blood
+execute if predicate phantom:0.01_chance run function phantom:give/royal_blood
 
 execute if block ~ ~ ~ minecraft:anvil if predicate phantom:0.10_chance run setblock ~ ~ ~ minecraft:chipped_anvil
 execute if block ~ ~ ~ minecraft:chipped_anvil if predicate phantom:0.10_chance run setblock ~ ~ ~ minecraft:damaged_anvil
