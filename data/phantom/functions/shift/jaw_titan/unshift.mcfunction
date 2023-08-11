@@ -29,3 +29,4 @@ scale set pehkui:held_item 1
 effect give @s minecraft:instant_health 1 10 true
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
 tag @s remove TSMP.Titan
+power revoke @s phantom:assign/jaw_shift_climb

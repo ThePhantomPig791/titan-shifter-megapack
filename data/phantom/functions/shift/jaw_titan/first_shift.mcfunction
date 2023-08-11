@@ -15,7 +15,7 @@ scale set pehkui:entity_reach 4
 scale set pehkui:reach 3
 scale set pehkui:health 1.5
 scale set pehkui:step_height 2.5
-scale set pehkui:held_item 0.4
+scale set pehkui:held_item 0.25
 scale set pehkui:projectiles 1
 effect give @s minecraft:instant_health 1 10 true
 effect give @s minecraft:speed 2 3

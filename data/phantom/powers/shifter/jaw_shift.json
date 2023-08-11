@@ -21,10 +21,16 @@
         "max": 2,
         "start_value": 0,
         "comment": [
-            "0 = Porco - rip Marcel, but I'm not adding a new type just for different colored hair :sob:",
+            "0 = Porco / Marcel",
             "1 = Ymir",
             "2 = Falco"
         ]
+    },
+    "marcel_or_porco": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
     },
     "shift": {
         "type": "origins:active_self",
@@ -133,6 +139,11 @@
                                                                     {
                                                                         "type": "origins:execute_command",
                                                                         "command": "scale set pehkui:motion 5"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:grant_power",
+                                                                        "power": "*:assign/jaw_shift_climb",
+                                                                        "source": "apoli:command"
                                                                     }
                                                                 ]
                                                             }
@@ -154,6 +165,11 @@
                                                                     {
                                                                         "type": "origins:execute_command",
                                                                         "command": "scale set pehkui:motion 5.5"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:grant_power",
+                                                                        "power": "*:assign/jaw_shift_climb",
+                                                                        "source": "apoli:command"
                                                                     }
                                                                 ]
                                                             }
@@ -202,7 +218,7 @@
                                         },
                                         "if_action": {
                                             "type": "origins:explode",
-                                            "power": 5,
+                                            "power": 3,
                                             "destruction_type": "break",
                                             "damage_self": false
                                         },
@@ -341,7 +357,7 @@
                                         },
                                         "if_action": {
                                             "type": "origins:explode",
-                                            "power": 3,
+                                            "power": 2,
                                             "destruction_type": "break",
                                             "damage_self": false
                                         },
@@ -373,17 +389,6 @@
                         "type": "origins:execute_command",
                         "command": "effect give @s minecraft:instant_health 1 10 true",
                         "permission_level": 4
-                    }
-                },
-                {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:power_active",
-                        "power": "*:*_crystalize"
-                    },
-                    "if_action": {
-                        "type": "origins:toggle",
-                        "power": "*:*_crystalize"
                     }
                 },
                 {
@@ -644,6 +649,18 @@
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "==",
                     "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_marcel_or_porco",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         }
@@ -669,7 +686,156 @@
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "==",
                     "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_marcel_or_porco",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
+            ]
+        }
+    },
+    "jaw_titan_skin_type_0_marcel": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/LJx6Pt1/The-Jaw-Titan-on-planetminecraft-com.png",
+        "player_model": "slim",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_marcel_or_porco",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "jaw_titan_skin_type_0_weary_marcel": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/MS6jXHT/marcel-jaw-weary.png",
+        "player_model": "slim",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_marcel_or_porco",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 0
+                } 
+            ]
+        }
+    },
+
+    "jaw_titan_skin_type_2": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/Gk6V14y/falco-jaw.png",
+        "player_model": "default",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 2
+                } 
+            ]
+        }
+    },
+    "jaw_titan_skin_type_2_weary": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/2vXG66p/falco-jaw-weary.png",
+        "player_model": "default",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 2
+                } 
             ]
         }
     },
@@ -903,12 +1069,6 @@
                     "resource": "*:*_shifting_cooldown",
                     "change": 12000,
                     "operation": "set"
-                },
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_crystalize_cooldown",
-                    "change": 12000,
-                    "operation": "set"
                 }
             ]
         },
@@ -1010,7 +1170,7 @@
                         "actions": [
                             {
                                 "type": "origins:execute_command",
-                                "command": "particle minecraft:cloud ^ ^ ^-3 1.5 3 1.5 0.1 100",
+                                "command": "particle minecraft:cloud ^ ^ ^ 1.5 3 1.5 0.1 100",
                                 "permission_level": 4
                             },
                             {
@@ -1098,6 +1258,13 @@
                 {
                     "effect": "minecraft:weakness",
                     "duration": 20,
+                    "show_particles": false,
+                    "show_icon": false
+                },
+                {
+                    "effect": "minecraft:slowness",
+                    "duration": 10,
+                    "amplifier": 1,
                     "show_particles": false,
                     "show_icon": false
                 }
@@ -1201,19 +1368,30 @@
         "type": "origins:action_over_time",
         "interval": 10,
         "condition": {
-            "type": "origins:or",
+            "type": "origins:and",
             "conditions": [
                 {
-                    "type": "origins:resource",
-                    "resource": "*:*_actual_cooldown",
-                    "comparison": "!=",
-                    "compare_to": 0
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_actual_cooldown",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_amount_of_shifts",
+                            "comparison": "==",
+                            "compare_to": 2
+                        }
+                    ]
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "*:*_amount_of_shifts",
+                    "resource": "*:*_is_shifted",
                     "comparison": "==",
-                    "compare_to": 2
+                    "compare_to": 0
                 }
             ]
         },
@@ -1271,10 +1449,36 @@
                         "operation": "set"
                     },
                     {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_crystalize_cooldown",
-                        "change": 12000,
-                        "operation": "set"
+                        "type": "origins:chance",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_marcel_or_porco",
+                            "change": 0,
+                            "operation": "set"
+                        },
+                        "fail_action": {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_marcel_or_porco",
+                            "change": 1,
+                            "operation": "set"
+                        },
+                        "chance": 0.5
+                    },
+                    {
+                        "type": "origins:chance",
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_jaw_type",
+                            "change": 0,
+                            "operation": "set"
+                        },
+                        "fail_action": {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_jaw_type",
+                            "change": 1,
+                            "operation": "set"
+                        },
+                        "chance": 0.3
                     }
                 ]
             }
@@ -1301,23 +1505,6 @@
                         "type": "origins:change_resource",
                         "resource": "*:*_can_shift_from_damage",
                         "change": 200,
-                        "operation": "set"
-                    },
-                    {
-                        "type": "origins:if_else",
-                        "condition": {
-                            "type": "origins:power_active",
-                            "power": "*:*_crystalize"
-                        },
-                        "if_action": {
-                            "type": "origins:toggle",
-                            "power": "*:*_crystalize"
-                        }
-                    },
-                    {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_crystalize_cooldown",
-                        "change": 12000,
                         "operation": "set"
                     },
                     {
@@ -1510,7 +1697,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/5jR8pSm/f1.png"
+        "texture_url": "https://i.ibb.co/1qLBznb/j1.png"
     },
     "titan_marks_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1554,7 +1741,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/3hTP4Tz/f2.png"
+        "texture_url": "https://i.ibb.co/7YNZ16J/j2.png"
     },
     "titan_marks_even_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1598,7 +1785,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/jMvknf1/f3.png"
+        "texture_url": "https://i.ibb.co/mDdgr5Z/j3.png"
     },
     "titan_marks_the_worst": {
         "type": "apugli:entity_texture_overlay",
@@ -1630,7 +1817,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/qxvYwQv/f4.png"
+        "texture_url": "https://i.ibb.co/3mvbkTL/j4.png"
     },
     "force_eject": {
         "type": "origins:action_over_time",
@@ -2058,7 +2245,7 @@
         },
         "features": [
             "stuck_objects",
-            "cape"
+            "capes"
         ]
     },
     "taunt": {
@@ -2185,12 +2372,6 @@
                                 "compare_to": 0
                             },
                             {
-                                "type": "origins:command",
-                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/jaw_shift_crystalize\", Data:1b}]}}}]",
-                                "comparison": "==",
-                                "compare_to": 0
-                            },
-                            {
                                 "type": "origins:living"
                             }
                         ]
@@ -2201,6 +2382,20 @@
         "bientity_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:power_active",
+                            "power": "*:shifter/female_crystalize"
+                        },
+                        "if_action": {
+                            "type": "origins:toggle",
+                            "power": "*:shifter/female_crystalize"
+                        }
+                    }
+                },
                 {
                     "type": "origins:target_action",
                     "action": {
@@ -2221,13 +2416,6 @@
                             "command": "power revoke @s phantom:assign/being_grabbed",
                             "permission_level": 4
                         }
-                    }
-                },
-                {
-                    "type": "origins:actor_action",
-                    "action": {
-                        "type": "origins:swing_hand",
-                        "hand": "OFF_HAND"
                     }
                 }
             ]
@@ -2412,6 +2600,29 @@
                                     "command": "playsound minecraft:entity.player.hurt_on_fire player @a[distance=..32] ~ ~ ~ 1 0.1 1",
                                     "permission_level": 4
                                 }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.evoker_fangs.attack player @a[distance=..16] ~ ~ ~ 1 2",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.evoker_fangs.attack player @a[distance=..16] ~ ~ ~ 1 1.7",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:entity.player.breath player @a[distance=..16] ~ ~ ~ 1 0.9",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
                             }
                         ]
                     }
@@ -2420,10 +2631,6 @@
                     "type": "origins:execute_command",
                     "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
                     "permission_level": 4
-                },
-                {
-                    "type": "origins:swing_hand",
-                    "hand": "OFF_HAND"
                 }
             ]
         }
@@ -2449,10 +2656,168 @@
         "texture_location": "minecraft:textures/entity/bee/bee_stinger.png",
         "player_model": "slim",
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_is_shifted",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "!=",
+                    "compare_to": 2
+                }
+            ]
+        }
+    },
+    "flight": {
+        "type": "origins:elytra_flight",
+        "render_elytra": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "flight_cosmetic": {
+        "type": "origins:elytra_flight",
+        "render_elytra": true,
+        "texture_location": "minecraft:textures/block/brown_wool.png",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:fall_flying"
+                }
+            ]
+        }
+    },
+    "flap": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.jump"
+        },
+        "cooldown": 10,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:fall_flying"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_amount_of_shifts",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "space": "local",
+                                "y": 0.2,
+                                "z": 0.5
+                            },
+                            {
+                                "type": "origins:feed",
+                                "food": -1,
+                                "saturation": -1
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:add_velocity",
+                                "space": "local",
+                                "y": 0.1,
+                                "z": 0.3
+                            },
+                            {
+                                "type": "origins:feed",
+                                "food": -2,
+                                "saturation": -2
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.bat.takeoff player @a[distance=..32] ~ ~ ~ 1 0.9 0.3"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.bat.takeoff player @a[distance=..32] ~ ~ ~ 1 1.1 0.3"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.bat.takeoff player @a[distance=..32] ~ ~ ~ 1 1.3 0.3"
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "particle minecraft:cloud ~ ~2.5 ~ 2 0.5 2 1 100 normal"
+                }
+            ]
         }
     },
     "model": {
@@ -2568,6 +2933,14 @@
                 },
                 {
                     "type": "origins:sneaking",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:climbing",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:fall_flying",
                     "inverted": true
                 }
             ]
@@ -2696,6 +3069,296 @@
                 },
                 {
                     "type": "origins:sneaking"
+                },
+                {
+                    "type": "origins:climbing",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:fall_flying",
+                    "inverted": true
+                }
+            ]
+        }
+    },
+    "model_climb": {
+        "type": "appli:modify_model_parts",
+        "transformations": [
+            {
+                "model_part": "leftarm",
+                "type": "pitch",
+                "value": 3.14
+            },
+            {
+                "model_part": "leftarm",
+                "type": "roll",
+                "value": 0.5
+            },
+            {
+                "model_part": "rightarm",
+                "type": "pitch",
+                "value": 3.14
+            },
+            {
+                "model_part": "rightarm",
+                "type": "roll",
+                "value": -0.5
+            },
+
+            {
+                "model_part": "leftleg",
+                "type": "pitch",
+                "value": -0.5
+            },
+            {
+                "model_part": "leftleg",
+                "type": "roll",
+                "value": -0.2
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pitch",
+                "value": -0.5
+            },
+            {
+                "model_part": "rightleg",
+                "type": "roll",
+                "value": 0.2
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:collided_horizontally"
+                },
+                {
+                    "type": "origins:climbing"
+                }
+            ]
+        }
+    },
+    "ceiling_climb": {
+        "type": "appli:modify_model_parts",
+        "transformations": [
+            {
+                "model_part": "body",
+                "type": "pivoty",
+                "value": 10
+            },
+            {
+                "model_part": "body",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "body",
+                "type": "pitch",
+                "value": 0.75
+            },
+            {
+                "model_part": "body",
+                "type": "roll",
+                "value": 3.14
+            },
+        
+            {
+                "model_part": "leftleg",
+                "type": "pitch",
+                "value": 1
+            },
+            {
+                "model_part": "leftleg",
+                "type": "pivotz",
+                "value": 2
+            },
+            {
+                "model_part": "leftleg",
+                "type": "pivoty",
+                "value": -3
+            },
+            {
+                "model_part": "leftleg",
+                "type": "roll",
+                "value": 3.14
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pitch",
+                "value": 1.0
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pivotz",
+                "value": 2
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pivoty",
+                "value": -3
+            },
+            {
+                "model_part": "rightleg",
+                "type": "roll",
+                "value": 3.14
+            },
+        
+            {
+                "model_part": "rightarm",
+                "type": "pivoty",
+                "value": 8
+            },
+            {
+                "model_part": "rightarm",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "rightarm",
+                "type": "yscale",
+                "value": 1.25
+            },
+            {
+                "model_part": "rightarm",
+                "type": "roll",
+                "value": 3.14
+            },
+            {
+                "model_part": "rightarm",
+                "type": "pitch",
+                "value": -1
+            },
+            {
+                "model_part": "leftarm",
+                "type": "pivoty",
+                "value": 8
+            },
+            {
+                "model_part": "leftarm",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "leftarm",
+                "type": "yscale",
+                "value": 1.25
+            },
+            {
+                "model_part": "leftarm",
+                "type": "roll",
+                "value": 3.14
+            },
+            {
+                "model_part": "leftarm",
+                "type": "pitch",
+                "value": -1
+            },
+        
+            {
+                "model_part": "head",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "head",
+                "type": "pivoty",
+                "value": 10
+            },
+            {
+                "model_part": "head",
+                "type": "roll",
+                "value": 3.14
+            },
+            {
+                "model_part": "hat",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "hat",
+                "type": "pivoty",
+                "value": 10
+            },
+            {
+                "model_part": "hat",
+                "type": "roll",
+                "value": 3.14
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:climbing"
+                },
+                {
+                    "type": "origins:collided_horizontally",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:on_block",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:block_collision",
+                    "offset_y": 0.1
+                }
+            ]
+        }
+    },
+    "model_flying": {
+        "type": "appli:modify_model_parts",
+        "transformations": [
+            {
+                "model_part": "leftarm",
+                "type": "roll",
+                "value": -1.57
+            },
+            {
+                "model_part": "rightarm",
+                "type": "roll",
+                "value": 1.57
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:fall_flying"
                 }
             ]
         }

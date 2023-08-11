@@ -12,8 +12,14 @@
 
 - [x] Finishing pure titans
 
-- [ ] Founding Titan
+- [x] Founding Titan
 
-- [ ] Jaw Titan
+- [x] Jaw Titan
+
+- [ ] Savage Jaw skin
 
 - [ ] Cart Titan
+
+- [ ] Warhammer rework
+
+- [ ] Founding shift into other titan selection rework

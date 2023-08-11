@@ -1070,19 +1070,30 @@
         "type": "origins:action_over_time",
         "interval": 10,
         "condition": {
-            "type": "origins:or",
+            "type": "origins:and",
             "conditions": [
                 {
-                    "type": "origins:resource",
-                    "resource": "*:*_actual_cooldown",
-                    "comparison": "!=",
-                    "compare_to": 0
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_actual_cooldown",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_amount_of_shifts",
+                            "comparison": "==",
+                            "compare_to": 2
+                        }
+                    ]
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "*:*_amount_of_shifts",
+                    "resource": "*:*_is_shifted",
                     "comparison": "==",
-                    "compare_to": 2
+                    "compare_to": 0
                 }
             ]
         },

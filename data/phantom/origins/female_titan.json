@@ -5,7 +5,7 @@
         "phantom:description/titan_abilities/female_hardening"
     ],
     "name": "Female Titan",
-    "description": "As the fastest out of all of the Nine Titans, the Female Titan can quickly catch up to its prey. This immensive speed comes with a few drawbacks, though.",
+    "description": "As one of the fastest of the Nine Titans, the Female Titan can quickly catch up to its prey. This immensive speed comes with a few drawbacks, though.",
     "impact": 3,
     "order": 2,
     "icon": "minecraft:brain_coral"

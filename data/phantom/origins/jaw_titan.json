@@ -1,6 +1,9 @@
 {
     "powers": [
-        "phantom:shifter/jaw_shift"
+        "phantom:shifter/jaw_shift",
+        "phantom:description/titan_abilities/jaw_forms",
+        "phantom:description/titan_abilities/jaw_climb",
+        "phantom:description/titan_abilities/jaw_water"
     ],
     "name": "Jaw Titan",
     "description": "As the most mobility-oriented Titan possible, the Jaw Titan can out manuever any other Titan on the battlefield. Its small stature and razer-sharp claws and teeth combine with this fact to result in a formidable opponent.",

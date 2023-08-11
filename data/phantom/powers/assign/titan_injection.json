@@ -1094,8 +1094,29 @@
                                                     "type": "origins:equipped_item",
                                                     "equipment_slot": "mainhand",
                                                     "item_condition": {
-                                                        "type": "origins:nbt",
-                                                        "nbt": "{CustomModelData: 10}"
+                                                        "type": "origins:or",
+                                                        "conditions": [
+                                                            {
+                                                                "type": "origins:nbt",
+                                                                "nbt": "{CustomModelData: 10}"
+                                                            },
+                                                            {
+                                                                "type": "origins:nbt",
+                                                                "nbt": "{CustomModelData: 1}"
+                                                            },
+                                                            {
+                                                                "type": "origins:nbt",
+                                                                "nbt": "{CustomModelData: 2}"
+                                                            },
+                                                            {
+                                                                "type": "origins:nbt",
+                                                                "nbt": "{CustomModelData: 7}"
+                                                            },
+                                                            {
+                                                                "type": "origins:nbt",
+                                                                "nbt": "{CustomModelData: 9}"
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
@@ -1146,17 +1167,51 @@
                                                     "type": "origins:equipped_item",
                                                     "equipment_slot": "mainhand",
                                                     "item_condition": {
-                                                        "type": "origins:nbt",
-                                                        "nbt": "{CustomModelData: 8}"
+                                                        "type": "origins:or",
+                                                        "conditions": [
+                                                            {
+                                                                "type": "origins:nbt",
+                                                                "nbt": "{CustomModelData: 3}"
+                                                            },
+                                                            {
+                                                                "type": "origins:nbt",
+                                                                "nbt": "{CustomModelData: 4}"
+                                                            },
+                                                            {
+                                                                "type": "origins:nbt",
+                                                                "nbt": "{CustomModelData: 5}"
+                                                            }
+                                                        ]
                                                     }
                                                 }
                                             ]
                                         },
                                         "action": {
-                                            "type": "origins:change_resource",
-                                            "resource": "*:shifter/jaw_shift_jaw_type",
-                                            "change": 0,
-                                            "operation": "set"
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "*:shifter/jaw_shift_jaw_type",
+                                                    "change": 0,
+                                                    "operation": "set"
+                                                },
+                                                {
+                                                    "type": "origins:chance",
+                                                    "action": {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_marcel_or_porco",
+                                                        "change": 0,
+                                                        "operation": "set"
+                                                    },
+                                                    "fail_action": {
+                                                        "type": "origins:change_resource",
+                                                        "resource": "*:*_marcel_or_porco",
+                                                        "change": 1,
+                                                        "operation": "set"
+                                                    },
+                                                    "chance": 0.5
+                                                }
+                                            ]
                                         }
                                     },
                                     {

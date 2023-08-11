@@ -31,3 +31,4 @@ effect clear @s minecraft:slow_falling
 effect give @s minecraft:instant_health 1 0 true
 particle minecraft:flash ~ ~2 ~ 2 4 2 0.00001 250
 tag @s remove TSMP.Titan
+power revoke @s phantom:assign/jaw_shift_climb
