@@ -368,17 +368,20 @@
             ]
         }
     },
-    "shift_into_other_titan": {
-        "type": "origins:active_self",
-        "key": {
-            "key": "key.origins.secondary_active"
-        },
+    "shift_into_other_titan_cooldown": {
+        "type": "origins:cooldown",
         "cooldown": 6000,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
             "bar_index": 12,
             "inverted": true
+        }
+    },
+    "shift_into_other_titan": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.origins.secondary_active"
         },
         "condition": {
             "type": "origins:and",
@@ -427,6 +430,12 @@
                     "resource": "*:*_actual_cooldown",
                     "comparison": "==",
                     "compare_to": 0
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_shift_into_other_titan_cooldown",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
@@ -442,193 +451,686 @@
                         "compare_to": 0
                     },
                     "if_action": {
-                        "type": "origins:and",
-                        "actions": [
+                        "type": "appli:radial_menu",
+                        "entries": [
                             {
-                                "type": "origins:change_resource",
-                                "resource": "*:*_is_shifted",
-                                "change": 1
-                            },
-                            {
-                                "type": "origins:change_resource",
-                                "resource": "*:*_amount_of_shifts",
-                                "change": 1
-                            },
-                            {
-                                "type": "origins:delay",
-                                "ticks": 5,
-                                "action": {
-                                    "type": "origins:if_else_list",
+                                "item": {
+                                    "item": "minecraft:fire_coral",
+                                    "tag": "{display:{Name:'{\"text\":\"Attack Titan\"}'}}"
+                                },
+                                "entity_action": {
+                                    "type": "origins:and",
                                     "actions": [
                                         {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_is_shifted",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_amount_of_shifts",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/founding_titan/shift_attack"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:if_else",
                                             "condition": {
-                                                "type": "origins:command",
-                                                "command": "execute if entity @s[nbt={SelectedItemSlot:0}]",
-                                                "comparison": "!=",
-                                                "compare_to": 0
+                                                "type": "origins:sneaking",
+                                                "inverted": true
                                             },
-                                            "action": {
-                                                "type": "origins:execute_command",
-                                                "command": "function phantom:shift/founding_titan/first_shift"
+                                            "if_action": {
+                                                "type": "origins:explode",
+                                                "power": 5,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            },
+                                            "else_action": {
+                                                "type": "origins:explode",
+                                                "power": 2,
+                                                "destruction_type": "break",
+                                                "damage_self": false
                                             }
                                         },
                                         {
-                                            "condition": {
-                                                "type": "origins:command",
-                                                "command": "execute if entity @s[nbt={SelectedItemSlot:1}]",
-                                                "comparison": "!=",
-                                                "compare_to": 0
-                                            },
+                                            "type": "origins:delay",
+                                            "ticks": 5,
                                             "action": {
                                                 "type": "origins:execute_command",
-                                                "command": "function phantom:shift/founding_titan/shift_attack"
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
                                             }
                                         },
                                         {
-                                            "condition": {
-                                                "type": "origins:command",
-                                                "command": "execute if entity @s[nbt={SelectedItemSlot:2}]",
-                                                "comparison": "!=",
-                                                "compare_to": 0
-                                            },
+                                            "type": "origins:delay",
+                                            "ticks": 30,
                                             "action": {
                                                 "type": "origins:execute_command",
-                                                "command": "function phantom:shift/founding_titan/shift_female"
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
                                             }
                                         },
                                         {
-                                            "condition": {
-                                                "type": "origins:command",
-                                                "command": "execute if entity @s[nbt={SelectedItemSlot:3}]",
-                                                "comparison": "!=",
-                                                "compare_to": 0
-                                            },
-                                            "action": {
-                                                "type": "origins:execute_command",
-                                                "command": "function phantom:shift/founding_titan/shift_armor"
-                                            }
+                                            "type": "origins:set_fall_distance",
+                                            "fall_distance": 0
                                         },
                                         {
-                                            "condition": {
-                                                "type": "origins:command",
-                                                "command": "execute if entity @s[nbt={SelectedItemSlot:4}]",
-                                                "comparison": "!=",
-                                                "compare_to": 0
-                                            },
-                                            "action": {
-                                                "type": "origins:execute_command",
-                                                "command": "function phantom:shift/founding_titan/shift_colossal"
-                                            }
+                                            "type": "origins:execute_command",
+                                            "command": "effect give @s minecraft:regeneration 1 200 true",
+                                            "permission_level": 4
                                         },
                                         {
-                                            "condition": {
-                                                "type": "origins:command",
-                                                "command": "execute if entity @s[nbt={SelectedItemSlot:5}]",
-                                                "comparison": "!=",
-                                                "compare_to": 0
-                                            },
-                                            "action": {
-                                                "type": "origins:execute_command",
-                                                "command": "function phantom:shift/founding_titan/shift_warhammer"
-                                            }
-                                        },
-                                        {
-                                            "condition": {
-                                                "type": "origins:command",
-                                                "command": "execute if entity @s[nbt={SelectedItemSlot:6}]",
-                                                "comparison": "!=",
-                                                "compare_to": 0
-                                            },
-                                            "action": {
-                                                "type": "origins:execute_command",
-                                                "command": "function phantom:shift/founding_titan/shift_jaw"
-                                            }
-                                        },
-                                        {
-                                            "condition": {
-                                                "type": "origins:command",
-                                                "command": "execute if entity @s[nbt={SelectedItemSlot:7}]",
-                                                "comparison": "!=",
-                                                "compare_to": 0
-                                            },
-                                            "action": {
-                                                "type": "origins:execute_command",
-                                                "command": "function phantom:shift/founding_titan/shift_cart"
-                                            }
-                                        },
-                                        {
-                                            "condition": {
-                                                "type": "origins:command",
-                                                "command": "execute if entity @s[nbt={SelectedItemSlot:8}]",
-                                                "comparison": "!=",
-                                                "compare_to": 0
-                                            },
-                                            "action": {
-                                                "type": "origins:execute_command",
-                                                "command": "function phantom:shift/founding_titan/shift_beast"
-                                            }
+                                            "type": "origins:trigger_cooldown",
+                                            "power": "*:*_shift_into_other_titan_cooldown"
                                         }
                                     ]
-                                }             
+                                }
                             },
                             {
-                                "type": "origins:execute_command",
-                                "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
-                                "permission_level": 4
-                            },
-                            {
-                                "type": "origins:execute_command",
-                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
-                                "permission_level": 4
-                            },
-                            {
-                                "type": "origins:if_else",
-                                "condition": {
-                                    "type": "origins:sneaking",
-                                    "inverted": true
+                                "item": {
+                                    "item": "minecraft:brain_coral",
+                                    "tag": "{display:{Name:'{\"text\":\"Female Titan\"}'}}"
                                 },
-                                "if_action": {
-                                    "type": "origins:explode",
-                                    "power": 5,
-                                    "destruction_type": "break",
-                                    "damage_self": false
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_is_shifted",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_amount_of_shifts",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/founding_titan/shift_female"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:sneaking",
+                                                "inverted": true
+                                            },
+                                            "if_action": {
+                                                "type": "origins:explode",
+                                                "power": 5,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            },
+                                            "else_action": {
+                                                "type": "origins:explode",
+                                                "power": 2,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 5,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 30,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:set_fall_distance",
+                                            "fall_distance": 0
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "effect give @s minecraft:regeneration 1 200 true",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:trigger_cooldown",
+                                            "power": "*:*_shift_into_other_titan_cooldown"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "item": {
+                                    "item": "minecraft:horn_coral_fan",
+                                    "tag": "{display:{Name:'{\"text\":\"Armored Titan\"}'}}"
                                 },
-                                "else_action": {
-                                    "type": "origins:explode",
-                                    "power": 2,
-                                    "destruction_type": "break",
-                                    "damage_self": false
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_is_shifted",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_amount_of_shifts",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/founding_titan/shift_armor"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:sneaking",
+                                                "inverted": true
+                                            },
+                                            "if_action": {
+                                                "type": "origins:explode",
+                                                "power": 5,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            },
+                                            "else_action": {
+                                                "type": "origins:explode",
+                                                "power": 2,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 5,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 30,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:set_fall_distance",
+                                            "fall_distance": 0
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "effect give @s minecraft:regeneration 1 200 true",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:trigger_cooldown",
+                                            "power": "*:*_shift_into_other_titan_cooldown"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "item": {
+                                    "item": "minecraft:tube_coral",
+                                    "tag": "{display:{Name:'{\"text\":\"Beast Titan\"}'}}"
+                                },
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_is_shifted",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_amount_of_shifts",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/founding_titan/shift_beast"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:sneaking",
+                                                "inverted": true
+                                            },
+                                            "if_action": {
+                                                "type": "origins:explode",
+                                                "power": 5,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            },
+                                            "else_action": {
+                                                "type": "origins:explode",
+                                                "power": 2,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 5,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 30,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:set_fall_distance",
+                                            "fall_distance": 0
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "effect give @s minecraft:regeneration 1 200 true",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:trigger_cooldown",
+                                            "power": "*:*_shift_into_other_titan_cooldown"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "item": {
+                                    "item": "minecraft:dead_brain_coral_fan",
+                                    "tag": "{display:{Name:'{\"text\":\"Warhammer Titan\"}'}}"
+                                },
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_is_shifted",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_amount_of_shifts",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/founding_titan/shift_warhammer"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:sneaking",
+                                                "inverted": true
+                                            },
+                                            "if_action": {
+                                                "type": "origins:explode",
+                                                "power": 5,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            },
+                                            "else_action": {
+                                                "type": "origins:explode",
+                                                "power": 2,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 5,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 30,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:set_fall_distance",
+                                            "fall_distance": 0
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "effect give @s minecraft:regeneration 1 200 true",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:trigger_cooldown",
+                                            "power": "*:*_shift_into_other_titan_cooldown"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "item": {
+                                    "item": "minecraft:horn_coral",
+                                    "tag": "{display:{Name:'{\"text\":\"Jaw Titan\"}'}}"
+                                },
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_is_shifted",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_amount_of_shifts",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/founding_titan/shift_jaw"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:sneaking",
+                                                "inverted": true
+                                            },
+                                            "if_action": {
+                                                "type": "origins:explode",
+                                                "power": 5,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            },
+                                            "else_action": {
+                                                "type": "origins:explode",
+                                                "power": 2,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 5,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 30,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:set_fall_distance",
+                                            "fall_distance": 0
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "effect give @s minecraft:regeneration 1 200 true",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:trigger_cooldown",
+                                            "power": "*:*_shift_into_other_titan_cooldown"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "item": {
+                                    "item": "minecraft:barrier",
+                                    "tag": "{display:{Name:'{\"text\":\"Cart Titan\"}'}}"
+                                },
+                                "entity_action": {
+                                    "type": "origins:nothing"
+                                }
+                            },
+                            {
+                                "item": {
+                                    "item": "minecraft:fire_coral_block",
+                                    "tag": "{display:{Name:'{\"text\":\"Colossal Titan\"}'}}"
+                                },
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_is_shifted",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_amount_of_shifts",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/founding_titan/shift_colossal"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:explode",
+                                            "power": 5,
+                                            "destruction_type": "break",
+                                            "damage_self": false
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 5,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 30,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:set_fall_distance",
+                                            "fall_distance": 0
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "effect give @s minecraft:regeneration 1 200 true",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:trigger_cooldown",
+                                            "power": "*:*_shift_into_other_titan_cooldown"
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "item": {
+                                    "item": "minecraft:tube_coral_block",
+                                    "tag": "{display:{Name:'{\"text\":\"Founding Titan\"}'}}"
+                                },
+                                "entity_action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_is_shifted",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:change_resource",
+                                            "resource": "*:*_amount_of_shifts",
+                                            "change": 1
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/founding_titan/first_shift"
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:if_else",
+                                            "condition": {
+                                                "type": "origins:sneaking",
+                                                "inverted": true
+                                            },
+                                            "if_action": {
+                                                "type": "origins:explode",
+                                                "power": 5,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            },
+                                            "else_action": {
+                                                "type": "origins:explode",
+                                                "power": 2,
+                                                "destruction_type": "break",
+                                                "damage_self": false
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 5,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:delay",
+                                            "ticks": 30,
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "permission_level": 4
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:set_fall_distance",
+                                            "fall_distance": 0
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "effect give @s minecraft:regeneration 1 200 true",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:trigger_cooldown",
+                                            "power": "*:*_shift_into_other_titan_cooldown"
+                                        }
+                                    ]
                                 }
                             }
                         ]
                     }
-                },
-                {
-                    "type": "origins:delay",
-                    "ticks": 5,
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "effect give @s minecraft:instant_health 1 10 true",
-                        "permission_level": 4
-                    }
-                },
-                {
-                    "type": "origins:delay",
-                    "ticks": 30,
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "effect give @s minecraft:instant_health 1 10 true",
-                        "permission_level": 4
-                    }
-                },
-                {
-                    "type": "origins:set_fall_distance",
-                    "fall_distance": 0
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "effect give @s minecraft:regeneration 1 200 true",
-                    "permission_level": 4
                 }
             ]
         }
@@ -2854,23 +3356,46 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_titan",
-                        "comparison": "==",
-                        "compare_to": 4
-                    },
-                    "if_action": {
-                        "type": "origins:execute_command",
-                        "command": "execute anchored feet facing ^1 ^ ^ run tp @e[tag=BeingGrabbedByTitan,distance=..40,sort=nearest,limit=1] ^ ^20.5 ^10",
-                        "permission_level": 4
-                    },
-                    "else_action": {
-                        "type": "origins:execute_command",
-                        "command": "execute anchored feet facing ^1 ^ ^ run tp @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] ^ ^5.25 ^3",
-                        "permission_level": 4
-                    }
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_titan",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute anchored feet facing ^1 ^ ^ run tp @e[tag=BeingGrabbedByTitan,distance=..40,sort=nearest,limit=1] ^ ^20.5 ^10",
+                                "permission_level": 4
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_titan",
+                                "comparison": "==",
+                                "compare_to": 6
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute anchored feet facing ^1 ^ ^ run tp @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] ^-2.25 ^3 ^",
+                                "permission_level": 4
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:constant",
+                                "value": true
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "execute anchored feet facing ^1 ^ ^ run tp @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] ^ ^5.25 ^3",
+                                "permission_level": 4
+                            }
+                        }
+                    ]
                 }
             ]
         }
@@ -2909,92 +3434,101 @@
                 "permission_level": 4
             },
             "else_action": {
-                "type": "origins:and",
-                "actions": [
-                    {
-                        "type": "origins:area_of_effect",
-                        "radius": 30,
-                        "bientity_condition": {
-                            "type": "origins:and",
-                            "conditions": [
-                                {
-                                    "type": "origins:target_condition",
-                                    "condition": {
-                                        "type": "origins:command",
-                                        "command": "execute if entity @s[tag=BeingGrabbedByTitan]",
-                                        "comparison": "!=",
-                                        "compare_to": 0
-                                    }
-                                },
-                                {
-                                    "type": "origins:can_see"
-                                }
-                            ]
-                        },
-                        "bientity_action": {
-                            "type": "origins:and",
-                            "actions": [
-                                {
-                                    "type": "origins:if_else_list",
-                                    "actions": [
-                                        {
-                                            "condition": {
-                                                "type": "origins:actor_condition",
-                                                "condition": {
-                                                    "type": "origins:or",
-                                                    "conditions": [
-                                                        {
-                                                            "type": "origins:resource",
-                                                            "resource": "*:*_titan",
-                                                            "comparison": "==",
-                                                            "compare_to": 4
-                                                        },
-                                                        {
-                                                            "type": "origins:resource",
-                                                            "resource": "*:*_titan",
-                                                            "comparison": "==",
-                                                            "compare_to": 8
-                                                        }
-                                                    ]
-                                                }
-                                            },
-                                            "action": {
-                                                "type": "origins:add_velocity",
-                                                "x": -6,
-                                                "y": 1
-                                            }
-                                        },
-                                        {
-                                            "condition": {
-                                                "type": "origins:actor_condition",
-                                                "condition": {
-                                                    "type": "origins:resource",
-                                                    "resource": "*:*_titan",
-                                                    "comparison": "!=",
-                                                    "compare_to": 4
-                                                }
-                                            },
-                                            "action": {
-                                                "type": "origins:add_velocity",
-                                                "x": -4,
-                                                "y": 1
-                                            }
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:resource",
+                    "resource": "*:*_titan",
+                    "comparison": "!=",
+                    "compare_to": 6
+                },
+                "if_action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:area_of_effect",
+                            "radius": 30,
+                            "bientity_condition": {
+                                "type": "origins:and",
+                                "conditions": [
+                                    {
+                                        "type": "origins:target_condition",
+                                        "condition": {
+                                            "type": "origins:command",
+                                            "command": "execute if entity @s[tag=BeingGrabbedByTitan]",
+                                            "comparison": "!=",
+                                            "compare_to": 0
                                         }
-                                    ]
-                                }
-                            ]
+                                    },
+                                    {
+                                        "type": "origins:can_see"
+                                    }
+                                ]
+                            },
+                            "bientity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:if_else_list",
+                                        "actions": [
+                                            {
+                                                "condition": {
+                                                    "type": "origins:actor_condition",
+                                                    "condition": {
+                                                        "type": "origins:or",
+                                                        "conditions": [
+                                                            {
+                                                                "type": "origins:resource",
+                                                                "resource": "*:*_titan",
+                                                                "comparison": "==",
+                                                                "compare_to": 4
+                                                            },
+                                                            {
+                                                                "type": "origins:resource",
+                                                                "resource": "*:*_titan",
+                                                                "comparison": "==",
+                                                                "compare_to": 8
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                "action": {
+                                                    "type": "origins:add_velocity",
+                                                    "x": -6,
+                                                    "y": 1
+                                                }
+                                            },
+                                            {
+                                                "condition": {
+                                                    "type": "origins:actor_condition",
+                                                    "condition": {
+                                                        "type": "origins:resource",
+                                                        "resource": "*:*_titan",
+                                                        "comparison": "!=",
+                                                        "compare_to": 4
+                                                    }
+                                                },
+                                                "action": {
+                                                    "type": "origins:add_velocity",
+                                                    "x": -4,
+                                                    "y": 1
+                                                }
+                                            }
+                                        ]
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:swing_hand",
+                            "hand": "OFF_HAND"
                         }
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
-                        "permission_level": 4
-                    },
-                    {
-                        "type": "origins:swing_hand",
-                        "hand": "OFF_HAND"
-                    }
-                ]
+                    ]
+                }
             }
         }
     },
@@ -5553,6 +6087,374 @@
                             }
                         ]
                     }
+                }
+            ]
+        }
+    },
+
+    "jaw_model": {
+        "type": "appli:modify_model_parts",
+        "transformations": [
+            {
+                "model_part": "body",
+                "type": "pivoty",
+                "value": 10
+            },
+            {
+                "model_part": "body",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "body",
+                "type": "pitch",
+                "value": 1.25
+            },
+        
+            {
+                "model_part": "leftleg",
+                "type": "pitch",
+                "value": 0.5
+            },
+            {
+                "model_part": "leftleg",
+                "type": "pivotz",
+                "value": 4
+            },
+            {
+                "model_part": "leftleg",
+                "type": "pivoty",
+                "value": 1
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pitch",
+                "value": 0.5
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pivotz",
+                "value": 4
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pivoty",
+                "value": 1
+            },
+        
+            {
+                "model_part": "rightarm",
+                "type": "pivoty",
+                "value": 10
+            },
+            {
+                "model_part": "rightarm",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "rightarm",
+                "type": "yscale",
+                "value": 1.25
+            },
+            {
+                "model_part": "leftarm",
+                "type": "pivoty",
+                "value": 10
+            },
+            {
+                "model_part": "leftarm",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "leftarm",
+                "type": "yscale",
+                "value": 1.25
+            },
+        
+            {
+                "model_part": "head",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "head",
+                "type": "pivoty",
+                "value": 10
+            },
+            {
+                "model_part": "hat",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "hat",
+                "type": "pivoty",
+                "value": 10
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:sneaking",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:climbing",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:fall_flying",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_titan",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+            ]
+        }
+    },
+    "jaw_model_sneaking": {
+        "type": "appli:modify_model_parts",
+        "transformations": [
+            {
+                "model_part": "body",
+                "type": "pivoty",
+                "value": 10
+            },
+            {
+                "model_part": "body",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "body",
+                "type": "pitch",
+                "value": 1.25
+            },
+        
+            {
+                "model_part": "leftleg",
+                "type": "pitch",
+                "value": 0.5
+            },
+            {
+                "model_part": "leftleg",
+                "type": "pivotz",
+                "value": 2
+            },
+            {
+                "model_part": "leftleg",
+                "type": "pivoty",
+                "value": -1
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pitch",
+                "value": 0.5
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pivotz",
+                "value": 2
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pivoty",
+                "value": -1
+            },
+        
+            {
+                "model_part": "rightarm",
+                "type": "pivoty",
+                "value": 8
+            },
+            {
+                "model_part": "rightarm",
+                "type": "pivotz",
+                "value": -2
+            },
+            {
+                "model_part": "rightarm",
+                "type": "yscale",
+                "value": 1.25
+            },
+            {
+                "model_part": "rightarm",
+                "type": "pitch",
+                "value": -0.5
+            },
+            {
+                "model_part": "leftarm",
+                "type": "pivoty",
+                "value": 8
+            },
+            {
+                "model_part": "leftarm",
+                "type": "pivotz",
+                "value": -2
+            },
+            {
+                "model_part": "leftarm",
+                "type": "yscale",
+                "value": 1.25
+            },
+            {
+                "model_part": "leftarm",
+                "type": "pitch",
+                "value": -0.5
+            },
+        
+            {
+                "model_part": "head",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "head",
+                "type": "pivoty",
+                "value": 10
+            },
+            {
+                "model_part": "hat",
+                "type": "pivotz",
+                "value": -6
+            },
+            {
+                "model_part": "hat",
+                "type": "pivoty",
+                "value": 10
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:sneaking"
+                },
+                {
+                    "type": "origins:climbing",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:fall_flying",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_titan",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+            ]
+        }
+    },
+    "jaw_model_climb": {
+        "type": "appli:modify_model_parts",
+        "transformations": [
+            {
+                "model_part": "leftarm",
+                "type": "pitch",
+                "value": 3.14
+            },
+            {
+                "model_part": "leftarm",
+                "type": "roll",
+                "value": 0.5
+            },
+            {
+                "model_part": "rightarm",
+                "type": "pitch",
+                "value": 3.14
+            },
+            {
+                "model_part": "rightarm",
+                "type": "roll",
+                "value": -0.5
+            },
+
+            {
+                "model_part": "leftleg",
+                "type": "pitch",
+                "value": -0.5
+            },
+            {
+                "model_part": "leftleg",
+                "type": "roll",
+                "value": -0.2
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pitch",
+                "value": -0.5
+            },
+            {
+                "model_part": "rightleg",
+                "type": "roll",
+                "value": 0.2
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:collided_horizontally"
+                },
+                {
+                    "type": "origins:climbing"
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_titan",
+                    "comparison": "==",
+                    "compare_to": 6
+                }
+            ]
+        }
+    },
+    "jaw_titan_skin": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/r4rLRBS/founding-jaw.png",
+        "player_model": "slim",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_titan",
+                    "comparison": "==",
+                    "compare_to": 6
                 }
             ]
         }

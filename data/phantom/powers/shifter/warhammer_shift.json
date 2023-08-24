@@ -2885,67 +2885,56 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:execute_command",
-                    "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:feed",
-                    "food": -1,
-                    "saturation": 0
-                },
-                {
-                    "type": "origins:if_else_list",
-                    "actions": [
+                    "type": "appli:radial_menu",
+                    "entries": [
                         {
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "*:*_hardened_weapon",
-                                "comparison": "==",
-                                "compare_to": 2
+                            "item": {
+                                "item": "minecraft:barrier",
+                                "tag": "{display:{Name:'{\"text\":\"Remove Weapon\"}'}}"
                             },
-                            "action": {
+                            "entity_action": {
                                 "type": "origins:and",
                                 "actions": [
                                     {
-                                        "type": "origins:change_resource",
-                                        "resource": "*:*_hardened_weapon",
-                                        "change": 0,
-                                        "operation": "set"
+                                        "type": "origins:execute_command",
+                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                        "permission_level": 4
                                     }
                                 ]
                             }
                         },
                         {
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "*:*_hardened_weapon",
-                                "comparison": "==",
-                                "compare_to": 0
+                            "item": {
+                                "item": "titan_shifter_megapack:titan_skin_warhammer",
+                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Warhammer\",\"color\":\"white\",\"bold\":true}'}}"
                             },
-                            "action": {
+                            "entity_action": {
                                 "type": "origins:and",
                                 "actions": [
                                     {
-                                        "type": "origins:change_resource",
-                                        "resource": "*:*_hardened_weapon",
-                                        "change": 1,
-                                        "operation": "set"
+                                        "type": "origins:execute_command",
+                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:feed",
+                                        "food": -1,
+                                        "saturation": 0
                                     },
                                     {
                                         "type": "origins:drop_inventory",
@@ -2960,19 +2949,37 @@
                             }
                         },
                         {
-                            "condition": {
-                                "type": "origins:resource",
-                                "resource": "*:*_hardened_weapon",
-                                "comparison": "==",
-                                "compare_to": 1
+                            "item": {
+                                "item": "titan_shifter_megapack:titan_skin_crossbow",
+                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}'}}"
                             },
-                            "action": {
+                            "entity_action": {
                                 "type": "origins:and",
                                 "actions": [
                                     {
-                                        "type": "origins:change_resource",
-                                        "resource": "*:*_hardened_weapon",
-                                        "change": 2
+                                        "type": "origins:execute_command",
+                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:feed",
+                                        "food": -1,
+                                        "saturation": 0
                                     },
                                     {
                                         "type": "origins:drop_inventory",

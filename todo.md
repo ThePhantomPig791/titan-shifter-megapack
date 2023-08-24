@@ -16,10 +16,14 @@
 
 - [x] Jaw Titan
 
-- [ ] Savage Jaw skin
+- [x] Savage Jaw skin
 
 - [ ] Cart Titan
 
-- [ ] Warhammer rework
+- [x] Warhammer rework
+
+- [ ] Warhammer more weapons
+
+- [ ] Warhammer buildings
 
 - [ ] Founding shift into other titan selection rework

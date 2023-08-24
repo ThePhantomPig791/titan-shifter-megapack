@@ -776,7 +776,68 @@
             ]
         }
     },
-
+    "jaw_titan_skin_type_1": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/NYgGLWN/ymir-jaw.png",
+        "player_model": "default",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 1
+                } 
+            ]
+        }
+    },
+    "jaw_titan_skin_type_1_weary": {
+        "type": "apugli:entity_texture_overlay",
+        "texture_url": "https://i.ibb.co/d4GYCBx/ymir-jaw-weary.png",
+        "player_model": "default",
+        "show_first_person": true,
+        "render_original_model": false,
+        "render_player_outer_layer": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 1
+                } 
+            ]
+        }
+    },
     "jaw_titan_skin_type_2": {
         "type": "apugli:entity_texture_overlay",
         "texture_url": "https://i.ibb.co/Gk6V14y/falco-jaw.png",
@@ -3359,6 +3420,77 @@
                 },
                 {
                     "type": "origins:fall_flying"
+                }
+            ]
+        }
+    },
+    "jaw_type_1_lank": {
+        "type": "appli:modify_model_parts",
+        "transformations": [
+            {
+                "model_part": "leftarm",
+                "type": "xscale",
+                "value": -0.7
+            },
+            {
+                "model_part": "leftarm",
+                "type": "pivotx",
+                "value": -0.3
+            },
+
+            {
+                "model_part": "rightarm",
+                "type": "xscale",
+                "value": -0.7
+            },
+            {
+                "model_part": "rightarm",
+                "type": "pivotx",
+                "value": -0.3
+            },
+
+            {
+                "model_part": "body",
+                "type": "xscale",
+                "value": -0.85
+            },
+
+            {
+                "model_part": "leftleg",
+                "type": "xscale",
+                "value": -0.7
+            },
+            {
+                "model_part": "leftleg",
+                "type": "pivotx",
+                "value": -0.15
+            },
+
+            {
+                "model_part": "rightleg",
+                "type": "xscale",
+                "value": -0.7
+            },
+            {
+                "model_part": "rightleg",
+                "type": "pivotx",
+                "value": -0.15
+            }
+        ],
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_jaw_type",
+                    "comparison": "==",
+                    "compare_to": 1
                 }
             ]
         }

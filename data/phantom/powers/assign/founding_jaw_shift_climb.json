@@ -1,0 +1,34 @@
+{
+    "type": "origins:climbing",
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "*:shifter/founding_shift_is_shifted",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:collided_horizontally"
+            },
+            {
+                "type": "origins:sneaking"
+            }
+        ]
+    },
+    "hold_condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:resource",
+                "resource": "*:shifter/founding_shift_is_shifted",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:collided_horizontally"
+            }
+        ]
+    }
+}

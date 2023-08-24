@@ -14,6 +14,9 @@ effect give @s minecraft:blindness 2 5 true
 playsound minecraft:block.fire.extinguish player @a[distance=..32] ~ ~ ~ 10
 scale set pehkui:width 1
 scale set pehkui:height 1
+scale set pehkui:hitbox_width 1
+scale set pehkui:hitbox_height 1
+scale set pehkui:eye_height 1
 scale set pehkui:motion 1
 scale set pehkui:reach 1
 scale set pehkui:entity_reach 1
@@ -27,3 +30,4 @@ particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
 tag @s remove TSMP.Titan
 tag @s remove HasCrystalDown
 resource set @s phantom:shifter/founding_shift_titan 0
+power revoke @s phantom:assign/founding_jaw_shift_climb

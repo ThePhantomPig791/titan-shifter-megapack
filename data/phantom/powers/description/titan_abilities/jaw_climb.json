@@ -1,5 +1,18 @@
 {
-    "type": "origins:simple",
+    "type": "origins:active_self",
     "name": "Claws",
-    "description": "The Plated and Savage Jaws can use their nails to climb up walls. The Savage can also climb on ceilings."
+    "description": "The Plated and Savage Jaws can use their nails to climb up walls. The Savage can also climb on ceilings.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "To climb, walk against a wall/ceiling while holding %s."
+        }
+    ],
+    "key": {
+        "key": "key.sneak"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
 }
