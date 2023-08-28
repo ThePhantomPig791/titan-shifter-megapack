@@ -18,7 +18,11 @@
 
 - [x] Savage Jaw skin
 
-- [ ] Cart Titan
+- [x] Jaw Titan type changing limit (once per life)
+
+- [x] Cart Titan
+
+- [ ] Make the Cart's mounts functional
 
 - [x] Warhammer rework
 
@@ -26,4 +30,6 @@
 
 - [ ] Warhammer buildings
 
-- [ ] Founding shift into other titan selection rework
+- [x] Founding shift into other titan selection rework
+
+- [ ] Add Cart to Founding

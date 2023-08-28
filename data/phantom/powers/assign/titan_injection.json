@@ -1118,14 +1118,30 @@
                                                             }
                                                         ]
                                                     }
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:shifter/jaw_shift_has_changed_this_life",
+                                                    "comparison": "==",
+                                                    "compare_to": 0
                                                 }
                                             ]
                                         },
                                         "action": {
-                                            "type": "origins:change_resource",
-                                            "resource": "*:shifter/jaw_shift_jaw_type",
-                                            "change": 1,
-                                            "operation": "set"
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "*:shifter/jaw_shift_jaw_type",
+                                                    "change": 1,
+                                                    "operation": "set"
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "*:shifter/jaw_shift_has_changed_this_life",
+                                                    "change": 1
+                                                }
+                                            ]
                                         }
                                     },
                                     {
@@ -1144,14 +1160,30 @@
                                                         "type": "origins:nbt",
                                                         "nbt": "{CustomModelData: 8}"
                                                     }
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:shifter/jaw_shift_has_changed_this_life",
+                                                    "comparison": "==",
+                                                    "compare_to": 0
                                                 }
                                             ]
                                         },
                                         "action": {
-                                            "type": "origins:change_resource",
-                                            "resource": "*:shifter/jaw_shift_jaw_type",
-                                            "change": 2,
-                                            "operation": "set"
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "*:shifter/jaw_shift_jaw_type",
+                                                    "change": 2,
+                                                    "operation": "set"
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "*:shifter/jaw_shift_has_changed_this_life",
+                                                    "change": 1
+                                                }
+                                            ]
                                         }
                                     },
                                     {
@@ -1183,6 +1215,12 @@
                                                             }
                                                         ]
                                                     }
+                                                },
+                                                {
+                                                    "type": "origins:resource",
+                                                    "resource": "*:shifter/jaw_shift_has_changed_this_life",
+                                                    "comparison": "==",
+                                                    "compare_to": 0
                                                 }
                                             ]
                                         },
@@ -1210,6 +1248,11 @@
                                                         "operation": "set"
                                                     },
                                                     "chance": 0.5
+                                                },
+                                                {
+                                                    "type": "origins:change_resource",
+                                                    "resource": "*:shifter/jaw_shift_has_changed_this_life",
+                                                    "change": 1
                                                 }
                                             ]
                                         }

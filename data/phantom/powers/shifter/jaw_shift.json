@@ -32,6 +32,12 @@
         "max": 1,
         "start_value": 0
     },
+    "has_changed_this_life": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1,
+        "start_value": 0
+    },
     "shift": {
         "type": "origins:active_self",
         "key": {
@@ -399,6 +405,11 @@
                     "type": "origins:execute_command",
                     "command": "effect give @s minecraft:regeneration 1 200 true",
                     "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_has_changed_this_life",
+                    "change": 1
                 }
             ]
         }
@@ -1573,6 +1584,11 @@
                         "resource": "*:*_shifting_cooldown",
                         "change": 12000,
                         "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_has_changed_this_life",
+                        "change": -1
                     }
                 ]
             }

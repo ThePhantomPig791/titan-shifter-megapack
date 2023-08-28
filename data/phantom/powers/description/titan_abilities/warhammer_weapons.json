@@ -6,7 +6,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/active.png",
-            "text": "Press %s to cycle through a list of weapons."
+            "text": "Press %s to pick from a list of weapons."
         }
     ],
     "key": {

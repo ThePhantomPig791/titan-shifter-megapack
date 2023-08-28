@@ -7,6 +7,11 @@
             "type": "origins:tooltip",
             "sprite": "titan_shifter_megapack:textures/item/titan_injection.png",
             "text": "§l§7Plated§r §lJaw§r\nThe Plated Jaw has a sheet of hardened titan skin across its face that protects it from oncoming attacks. Additionally, it has razer-sharp nails made of the same. The Plated Jaw can be created with spinal fluid from any titan with hardened armor.\n\n§l§4Savage§r §lJaw§r\nThe Savage Jaw is faster than the Plated, but lacks the plate and defense. The Savage has hardened nails sharper than the Plated, allowing it to climb on ceilings. The Savage Jaw can be created from the spinal fluid from more flesh-based titans.\n\n§l§6Beast§r §lJaw§r\nThe Beast Jaw has traits of the Beast Titan, giving it a bird-like features like feathers and wings. It also has a hardened sheet on its face like the Plated, except with a more beak-like look. Hence the name, the Beast Jaw can be created with Beast spinal fluid."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Despite being flexible, your form may only change once per life (you have to respawn to change it again; be weary in hardcore!). Additionally, shifting will lock you into a form for the remainder of your life (again, respawn to reset it, hardcore players beware!)"
         }
     ]
 }

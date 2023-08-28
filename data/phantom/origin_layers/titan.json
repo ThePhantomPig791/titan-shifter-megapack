@@ -14,7 +14,8 @@
                 "phantom:warhammer_titan",
                 "phantom:beast_titan",
                 "phantom:founding_titan",
-                "phantom:jaw_titan"
+                "phantom:jaw_titan",
+                "phantom:cart_titan"
             ],
             "comment": "The order of the origins above is actually the order I made them in!"
         },

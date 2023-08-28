@@ -1,0 +1,35 @@
+{
+    "type": "origins:action_over_time",
+    "interval": 1,
+    "name": "Pure Immunity",
+    "description": "As a Titan Shifter, you are unable to be turned into a Pure Titan.",
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:entity_type",
+                "entity_type": "minecraft:player"
+            },
+            {
+                "type": "origins:power",
+                "power": "*:assign/pure_shift",
+                "source": "apoli:command"
+            }
+        ]
+    },
+    "entity_action": {
+        "type": "origins:and",
+        "actions": [
+            {
+                "type": "origins:revoke_power",
+                "power": "*:assign/pure_shift",
+                "source": "apoli:command"
+            },
+            {
+                "type": "origins:revoke_power",
+                "power": "*:assign/pure_shift_client",
+                "source": "apoli:command"
+            }
+        ]
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "type": "origins:simple",
+    "name": "Stamina Drawbacks",
+    "description": "You heal twice as slow as other shifters, as you spend that energy to be able to shift again instead."
+}
