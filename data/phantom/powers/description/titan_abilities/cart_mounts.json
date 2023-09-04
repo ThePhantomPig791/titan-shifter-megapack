@@ -1,0 +1,23 @@
+{
+    "type": "origins:active_self",
+    "name": "Mounts",
+    "description": "There are three mounts you can use in titan form: the saddle mount, which lets other players ride on your back, the barrel mount, which gives you two personal barrels worth of storage on your back, and the rifle mount, which attaches a heavy anti-titan rifle on you. The rifle has a 1/4 chance to blow itself up on use, which probably won't kill you, but it will completely destroy the mount.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "In titan form, hold a mount and equip it with %s (the spectatorOutlines key; it's unbound by default. Check controls). Other players can equip mounts on you, but only you can unqeuip them by sneaking and pressing %s."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/info.png",
+            "text": "Unshifting with a mount will give it back to you, but being force ejected only has a 50% chance to give you the mount back."
+        }
+    ],
+    "key": {
+        "key": "key.spectatorOutlines"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

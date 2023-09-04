@@ -1,6 +1,7 @@
 {
     "powers": [
         "phantom:shifter/founding_shift",
+        "phantom:description/titan_abilities/founding_shift_into_other_titans",
         "phantom:description/titan_abilities/founding_eject",
         "phantom:description/titan_abilities/founding_skin",
         "phantom:description/titan_abilities/founding_mass_pure_shift"

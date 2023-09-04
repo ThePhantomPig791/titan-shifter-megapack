@@ -1028,6 +1028,67 @@
                     }
                 ]
             }
+        },
+        "entity_action_lost": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_is_shifted",
+                    "change": -1
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..60,sort=nearest,limit=1] phantom:assign/being_grabbed",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_amount_of_shifts",
+                                "comparison": "==",
+                                "compare_to": 1
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "resource set @s phantom:shifter/colossal_shift_shifting_cooldown 8000",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "function phantom:shift/colossal_titan/unshift",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:instant_health 1 0 true",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 30,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:instant_health 1 0 true",
+                        "permission_level": 4
+                    }
+                }
+            ]
         }
     },
     "death_stuff": {
@@ -1055,17 +1116,6 @@
                 {
                     "type": "origins:trigger_cooldown",
                     "power": "*:*_actual_cooldown"
-                },
-                {
-                    "type": "origins:delay",
-                    "ticks": 35,
-                    "action": {
-                        "type": "origins:damage",
-                        "amount": 5,
-                        "source": {
-                            "name": "generic"
-                        }
-                    }
                 },
                 {
                     "type": "origins:delay",

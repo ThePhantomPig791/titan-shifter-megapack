@@ -1,0 +1,8 @@
+{
+    "replace": false,
+    "values": [
+        "titan_shifter_megapack:titan_saddle_mount",
+        "titan_shifter_megapack:titan_barrel_mount",
+        "titan_shifter_megapack:titan_rifle_mount"
+    ]
+}

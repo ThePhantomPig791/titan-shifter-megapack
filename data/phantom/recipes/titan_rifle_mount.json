@@ -1,0 +1,26 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "IGI",
+        "IiI"
+    ],
+    "key": {
+        "#": {
+            "item": "minecraft:tnt"
+        },
+        "I": {
+            "item": "minecraft:iron_block"
+        },
+        "G": {
+            "item": "minecraft:gunpowder"
+        },
+        "i": {
+            "item": "minecraft:iron_ingot"
+        }
+    },
+    "result": {
+        "item": "titan_shifter_megapack:titan_rifle_mount",
+        "count": 1
+    }
+}

@@ -1,0 +1,136 @@
+{
+    "type": "origins:multiple",
+    "callback": {
+        "type": "origins:action_on_callback",
+        "entity_action_added": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s add TSMP.MountedCartTitanSaddle",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:if_else_list",
+                    "actions": [
+                        {
+                            "condition": {
+                                "type": "origins:command",
+                                "command": "execute if entity @e[tag=TSMP.MountedCartTitanSaddle1,distance=..10]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add TSMP.MountedCartTitanSaddle1",
+                                "permission_level": 4
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:command",
+                                "command": "execute if entity @e[tag=TSMP.MountedCartTitanSaddle2,distance=..10]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "tag @s add TSMP.MountedCartTitanSaddle2",
+                                "permission_level": 4
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:constant",
+                                "value": true
+                            },
+                            "action": {
+                                "type": "origins:revoke_power",
+                                "power": "*:*",
+                                "source": "apoli:command"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
+        "entity_action_removed": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove TSMP.MountedCartTitanSaddle",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove TSMP.MountedCartTitanSaddle1",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "tag @s remove TSMP.MountedCartTitanSaddle2",
+                    "permission_level": 4
+                }
+            ]
+        },
+        "entity_action_respawned": {
+            "type": "origins:revoke_power",
+            "power": "*:*",
+            "source": "apoli:command"
+        }
+    },
+    "dismount": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.sneak"
+        },
+        "entity_action": {
+            "type": "origins:revoke_power",
+            "power": "*:*",
+            "source": "apoli:command"
+        }
+    },
+    "collision_or_lack_thereof": {
+        "type": "origins:prevent_entity_collision"
+    },
+    "no_falling": {
+        "type": "origins:modify_falling",
+        "velocity": 0,
+        "take_fall_damage": false
+    },
+    "no_explosion_damage": {
+        "type": "origins:modify_damage_taken",
+        "damage_condition": {
+            "type": "origins:or",
+            "conditions": [
+                {
+                    "type": "origins:explosive"
+                },
+                {
+                    "type": "origins:name",
+                    "name": "inWall"
+                }
+            ]
+        },
+        "modifier": {
+            "name": "No explosion or suffocation damage when riding",
+            "operation": "set_total",
+            "value": 0
+        }
+    },
+    "remove": {
+        "type": "origins:action_over_time",
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @a[tag=TSMP.Titan,distance=..20]",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "rising_action": {
+            "type": "origins:revoke_power",
+            "power": "*:*",
+            "source": "apoli:command"
+        }
+    }
+}

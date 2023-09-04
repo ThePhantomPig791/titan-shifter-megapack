@@ -1592,6 +1592,99 @@
                     }
                 ]
             }
+        },
+        "entity_action_lost": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_is_shifted",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_is_shifted",
+                        "change": -1
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_amount_of_shifts",
+                                    "comparison": "==",
+                                    "compare_to": 1
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 10000",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/jaw_titan/unshift",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_amount_of_shifts",
+                                    "comparison": "==",
+                                    "compare_to": 2
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "resource set @s phantom:shifter/jaw_shift_shifting_cooldown 8000",
+                                            "permission_level": 4
+                                        },
+                                        {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/jaw_titan/unshift2",
+                                            "permission_level": 4
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 5,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "effect give @s minecraft:instant_health 1 0 true",
+                            "permission_level": 4
+                        }
+                    },
+                    {
+                        "type": "origins:delay",
+                        "ticks": 30,
+                        "action": {
+                            "type": "origins:execute_command",
+                            "command": "effect give @s minecraft:instant_health 1 0 true",
+                            "permission_level": 4
+                        }
+                    }
+                ]
+            }
         }
     },
     "death_stuff": {
@@ -3396,7 +3489,9 @@
                 },
                 {
                     "type": "origins:block_collision",
-                    "offset_y": 0.1
+                    "offset_y": 0.1,
+                    "offset_x": 0,
+                    "offset_z": 0
                 }
             ]
         }

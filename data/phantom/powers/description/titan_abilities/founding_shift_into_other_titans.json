@@ -1,0 +1,18 @@
+{
+    "type": "origins:active_self",
+    "name": "Coordinate Convergence",
+    "description": "With §4Royal§r §4Blood§r active, you can transform into any titan you see fit for your current situation.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "Press %s instead of the normal shifting key to open a radial menu with every titan."
+        }
+    ],
+    "key": {
+        "key": "key.origins.secondary_active"
+    },
+    "entity_action": {
+        "type": "origins:nothing"
+    }
+}

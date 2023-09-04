@@ -4,12 +4,17 @@
         "key": "key.use"
     },
     "name": "Self-Stab",
-    "description": "All Shifters need to sustain at least a minor injury in order to shift, so they are all capable of cutting themselves with a sword by holding one in their main hand and emptying their other hand.",
+    "description": "All Shifters need to sustain at least a minor injury in order to shift, so they are all capable of cutting themselves with a sword when they are holding one in their main hand.",
     "badges": [
         {
             "type": "origins:tooltip",
-            "sprite": "origins:textures/gui/badge/star.png",
+            "sprite": "origins:textures/gui/badge/info.png",
             "text": "In Creative mode, you §ldo§r §lnot§r need to take damage to shift, so just pressing the key will cause you to transform. Keep this in mind, as transformations can damage surrounding blocks."
+        },
+        {
+            "type": "origins:tooltip",
+            "sprite": "origins:textures/gui/badge/star.png",
+            "text": "Having an item with durability in your off hand (shield, bow, etc) will disable self-stabbing."
         }
     ],
     "cooldown": 60,
@@ -55,14 +60,27 @@
         "type": "origins:and",
         "actions": [
             {
-                "type": "origins:delay",
-                "ticks": 1,
-                "action": {
-                    "type": "origins:equipped_item_action",
+                "type": "origins:if_else",
+                "condition": {
+                    "type": "origins:equipped_item",
                     "equipment_slot": "mainhand",
+                    "item_condition": {
+                        "type": "origins:enchantment",
+                        "enchantment": "minecraft:unbreaking",
+                        "comparison": "==",
+                        "compare_to": 0
+                    }
+                },
+                "if_action": {
+                    "type": "origins:delay",
+                    "ticks": 1,
                     "action": {
-                        "type": "origins:damage",
-                        "amount": 1
+                        "type": "origins:equipped_item_action",
+                        "equipment_slot": "mainhand",
+                        "action": {
+                            "type": "origins:damage",
+                            "amount": 1
+                        }
                     }
                 }
             },
