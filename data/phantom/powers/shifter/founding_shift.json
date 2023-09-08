@@ -6720,7 +6720,7 @@
         }
     },
 
-    "model": {
+    "cart_model": {
         "type": "appli:modify_model_parts",
         "transformations": [
             {
@@ -6839,7 +6839,7 @@
             ]
         }
     },
-    "model_sneaking": {
+    "cart_model_sneaking": {
         "type": "appli:modify_model_parts",
         "transformations": [
             {

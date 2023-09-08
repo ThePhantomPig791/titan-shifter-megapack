@@ -22,7 +22,7 @@
 
 - [x] Cart Titan
 
-- [ ] Make the Cart's mounts functional
+- [x] Make the Cart's mounts functional
 
 - [x] Warhammer rework
 
@@ -32,4 +32,4 @@
 
 - [x] Founding shift into other titan selection rework
 
-- [ ] Add Cart to Founding
+- [x] Add Cart to Founding
