@@ -2,6 +2,10 @@
         "replace": false,
         "values": [
                 "titan_shifter_megapack:titan_skin_warhammer",
-                "titan_shifter_megapack:titan_skin_crossbow"
-        ]
+                "titan_shifter_megapack:titan_skin_crossbow",
+                "titan_shifter_megapack:titan_skin_bow",
+                "titan_shifter_megapack:titan_skin_sword",
+                "titan_shifter_megapack:titan_skin_axe"
+        ],
+        "comment": "This doesn't include the bolt on purpose by the way"
 }

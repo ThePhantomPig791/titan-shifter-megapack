@@ -479,6 +479,16 @@
                         "command": "effect give @s minecraft:instant_health 1 0 true",
                         "permission_level": 4
                     }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "clear @s titan_shifter_megapack:titan_skin_bolt",
+                    "permission_level": 4
                 }
             ]
         }
@@ -1487,6 +1497,16 @@
                             "command": "effect give @s minecraft:instant_health 1 0 true",
                             "permission_level": 4
                         }
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "clear @s titan_shifter_megapack:titan_skin_bolt",
+                        "permission_level": 4
                     }
                 ]
             }
@@ -1590,6 +1610,16 @@
                     },
                     {
                         "type": "origins:execute_command",
+                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "clear @s titan_shifter_megapack:titan_skin_bolt",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
                         "command": "tellraw @a [\"The Warhammer Titan was slain\"]"
                     }
                 ]
@@ -1641,6 +1671,16 @@
                         {
                             "type": "origins:execute_command",
                             "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "clear @s titan_shifter_megapack:titan_skin_bolt",
                             "permission_level": 4
                         },
                         {
@@ -1720,6 +1760,16 @@
                         {
                             "type": "origins:execute_command",
                             "command": "playsound minecraft:entity.elder_guardian.death player @a[distance=..64] ~ ~ ~ 0.5 0.1",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                            "permission_level": 4
+                        },
+                        {
+                            "type": "origins:execute_command",
+                            "command": "clear @s titan_shifter_megapack:titan_skin_bolt",
                             "permission_level": 4
                         },
                         {
@@ -2091,6 +2141,16 @@
                         "command": "effect give @s minecraft:instant_health 1 0 true",
                         "permission_level": 4
                     }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "clear @s titan_shifter_megapack:titan_skin_bolt",
+                    "permission_level": 4
                 }
             ]
         }
@@ -3062,7 +3122,7 @@
                         {
                             "item": {
                                 "item": "minecraft:barrier",
-                                "tag": "{display:{Name:'{\"text\":\"Remove Weapon\"}'}}"
+                                "tag": "{display:{Name:'{\"text\":\"Remove Hardened Items\"}'}}"
                             },
                             "entity_action": {
                                 "type": "origins:and",
@@ -3070,6 +3130,11 @@
                                     {
                                         "type": "origins:execute_command",
                                         "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "clear @s titan_shifter_megapack:titan_skin_bolt",
                                         "permission_level": 4
                                     }
                                 ]
@@ -3105,8 +3170,8 @@
                                     },
                                     {
                                         "type": "origins:feed",
-                                        "food": -1,
-                                        "saturation": 0
+                                        "food": -4,
+                                        "saturation": 2
                                     },
                                     {
                                         "type": "origins:drop_inventory",
@@ -3150,8 +3215,8 @@
                                     },
                                     {
                                         "type": "origins:feed",
-                                        "food": -1,
-                                        "saturation": 0
+                                        "food": -3,
+                                        "saturation": 1
                                     },
                                     {
                                         "type": "origins:drop_inventory",
@@ -3159,7 +3224,182 @@
                                     },
                                     {
                                         "type": "origins:execute_command",
-                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_crossbow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},Unbreakable:1b,WarhammerHardenedItem:1,ChargedProjectiles:[{id:\"minecraft:arrow\",Count:1b},{},{}],Charged:1b} 1",
+                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_crossbow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1b} 1",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "item": {
+                                "item": "titan_shifter_megapack:titan_skin_bolt",
+                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Bolt\",\"color\":\"white\",\"bold\":true}'}}"
+                            },
+                            "entity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:feed",
+                                        "food": -1,
+                                        "saturation": 0
+                                    },
+                                    {
+                                        "type": "origins:drop_inventory",
+                                        "slot": "weapon.offhand"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "item replace entity @s weapon.offhand with titan_shifter_megapack:titan_skin_bolt{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Bolt\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "item": {
+                                "item": "titan_shifter_megapack:titan_skin_bow",
+                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Bow\",\"color\":\"white\",\"bold\":true}'}}"
+                            },
+                            "entity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:feed",
+                                        "food": -2,
+                                        "saturation": 2
+                                    },
+                                    {
+                                        "type": "origins:drop_inventory",
+                                        "slot": "weapon.mainhand"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_bow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Bow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "item": {
+                                "item": "titan_shifter_megapack:titan_skin_sword",
+                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Sword\",\"color\":\"white\",\"bold\":true}'}}"
+                            },
+                            "entity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:feed",
+                                        "food": -2,
+                                        "saturation": 1
+                                    },
+                                    {
+                                        "type": "origins:drop_inventory",
+                                        "slot": "weapon.mainhand"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_sword{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Sword\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
+                                        "permission_level": 4
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "item": {
+                                "item": "titan_shifter_megapack:titan_skin_axe",
+                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Axe\",\"color\":\"white\",\"bold\":true}'}}"
+                            },
+                            "entity_action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:feed",
+                                        "food": -2,
+                                        "saturation": 2
+                                    },
+                                    {
+                                        "type": "origins:drop_inventory",
+                                        "slot": "weapon.mainhand"
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_axe{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Axe\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
                                         "permission_level": 4
                                     }
                                 ]
