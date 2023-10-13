@@ -8,12 +8,18 @@
 
 - [x] Warhammer more weapons
 
-- [ ] Warhammer buildings
+- [x] Warhammer buildings
 
 - [x] Founding shift into other titan selection rework
 
 - [x] Add Cart to Founding
 
-- [ ] Update Founding Warhammer generation power
+- [x] Update Founding Warhammer generation power
 
-- [x] Remove old todo entries
+- [ ] Titan AI using RAA
+
+- [ ] Chemical something or other to dissolve titan hardening
+
+- [ ] Warhammer radial spikes :sob:
+
+- [ ] Remove old todo entries
