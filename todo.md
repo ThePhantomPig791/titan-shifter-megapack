@@ -20,6 +20,6 @@
 
 - [ ] Chemical something or other to dissolve titan hardening
 
-- [ ] Warhammer radial spikes :sob:
+- [ ] Warhammer radial spikes :sob: (remember to add them to founding)
 
 - [ ] Remove old todo entries
