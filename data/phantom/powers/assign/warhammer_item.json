@@ -126,6 +126,11 @@
                         "command": "scale delay set pehkui:held_item 0",
                         "permission_level": 4
                     }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale set pehkui:projectiles 7",
+                    "permission_level": 4
                 }
             ]
         },
@@ -178,6 +183,11 @@
                         "command": "scale delay set pehkui:held_item 20",
                         "permission_level": 4
                     }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "scale reset pehkui:projectiles",
+                    "permission_level": 4
                 }
             ]
         }

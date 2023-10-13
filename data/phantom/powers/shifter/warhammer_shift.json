@@ -1,7 +1,7 @@
 {
     "type": "origins:multiple",
     "name": "Stats:",
-    "description": "§oMax Shifts§r: 3\nHeight: 15, 14, 13\n§oSpeed§r: 2.5, 2.25, 2.1\n§oStrength§r: 7, 6.5, 6\n§oHealth§r: 2, 1.9, 1.7\n§oDefense§r: 1.5, 1.3, 1.25\n§oDurability§r: 18\n§oMinutes between shifts§r: 0.25, 3, 5\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 7",
+    "description": "§oMax Shifts§r: 3\nHeight: 15, 14, 13\n§oSpeed§r: 2.5, 2.25, 2.1\n§oStrength§r: 5, 4.5, 4\n§oHealth§r: 2, 1.9, 1.7\n§oDefense§r: 1.5, 1.3, 1.25\n§oDurability§r: 18\n§oMinutes between shifts§r: 0.25, 3, 5\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 7",
     "badges": [],
     "is_shifted": {
         "type": "origins:resource",
@@ -3094,7 +3094,7 @@
         "max": 2
     },
     "hardened_weapons_generate": {
-        "type": "origins:active_self",
+        "type": "origins:active_self", 
         "key": {
             "key": "key.origins.secondary_active"
         },
@@ -3121,286 +3121,1430 @@
                     "entries": [
                         {
                             "item": {
-                                "item": "minecraft:barrier",
-                                "tag": "{display:{Name:'{\"text\":\"Remove Hardened Items\"}'}}"
-                            },
-                            "entity_action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "clear @s titan_shifter_megapack:titan_skin_bolt",
-                                        "permission_level": 4
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "item": {
                                 "item": "titan_shifter_megapack:titan_skin_warhammer",
-                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Warhammer\",\"color\":\"white\",\"bold\":true}'}}"
+                                "tag": "{display:{Name:'{\"text\":\"Hardened Weapons\"}'}}"
                             },
                             "entity_action": {
-                                "type": "origins:and",
-                                "actions": [
+                                "type": "appli:radial_menu",
+                                "entries": [
                                     {
-                                        "type": "origins:execute_command",
-                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
-                                        "permission_level": 4
+                                        "item": {
+                                            "item": "minecraft:barrier",
+                                            "tag": "{display:{Name:'{\"text\":\"Remove Hardened Items\"}'}}"
+                                        },
+                                        "entity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "clear @s titan_shifter_megapack:titan_skin_bolt",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.95 0.95 1.0 1.5 ~ ~3 ~ 4 8 4 0.5 10"
+                                                }
+                                            ]
+                                        }
                                     },
                                     {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
-                                        "permission_level": 4
+                                        "item": {
+                                            "item": "titan_shifter_megapack:titan_skin_warhammer",
+                                            "tag": "{display:{Name:'{\"text\":\"Titan-Skin Warhammer\",\"color\":\"white\",\"bold\":true}'}}"
+                                        },
+                                        "entity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:feed",
+                                                    "food": -4,
+                                                    "saturation": 2
+                                                },
+                                                {
+                                                    "type": "origins:drop_inventory",
+                                                    "slot": "weapon.mainhand"
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_warhammer{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Lore:['{\"text\":\"Only usable by Titans\"}'],Name:'{\"text\":\"Titan-Skin Warhammer\",\"color\":\"white\",\"bold\":true}'},Unbreakable:1b,WarhammerHardenedItem:1} 1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.95 0.95 1.0 1.5 ~ ~3 ~ 4 8 4 0.5 200"
+                                                }
+                                            ]
+                                        }
                                     },
                                     {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
-                                        "permission_level": 4
+                                        "item": {
+                                            "item": "titan_shifter_megapack:titan_skin_crossbow",
+                                            "tag": "{display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}'}}"
+                                        },
+                                        "entity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:feed",
+                                                    "food": -3,
+                                                    "saturation": 1
+                                                },
+                                                {
+                                                    "type": "origins:drop_inventory",
+                                                    "slot": "weapon.mainhand"
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_crossbow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1b} 1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.95 0.95 1.0 1.5 ~ ~3 ~ 4 8 4 0.5 200"
+                                                }
+                                            ]
+                                        }
                                     },
                                     {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
-                                        "permission_level": 4
+                                        "item": {
+                                            "item": "titan_shifter_megapack:titan_skin_bolt",
+                                            "tag": "{display:{Name:'{\"text\":\"Titan-Skin Bolt\",\"color\":\"white\",\"bold\":true}'}}"
+                                        },
+                                        "entity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:feed",
+                                                    "food": -1,
+                                                    "saturation": 0
+                                                },
+                                                {
+                                                    "type": "origins:drop_inventory",
+                                                    "slot": "weapon.offhand"
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "item replace entity @s weapon.offhand with titan_shifter_megapack:titan_skin_bolt{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Bolt\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.95 0.95 1.0 1.5 ~ ~3 ~ 4 8 4 0.5 200"
+                                                }
+                                            ]
+                                        }
                                     },
                                     {
-                                        "type": "origins:feed",
-                                        "food": -4,
-                                        "saturation": 2
+                                        "item": {
+                                            "item": "titan_shifter_megapack:titan_skin_bow",
+                                            "tag": "{display:{Name:'{\"text\":\"Titan-Skin Bow\",\"color\":\"white\",\"bold\":true}'}}"
+                                        },
+                                        "entity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:feed",
+                                                    "food": -2,
+                                                    "saturation": 2
+                                                },
+                                                {
+                                                    "type": "origins:drop_inventory",
+                                                    "slot": "weapon.mainhand"
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_bow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Bow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.95 0.95 1.0 1.5 ~ ~3 ~ 4 8 4 0.5 200"
+                                                }
+                                            ]
+                                        }
                                     },
                                     {
-                                        "type": "origins:drop_inventory",
-                                        "slot": "weapon.mainhand"
+                                        "item": {
+                                            "item": "titan_shifter_megapack:titan_skin_sword",
+                                            "tag": "{display:{Name:'{\"text\":\"Titan-Skin Sword\",\"color\":\"white\",\"bold\":true}'}}"
+                                        },
+                                        "entity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:feed",
+                                                    "food": -2,
+                                                    "saturation": 1
+                                                },
+                                                {
+                                                    "type": "origins:drop_inventory",
+                                                    "slot": "weapon.mainhand"
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_sword{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Sword\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.95 0.95 1.0 1.5 ~ ~3 ~ 4 8 4 0.5 200"
+                                                }
+                                            ]
+                                        }
                                     },
                                     {
-                                        "type": "origins:execute_command",
-                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_warhammer{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Lore:['{\"text\":\"Only usable by Titans\"}'],Name:'{\"text\":\"Titan-Skin Warhammer\",\"color\":\"white\",\"bold\":true}'},Unbreakable:1b,WarhammerHardenedItem:1} 1",
-                                        "permission_level": 4
+                                        "item": {
+                                            "item": "titan_shifter_megapack:titan_skin_axe",
+                                            "tag": "{display:{Name:'{\"text\":\"Titan-Skin Axe\",\"color\":\"white\",\"bold\":true}'}}"
+                                        },
+                                        "entity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:feed",
+                                                    "food": -2,
+                                                    "saturation": 2
+                                                },
+                                                {
+                                                    "type": "origins:drop_inventory",
+                                                    "slot": "weapon.mainhand"
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_axe{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Axe\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.95 0.95 1.0 1.5 ~ ~3 ~ 4 8 4 0.5 200"
+                                                }
+                                            ]
+                                        }
                                     }
                                 ]
                             }
                         },
                         {
                             "item": {
-                                "item": "titan_shifter_megapack:titan_skin_crossbow",
-                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}'}}"
+                                "item": "minecraft:blue_ice",
+                                "tag": "{display:{Name:'{\"text\":\"Hardened Structures\"}'}}"
                             },
                             "entity_action": {
-                                "type": "origins:and",
-                                "actions": [
+                                "type": "appli:radial_menu",
+                                "entries": [
                                     {
-                                        "type": "origins:execute_command",
-                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
-                                        "permission_level": 4
+                                        "item": {
+                                            "item": "minecraft:iron_sword",
+                                            "tag": "{display:{Name:'{\"text\":\"Titan-Skin Spike\",\"color\":\"white\",\"bold\":true}'}}"
+                                        },
+                                        "condition": {
+                                            "type": "origins:raycast",
+                                            "distance": 200,
+                                            "block": true,
+                                            "entity": false,
+                                            "shape_type": "collider",
+                                            "fluid_handling": "none"
+                                        },
+                                        "entity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:raycast",
+                                                    "distance": 200,
+                                                    "block": true,
+                                                    "entity": false,
+                                                    "shape_type": "collider",
+                                                    "fluid_handling": "none",
+                                                    "command_along_ray": "particle dust 0.95 0.95 1.0 1 ~ ~ ~ 0.5 0.5 0.5 0.25 15",
+                                                    "block_action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:delay",
+                                                                "ticks": 4,
+                                                                "action": {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "effect give @e[distance=..5] slowness 1 5"
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:delay",
+                                                                "ticks": 1,
+                                                                "action": {
+                                                                    "type": "origins:and",
+                                                                    "actions": [
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "place template phantom:warhammer/spike/single/0 ~-2 ~ ~-2 none none 0.75"
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "particle dust 0.95 0.95 1.0 1 ~ ~ ~ 0.3 0.3 0.3 0.1 50"
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.1",
+                                                                            "permission_level": 4
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                            "permission_level": 4
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.5",
+                                                                            "permission_level": 4
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:delay",
+                                                                "ticks": 2,
+                                                                "action": {
+                                                                    "type": "origins:and",
+                                                                    "actions": [
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "place template phantom:warhammer/spike/single/1 ~-2 ~ ~-2 none none 0.75"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:delay",
+                                                                "ticks": 3,
+                                                                "action": {
+                                                                    "type": "origins:and",
+                                                                    "actions": [
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "place template phantom:warhammer/spike/single/2 ~-2 ~ ~-2 none none 0.75"
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.5",
+                                                                            "permission_level": 4
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                            "permission_level": 4
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.75",
+                                                                            "permission_level": 4
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:delay",
+                                                                "ticks": 4,
+                                                                "action": {
+                                                                    "type": "origins:and",
+                                                                    "actions": [
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "place template phantom:warhammer/spike/single/3 ~-2 ~ ~-2 none none 0.75"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:delay",
+                                                                "ticks": 5,
+                                                                "action": {
+                                                                    "type": "origins:and",
+                                                                    "actions": [
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "place template phantom:warhammer/spike/single/4 ~-2 ~ ~-2 none none 0.75"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:delay",
+                                                                "ticks": 6,
+                                                                "action": {
+                                                                    "type": "origins:and",
+                                                                    "actions": [
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "place template phantom:warhammer/spike/single/5 ~-2 ~ ~-2 none none 0.75"
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                                            "permission_level": 4
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                            "permission_level": 4
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                                            "permission_level": 4
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:delay",
+                                                                "ticks": 7,
+                                                                "action": {
+                                                                    "type": "origins:and",
+                                                                    "actions": [
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "place template phantom:warhammer/spike/single/6 ~-2 ~ ~-2 none none 0.75"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:delay",
+                                                                "ticks": 8,
+                                                                "action": {
+                                                                    "type": "origins:and",
+                                                                    "actions": [
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "place template phantom:warhammer/spike/single/7 ~-2 ~ ~-2 none none 0.75"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            },
+                                                            {
+                                                                "type": "origins:delay",
+                                                                "ticks": 9,
+                                                                "action": {
+                                                                    "type": "origins:and",
+                                                                    "actions": [
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "place template phantom:warhammer/spike/single/8 ~-2 ~ ~-2 none none 0.75"
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:execute_command",
+                                                                            "command": "particle dust 0.95 0.95 1.0 1 ~ ~4 ~ 1 1.7 1 0.1 50"
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:feed",
+                                                    "saturation": -2,
+                                                    "food": -1
+                                                }
+                                            ]
+                                        }
                                     },
                                     {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
-                                        "permission_level": 4
+                                        "item": {
+                                            "item": "minecraft:iron_bars",
+                                            "tag": "{display:{Name:'{\"text\":\"Titan-Skin Wall\",\"color\":\"white\",\"bold\":true}'}}"
+                                        },
+                                        "condition": {
+                                            "type": "origins:raycast",
+                                            "distance": 200,
+                                            "block": true,
+                                            "entity": false,
+                                            "shape_type": "collider",
+                                            "fluid_handling": "none"
+                                        },
+                                        "entity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:if_else",
+                                                    "comment": "if facing south or north",
+                                                    "condition": {
+                                                        "type": "origins:or",
+                                                        "conditions": [
+                                                            {
+                                                                "type": "origins:and",
+                                                                "conditions": [
+                                                                    {
+                                                                        "type": "origins:command",
+                                                                        "command": "data get entity @s Rotation[0]",
+                                                                        "comparison": ">=",
+                                                                        "compare_to": -45
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:command",
+                                                                        "command": "data get entity @s Rotation[0]",
+                                                                        "comparison": "<=",
+                                                                        "compare_to": 45
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "type": "origins:and",
+                                                                "conditions": [
+                                                                    {
+                                                                        "type": "origins:command",
+                                                                        "command": "data get entity @s Rotation[0]",
+                                                                        "comparison": ">=",
+                                                                        "compare_to": 145
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:command",
+                                                                        "command": "data get entity @s Rotation[0]",
+                                                                        "comparison": "<=",
+                                                                        "compare_to": 180
+                                                                    }
+                                                                ]
+                                                            },
+                                                            {
+                                                                "type": "origins:and",
+                                                                "conditions": [
+                                                                    {
+                                                                        "type": "origins:command",
+                                                                        "command": "data get entity @s Rotation[0]",
+                                                                        "comparison": ">=",
+                                                                        "compare_to": -180
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:command",
+                                                                        "command": "data get entity @s Rotation[0]",
+                                                                        "comparison": "<=",
+                                                                        "compare_to": -145
+                                                                    }
+                                                                ]
+                                                            }
+                                                        ]
+                                                    },
+                                                    "if_action": {
+                                                        "type": "origins:raycast",
+                                                        "distance": 200,
+                                                        "block": true,
+                                                        "entity": false,
+                                                        "shape_type": "collider",
+                                                        "fluid_handling": "none",
+                                                        "command_along_ray": "particle dust 0.95 0.95 1.0 1 ~ ~ ~ 0.5 0.5 0.5 0.25 15",
+                                                        "block_action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 1,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/0 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "particle dust 0.95 0.95 1.0 0.5 ~ ~ ~ 0.5 0.5 0.5 0.1 10"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                                                "permission_level": 4
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 2,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/1 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 3,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/2 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 4,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/3 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "particle dust 0.95 0.95 1.0 0.75 ~ ~2 ~ 1 1 1 0.1 30"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                                                "permission_level": 4
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 5,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/4 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 6,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/5 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 7,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/6 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 8,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/7 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 9,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/8 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "particle dust 0.95 0.95 1.0 1 ~ ~5 ~ 1 1.5 1.5 0.1 40"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                                                "permission_level": 4
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 10,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/9 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 11,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/10 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 12,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/11 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 13,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/12 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 14,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/13 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "particle dust 0.95 0.95 1.0 1 ~ ~5 ~ 1 2 2 0.1 50"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                                                "permission_level": 4
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 15,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/14 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 16,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/15 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 17,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/16 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 18,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/17 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 19,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/18 ~9 ~ ~-1 clockwise_90 none 0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "particle dust 0.95 0.95 1.0 1 ~ ~10 ~ 1 2.5 2.5 0.1 60"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                                                "permission_level": 4
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    "else_action": {
+                                                        "type": "origins:raycast",
+                                                        "distance": 200,
+                                                        "block": true,
+                                                        "entity": false,
+                                                        "shape_type": "collider",
+                                                        "fluid_handling": "none",
+                                                        "command_along_ray": "particle dust 0.95 0.95 1.0 1 ~ ~ ~ 0.5 0.5 0.5 0.25 15",
+                                                        "block_action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 1,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/0 ~-1 ~ ~-9 none none 0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "particle dust 0.95 0.95 1.0 0.5 ~ ~ ~ 0.5 0.5 0.5 0.1 10"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                                                "permission_level": 4
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 2,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/1 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 3,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/2 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 4,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/3 ~-1 ~ ~-9 none none 0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "particle dust 0.95 0.95 1.0 0.75 ~ ~2 ~ 1 1 1 0.1 30"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                                                "permission_level": 4
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 5,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/4 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 6,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/5 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 7,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/6 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 8,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/7 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 9,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/8 ~-1 ~ ~-9 none none 0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "particle dust 0.95 0.95 1.0 1 ~ ~5 ~ 1.5 1.5 1 0.1 40"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                                                "permission_level": 4
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 10,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/9 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 11,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/10 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 12,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/11 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 13,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/12 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 14,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/13 ~-1 ~ ~-9 none none 0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "particle dust 0.95 0.95 1.0 1 ~ ~5 ~ 2 2 1 0.1 50"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                                                "permission_level": 4
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 15,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/14 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 16,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/15 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 17,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/16 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 18,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/17 ~-1 ~ ~-9 none none 0.5"
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                },
+                                                                {
+                                                                    "type": "origins:delay",
+                                                                    "ticks": 19,
+                                                                    "action": {
+                                                                        "type": "origins:and",
+                                                                        "actions": [
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "place template phantom:warhammer/wall/18 ~-1 ~ ~-9 none none 0.5"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "particle dust 0.95 0.95 1.0 1 ~ ~10 ~ 2.5 2.5 1 0.1 60"
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                                                "permission_level": 4
+                                                                            },
+                                                                            {
+                                                                                "type": "origins:execute_command",
+                                                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                                                "permission_level": 4
+                                                                            }
+                                                                        ]
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:feed",
+                                                    "saturation": -5,
+                                                    "food": -3
+                                                }
+                                            ]
+                                        }
                                     },
                                     {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:feed",
-                                        "food": -3,
-                                        "saturation": 1
-                                    },
-                                    {
-                                        "type": "origins:drop_inventory",
-                                        "slot": "weapon.mainhand"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_crossbow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1b} 1",
-                                        "permission_level": 4
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "item": {
-                                "item": "titan_shifter_megapack:titan_skin_bolt",
-                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Bolt\",\"color\":\"white\",\"bold\":true}'}}"
-                            },
-                            "entity_action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:feed",
-                                        "food": -1,
-                                        "saturation": 0
-                                    },
-                                    {
-                                        "type": "origins:drop_inventory",
-                                        "slot": "weapon.offhand"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "item replace entity @s weapon.offhand with titan_shifter_megapack:titan_skin_bolt{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Bolt\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
-                                        "permission_level": 4
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "item": {
-                                "item": "titan_shifter_megapack:titan_skin_bow",
-                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Bow\",\"color\":\"white\",\"bold\":true}'}}"
-                            },
-                            "entity_action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:feed",
-                                        "food": -2,
-                                        "saturation": 2
-                                    },
-                                    {
-                                        "type": "origins:drop_inventory",
-                                        "slot": "weapon.mainhand"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_bow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Bow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
-                                        "permission_level": 4
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "item": {
-                                "item": "titan_shifter_megapack:titan_skin_sword",
-                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Sword\",\"color\":\"white\",\"bold\":true}'}}"
-                            },
-                            "entity_action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:feed",
-                                        "food": -2,
-                                        "saturation": 1
-                                    },
-                                    {
-                                        "type": "origins:drop_inventory",
-                                        "slot": "weapon.mainhand"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_sword{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Sword\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
-                                        "permission_level": 4
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            "item": {
-                                "item": "titan_shifter_megapack:titan_skin_axe",
-                                "tag": "{display:{Name:'{\"text\":\"Titan-Skin Axe\",\"color\":\"white\",\"bold\":true}'}}"
-                            },
-                            "entity_action": {
-                                "type": "origins:and",
-                                "actions": [
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "clear @s #phantom:warhammer_hardened_items{WarhammerHardenedItem:1}",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.5 0.1",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.35",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..32] ~ ~ ~ 0.2 0.5",
-                                        "permission_level": 4
-                                    },
-                                    {
-                                        "type": "origins:feed",
-                                        "food": -2,
-                                        "saturation": 2
-                                    },
-                                    {
-                                        "type": "origins:drop_inventory",
-                                        "slot": "weapon.mainhand"
-                                    },
-                                    {
-                                        "type": "origins:execute_command",
-                                        "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_axe{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Axe\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
-                                        "permission_level": 4
+                                        "item": {
+                                            "item": "minecraft:white_shulker_box",
+                                            "tag": "{display:{Name:'{\"text\":\"Titan-Skin Pillar\",\"color\":\"white\",\"bold\":true}'}}"
+                                        },
+                                        "entity_action": {
+                                            "type": "origins:and",
+                                            "actions": [
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "place template phantom:warhammer/pillar/start_0 ~-2 ~-2 ~-2 none none 0.9"
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "particle dust 0.95 0.95 1.0 1 ~ ~-3 ~ 0.7 0.7 0.7 0.1 40"
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..84] ~ ~ ~ 0.5 0.7",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.35",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:execute_command",
+                                                    "command": "playsound minecraft:item.trident.thunder player @a[distance=..84] ~ ~ ~ 0.2 0.9",
+                                                    "permission_level": 4
+                                                },
+                                                {
+                                                    "type": "origins:delay",
+                                                    "ticks": 1,
+                                                    "action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:execute_command",
+                                                                "command": "place template phantom:warhammer/pillar/start_1 ~-2 ~-2 ~-2 none none 0.9"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:delay",
+                                                    "ticks": 2,
+                                                    "action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:execute_command",
+                                                                "command": "place template phantom:warhammer/pillar/start_2 ~-2 ~-2 ~-2 none none 0.9"
+                                                            },
+                                                            {
+                                                                "type": "origins:execute_command",
+                                                                "command": "execute positioned ~ ~-2 ~ run function phantom:shift/warhammer_titan/pillar_recursive"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:delay",
+                                                    "ticks": 2,
+                                                    "action": {
+                                                        "type": "origins:and",
+                                                        "actions": [
+                                                            {
+                                                                "type": "origins:execute_command",
+                                                                "command": "place template phantom:warhammer/pillar/start_3 ~-2 ~-2 ~-2 none none 0.9"
+                                                            }
+                                                        ]
+                                                    }
+                                                },
+                                                {
+                                                    "type": "origins:feed",
+                                                    "saturation": -1,
+                                                    "food": -1
+                                                }
+                                            ]
+                                        }
                                     }
                                 ]
                             }
@@ -3408,165 +4552,6 @@
                     ]
                 }
             ]
-        }
-    },
-    "spikes_resource": {
-        "type": "origins:resource",
-        "min": 0,
-        "max": 10,
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 12,
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_spikes_resource",
-                        "comparison": ">=",
-                        "compare_to": 4
-                    },
-                    {
-                        "type": "origins:resource",
-                        "resource": "*:*_is_shifted",
-                        "comparison": "==",
-                        "compare_to": 1
-                    }
-                ]
-            }
-        },
-        "max_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:area_of_effect",
-                    "radius": 48,
-                    "include_self": false,
-                    "bientity_condition": {
-                        "type": "origins:and",
-                        "conditions": [
-                            {
-                                "type": "origins:target_condition",
-                                "condition": {
-                                    "type": "origins:or",
-                                    "conditions": [
-                                        {
-                                            "type": "origins:in_tag",
-                                            "tag": "phantom:hostile"
-                                        },
-                                        {
-                                            "type": "origins:command",
-                                            "command": "execute if entity @s[tag=TSMP.Titan]",
-                                            "comparison": "!=",
-                                            "compare_to": 0
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                "type": "origins:target_condition",
-                                "condition": {
-                                    "type": "origins:living"
-                                }
-                            },
-                            {
-                                "type": "origins:can_see"
-                            }
-                        ]
-                    },
-                    "bientity_action": {
-                        "type": "origins:and",
-                        "actions": [
-                            {
-                                "type": "origins:target_action",
-                                "action": {
-                                    "type": "origins:grant_power",
-                                    "power": "phantom:assign/spiked",
-                                    "source": "phantom:warhammer_titan"
-                                }
-                            },
-                            {
-                                "type": "origins:delay",
-                                "ticks": 1,
-                                "action": {
-                                    "type": "origins:damage",
-                                    "amount": 4,
-                                    "comment": "This is more than 4 HP, because you already deal extra damage to begin with",
-                                    "source": {
-                                        "name": "trident",
-                                        "bypasses_armor": true
-                                    }
-                                }
-                            }
-                        ]
-                    }
-                },
-                {
-                    "type": "origins:trigger_cooldown",
-                    "power": "*:*_spikes_cooldown"
-                },
-                {
-                    "type": "origins:feed",
-                    "food": -4,
-                    "saturation": 1
-                }
-            ]
-        }
-    },
-    "spikes_loop": {
-        "type": "origins:action_over_time",
-        "interval": 10,
-        "condition": {
-            "type": "origins:and",
-            "conditions": [
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_is_shifted",
-                    "comparison": "==",
-                    "compare_to": 1
-                },
-                {
-                    "type": "origins:sneaking"
-                },
-                {
-                    "type": "origins:resource",
-                    "resource": "*:*_spikes_cooldown",
-                    "comparison": "==",
-                    "compare_to": 0
-                }
-            ]
-        },
-        "entity_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_spikes_resource",
-                    "change": 1
-                }
-            ]
-        },
-        "falling_action": {
-            "type": "origins:and",
-            "actions": [
-                {
-                    "type": "origins:change_resource",
-                    "resource": "*:*_spikes_resource",
-                    "change": 0,
-                    "operation": "set"
-                }
-            ]
-        }
-    },
-    "spikes_cooldown": {
-        "type": "origins:cooldown",
-        "cooldown": 6000,
-        "hud_render": {
-            "should_render": true,
-            "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_01.png",
-            "bar_index": 9,
-            "inverted": true
         }
     },
     "knockback_resistance": {

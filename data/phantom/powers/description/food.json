@@ -1,7 +1,7 @@
 {
     "type": "origins:simple",
     "name": "Insufficient Nutrients",
-    "description": "In titna form, you won't gain much value from eating measly human food. Instead, consuming (killing) mobs is a much better way to eat.",
+    "description": "In titan form, you won't gain much value from eating measly human food. Instead, consuming (killing) mobs is a much better way to eat.",
     "badges": [
         {
             "type": "origins:tooltip",

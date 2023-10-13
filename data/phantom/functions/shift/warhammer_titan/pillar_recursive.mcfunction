@@ -1,0 +1,2 @@
+place template phantom:warhammer/pillar/segment ~-2 ~ ~-2 none none 0.9
+execute if block ~ ~-1 ~ #phantom:warhammer_spike_replaceable positioned ~ ~-1 ~ run function phantom:shift/warhammer_titan/pillar_recursive

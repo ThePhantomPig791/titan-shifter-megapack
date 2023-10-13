@@ -10,12 +10,12 @@ scale set pehkui:height 6.5
 scale set pehkui:motion 2.1
 scale set pehkui:entity_reach 4
 scale set pehkui:reach 4
-scale set pehkui:attack 6
+scale set pehkui:attack 4
 scale set pehkui:health 1.7
 scale set pehkui:step_height 3
 scale set pehkui:held_item 0.14
 scale set pehkui:defense 1.25
-scale set pehkui:projectiles 7
+scale set pehkui:projectiles 1
 effect give @s minecraft:instant_health 1 10 true
 execute as @s at @s run particle dust 1.0 1.0 0.0 100 ~ ~2 ~ 2 5 2 100 5000 normal
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 25

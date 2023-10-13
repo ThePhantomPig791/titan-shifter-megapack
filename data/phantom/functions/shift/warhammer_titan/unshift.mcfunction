@@ -26,3 +26,5 @@ effect give @s minecraft:instant_health 1 10 true
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
 tag @s remove TSMP.Titan
 tag @s remove HasCrystalDown
+clear @s #phantom:warhammer_hardened_items
+clear @s titan_shifter_megapack:titan_skin_bolt
