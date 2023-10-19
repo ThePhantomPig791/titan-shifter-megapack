@@ -5649,6 +5649,12 @@
                 {
                     "type": "origins:sneaking",
                     "inverted": true
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_titan",
+                    "comparison": "==",
+                    "compare_to": 5
                 }
             ]
         },
@@ -7118,15 +7124,68 @@
             ]
         }
     },
+    
     "slim_arms": {
         "type": "apugli:set_texture",
         "texture_location": "minecraft:textures/entity/bee/bee_stinger.png",
         "player_model": "slim",
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_is_shifted",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_titan",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_titan",
+                            "comparison": "==",
+                            "compare_to": 2
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_titan",
+                            "comparison": "==",
+                            "compare_to": 3
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_titan",
+                            "comparison": "==",
+                            "compare_to": 4
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_titan",
+                            "comparison": "==",
+                            "compare_to": 5
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_titan",
+                            "comparison": "==",
+                            "compare_to": 6
+                        },
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_titan",
+                            "comparison": "==",
+                            "compare_to": 8
+                        }
+                    ]
+                }
+            ]
         }
     },
     "royal_blood": {
