@@ -20,6 +20,8 @@
 
 - [ ] Chemical something or other to dissolve titan hardening
 
-- [ ] Warhammer radial spikes :sob: (remember to add them to founding)
+- [ ] Warhammer radial spikes and large spike :sob: (remember to add them to founding)
+
+- [ ] A tag for infinite royal blood
 
 - [ ] Remove old todo entries
