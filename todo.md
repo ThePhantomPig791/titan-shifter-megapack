@@ -20,6 +20,8 @@
 
 - [x] Chemical something or other to dissolve titan hardening
 
-- [ ] Warhammer radial spikes and large spike :sob: (remember to add them to founding)
+- [ ] Warhammer radial spikes and large spike :sob: (remember to add them to Founding)
+
+- [ ] Change Founding to have 5 shifts instead of 4
 
 - [ ] Remove old todo entries
