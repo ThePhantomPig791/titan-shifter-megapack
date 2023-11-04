@@ -423,7 +423,7 @@
     },
     "shift_into_other_titan_cooldown": {
         "type": "origins:cooldown",
-        "cooldown": 6000,
+        "cooldown": 2000,
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/spiderkolo/resource_bar_03.png",
@@ -476,7 +476,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "!=",
-                    "compare_to": 4
+                    "compare_to": 5
                 },
                 {
                     "type": "origins:resource",
@@ -500,8 +500,8 @@
                     "condition": {
                         "type": "origins:resource",
                         "resource": "*:*_amount_of_shifts",
-                        "comparison": "==",
-                        "compare_to": 0
+                        "comparison": "!=",
+                        "compare_to": 5
                     },
                     "if_action": {
                         "type": "appli:radial_menu",
@@ -1563,7 +1563,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "!=",
-                    "compare_to": 4
+                    "compare_to": 5
                 }
             ]
         },
@@ -1637,7 +1637,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "!=",
-                    "compare_to": 4
+                    "compare_to": 5
                 }
             ]
         },
@@ -3498,7 +3498,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "!=",
-                    "compare_to": 4
+                    "compare_to": 5
                 },
                 {
                     "type": "origins:resource",
