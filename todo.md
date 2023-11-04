@@ -22,6 +22,8 @@
 
 - [ ] Warhammer radial spikes and large spike :sob: (remember to add them to Founding)
 
-- [ ] Change Founding to have 5 shifts instead of 4
+- [x] Change Founding to have 5 shifts instead of 4
+
+- [ ] The Vow :scream:???//??////??/???
 
 - [ ] Remove old todo entries

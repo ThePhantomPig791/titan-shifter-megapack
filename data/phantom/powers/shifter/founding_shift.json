@@ -12,7 +12,7 @@
     "amount_of_shifts": {
         "type": "origins:resource",
         "min": 0,
-        "max": 4,
+        "max": 5,
         "start_value": 0
     },
     "titan": {
@@ -74,7 +74,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "!=",
-                    "compare_to": 4
+                    "compare_to": 5
                 },
                 {
                     "type": "origins:resource",
@@ -332,6 +332,59 @@
                                         "power": 1,
                                         "destruction_type": "break",
                                         "damage_self": false  
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            "condition": {
+                                "type": "origins:resource",
+                                "resource": "*:*_amount_of_shifts",
+                                "comparison": "==",
+                                "compare_to": 4
+                            },
+                            "action": {
+                                "type": "origins:and",
+                                "actions": [
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "*:*_is_shifted",
+                                        "change": 1
+                                    },
+                                    {
+                                        "type": "origins:change_resource",
+                                        "resource": "*:*_amount_of_shifts",
+                                        "change": 1
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 5,
+                                        "action": {
+                                            "type": "origins:execute_command",
+                                            "command": "function phantom:shift/founding_titan/fifth_shift",
+                                            "permission_level": 4
+                                        }              
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 0.6 1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:execute_command",
+                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.4 1",
+                                        "permission_level": 4
+                                    },
+                                    {
+                                        "type": "origins:feed",
+                                        "food": -5,
+                                        "saturation": 3
+                                    },
+                                    {
+                                        "type": "origins:explode",
+                                        "power": 1,
+                                        "destruction_type": "break",
+                                        "damage_self": false
                                     }
                                 ]
                             }
@@ -1614,7 +1667,7 @@
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
                     "comparison": "==",
-                    "compare_to": 4
+                    "compare_to": 5
                 },
                 {
                     "type": "origins:resource",
@@ -2388,7 +2441,7 @@
                 "type": "origins:resource",
                 "resource": "*:*_amount_of_shifts",
                 "comparison": "!=",
-                "compare_to": 4
+                "compare_to": 5
             },
             "if_action": {
                 "type": "origins:and",
@@ -2653,7 +2706,7 @@
                 {
                     "type": "origins:resource",
                     "resource": "*:*_amount_of_shifts",
-                    "comparison": "==",
+                    "comparison": ">=",
                     "compare_to": 4
                 }
             ]
