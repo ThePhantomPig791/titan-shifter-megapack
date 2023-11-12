@@ -26,6 +26,6 @@
 
 - [ ] The Vow :scream:???//??////??/???
 
-- [ ] Fix the `height` stat not being bolded
+- [x] Fix the `height` stat not being italicized
 
 - [ ] Remove old todo entries

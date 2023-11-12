@@ -1,7 +1,7 @@
 {
     "type": "origins:multiple",
     "name": "Stats:",
-    "description": "§oMax Shifts§r: 2\nHeight: 14, 13.5\n§oSpeed§r: 4, 3.75\n§oStrength§r: 6.5, 5\n§oHealth§r: 1.7, 1.5\n§oDefense§r: 1\n§oDurability§r: 21\n§oMinutes between shifts§r: 0.25, 2\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 5",
+    "description": "§oMax Shifts§r: 2\n§oHeight§r: 14, 13.5\n§oSpeed§r: 4, 3.75\n§oStrength§r: 6.5, 5\n§oHealth§r: 1.7, 1.5\n§oDefense§r: 1\n§oDurability§r: 21\n§oMinutes between shifts§r: 0.25, 2\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 5",
     "badges": [],
     "is_shifted": {
         "type": "origins:resource",
