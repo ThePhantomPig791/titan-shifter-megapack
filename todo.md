@@ -1,19 +1,5 @@
 # To-Do list
 
-- [x] Cart Titan
-
-- [x] Make the Cart's mounts functional
-
-- [x] Warhammer rework
-
-- [x] Warhammer more weapons
-
-- [x] Warhammer buildings
-
-- [x] Founding shift into other titan selection rework
-
-- [x] Add Cart to Founding
-
 - [x] Update Founding Warhammer generation power
 
 - [ ] Titan AI using RAA
@@ -27,5 +13,7 @@
 - [ ] The Vow :scream:???//??////??/???
 
 - [x] Fix the `height` stat not being italicized
+
+- [ ] Move all assets to github :')
 
 - [ ] Remove old todo entries
