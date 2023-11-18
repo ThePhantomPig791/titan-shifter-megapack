@@ -2560,6 +2560,9 @@
                 },
                 {
                     "item": "minecraft:snowball"
+                },
+                {
+                    "item": "minecraft:potion"
                 }
             ]
         },
