@@ -368,7 +368,7 @@
     },
     "colossal_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/gmC4fM4/colossal.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/colossal/colossal.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -393,7 +393,7 @@
     },
     "colossal_titan_skin_steam": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/7Sdh79C/colossal-steam.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/colossal/colossal_steam.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -1210,7 +1210,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/Lt2WCSD/c1.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/colossal/c1.png"
     },
     "titan_marks_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1249,7 +1249,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/R3VsFrG/c2.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/colossal/c2.png"
     },
     "titan_marks_even_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1299,7 +1299,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/J25xP03/c3.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/colossal/c3.png"
     },
     "titan_marks_the_worst": {
         "type": "apugli:entity_texture_overlay",
@@ -1337,7 +1337,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/6BMYWYb/c4.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/colossal/c4.png"
     },
     "force_eject": {
         "type": "origins:action_over_time",

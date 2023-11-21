@@ -405,7 +405,7 @@
     },
     "cart_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/syxn6fM/cart.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/cart/cart.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -430,7 +430,7 @@
     },
     "cart_titan_skin_saddle_mount": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/CMShWxw/cart-saddle-mount.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/cart/cart_saddle_mount.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -455,7 +455,7 @@
     },
     "cart_titan_skin_barrel_mount": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/LQCZn0S/cart-barrel-mount.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/cart/cart_barrel_mount.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -480,7 +480,7 @@
     },
     "cart_titan_skin_rifle_mount": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/DzdLpTf/cart-rifle-mount.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/cart/cart_rifle_mount.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -1479,7 +1479,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/TTL1y9n/ca1.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/cart/ca1.png"
     },
     "titan_marks_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1512,7 +1512,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/hFhZB9n/ca2.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/cart/ca2.png"
     },
     "titan_marks_even_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1556,7 +1556,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/x81ZntC/ca3.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/cart/ca3.png"
     },
     "titan_marks_the_worst": {
         "type": "apugli:entity_texture_overlay",
@@ -1588,7 +1588,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/V3Q5NJn/ca4.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/cart/ca4.png"
     },
     "force_eject": {
         "type": "origins:action_over_time",

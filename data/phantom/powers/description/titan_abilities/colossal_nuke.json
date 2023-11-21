@@ -1,7 +1,7 @@
 {
     "type": "origins:active_self",
     "name": "'Because this world...'",
-    "description": "'...is just...'\n'...that cruel.' You can choose to let out a massive amount of energy upon transforming, creating a blast comparable to that of a nuclear bomb.",
+    "description": "'...is just...'\n'...that cruel.'\nYou can choose to let out a massive amount of energy upon transforming, creating a blast comparable to that of a nuclear bomb.",
     "badges": [
         {
             "type": "origins:keybind",

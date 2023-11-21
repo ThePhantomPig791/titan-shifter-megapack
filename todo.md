@@ -14,6 +14,6 @@
 
 - [x] Fix the `height` stat not being italicized
 
-- [ ] Move all assets to github :')
+- [x] Move all assets to github :')
 
 - [ ] Remove old todo entries

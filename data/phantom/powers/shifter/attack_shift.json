@@ -549,7 +549,7 @@
     },
     "attack_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/xsh64Bx/1.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/attack/1.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -580,7 +580,7 @@
     },
     "attack_titan_skin_kind_of_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/yYwRPDG/2.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/attack/2.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -611,7 +611,7 @@
     },
     "attack_titan_skin_completely_exhausted": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/Khxzqcs/3.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/attack/3.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -642,7 +642,7 @@
     },
     "attack_titan_skin_berserk": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/LxqbJqT/berserk.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/attack/berserk.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -1847,7 +1847,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/S0zy9cp/1.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/attack/1.png"
     },
     "titan_marks_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1880,7 +1880,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/0sXkg1T/2.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/attack/2.png"
     },
     "titan_marks_even_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1924,7 +1924,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/ySp3Cg7/3.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/attack/3.png"
     },
     "titan_marks_the_worst": {
         "type": "apugli:entity_texture_overlay",
@@ -1962,7 +1962,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/Pt3Gftq/4.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/attack/4.png"
     },
     "crystal_harden_thanks_null": {
         "type": "origins:active_self",

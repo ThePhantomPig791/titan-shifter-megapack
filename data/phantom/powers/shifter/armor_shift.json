@@ -457,7 +457,7 @@
     },
     "armor_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/g75RKMF/Reiner-s-Armored-Titan-Shingeki-no-Kyojin-on-planetminecraft-com.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/armor/Reiner-s-Armored-Titan-Shingeki-no-Kyojin-on-planetminecraft-com.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -482,7 +482,7 @@
     },
     "armor_titan_skin_shedded": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/7VPh8M5/Armor-Titan-Shedded.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/armor/Armor_Titan_Shedded.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -1472,7 +1472,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/rdjsV94/a1.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/armor/a1.png"
     },
     "titan_marks_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1505,7 +1505,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/Tk6wRYm/a2.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/armor/a2.png"
     },
     "titan_marks_even_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1555,7 +1555,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/gZf6BXb/a3.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/armor/a3.png"
     },
     "titan_marks_the_worst": {
         "type": "apugli:entity_texture_overlay",
@@ -1587,7 +1587,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/NmfcvS1/a4.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/armor/a4.png"
     },
     "force_eject": {
         "type": "origins:action_over_time",

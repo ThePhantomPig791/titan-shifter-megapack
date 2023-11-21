@@ -2,7 +2,6 @@
     "powers": [
         "phantom:shifter/warhammer_shift",
         "phantom:description/titan_abilities/warhammer_weapons",
-        "phantom:description/titan_abilities/warhammer_spikes",
         "phantom:description/titan_abilities/warhammer_crystal"
     ],
     "name": "Warhammer Titan",

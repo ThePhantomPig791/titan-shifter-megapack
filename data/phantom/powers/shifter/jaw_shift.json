@@ -641,7 +641,7 @@
     },
     "jaw_titan_skin_type_0": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/ZdP6q2B/The-Jaw-Titan-on-planetminecraft-com.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/jaw/porco-jaw.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -678,7 +678,7 @@
     },
     "jaw_titan_skin_type_0_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/SRRqHkv/pmcskin3d-alex-slim-arms-14.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/jaw/porco-jaw-weary.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -715,7 +715,7 @@
     },
     "jaw_titan_skin_type_0_marcel": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/LJx6Pt1/The-Jaw-Titan-on-planetminecraft-com.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/jaw/marcel-jaw.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -752,7 +752,7 @@
     },
     "jaw_titan_skin_type_0_weary_marcel": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/MS6jXHT/marcel-jaw-weary.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/jaw/marcel-jaw-weary.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -789,7 +789,7 @@
     },
     "jaw_titan_skin_type_1": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/NYgGLWN/ymir-jaw.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/jaw/ymir-jaw.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -820,7 +820,7 @@
     },
     "jaw_titan_skin_type_1_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/d4GYCBx/ymir-jaw-weary.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/jaw/ymir-jaw-weary.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -851,7 +851,7 @@
     },
     "jaw_titan_skin_type_2": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/Gk6V14y/falco-jaw.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/jaw/falco-jaw.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -882,7 +882,7 @@
     },
     "jaw_titan_skin_type_2_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/2vXG66p/falco-jaw-weary.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/jaw/falco-jaw-weary.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -1867,7 +1867,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/1qLBznb/j1.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/jaw/j1.png"
     },
     "titan_marks_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1911,7 +1911,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/7YNZ16J/j2.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/jaw/j2.png"
     },
     "titan_marks_even_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1955,7 +1955,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/mDdgr5Z/j3.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/jaw/j3.png"
     },
     "titan_marks_the_worst": {
         "type": "apugli:entity_texture_overlay",
@@ -1987,7 +1987,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/3mvbkTL/j4.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/jaw/j4.png"
     },
     "force_eject": {
         "type": "origins:action_over_time",

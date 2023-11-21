@@ -612,7 +612,7 @@
     },
     "warhammer_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/JC4WCVk/Warhammer.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/warhammer/Warhammer.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -637,7 +637,7 @@
     },
     "warhammer_titan_skin_kind_of_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/BqsJqF4/Warhammer-Weary.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/warhammer/Warhammer_Weary.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -662,7 +662,7 @@
     },
     "warhammer_titan_skin_slightly_more_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/vX7HR0M/Warhammer-Weary-More.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/warhammer/Warhammer_Weary_More.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -1806,7 +1806,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/L9GGxWY/w1.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/warhammer/w1.png"
     },
     "titan_marks_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1839,7 +1839,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/f1gbYYn/w2.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/warhammer/w2.png"
     },
     "titan_marks_even_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1883,7 +1883,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/GFd9Rf2/w3.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/warhammer/w3.png"
     },
     "titan_marks_the_worst": {
         "type": "apugli:entity_texture_overlay",
@@ -1921,7 +1921,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/PFYJgSp/w4.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/warhammer/w4.png"
     },
     "force_eject": {
         "type": "origins:action_over_time",
@@ -3243,7 +3243,7 @@
                                                 },
                                                 {
                                                     "type": "origins:execute_command",
-                                                    "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_crossbow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1b} 1",
+                                                    "command": "item replace entity @s weapon.mainhand with titan_shifter_megapack:titan_skin_crossbow{Powers:[{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"mainhand\", Negative: 0b},{Hidden:1b, Power: \"phantom:assign/warhammer_item\", Slot: \"offhand\", Negative: 0b}],display:{Name:'{\"text\":\"Titan-Skin Crossbow\",\"color\":\"white\",\"bold\":true}',Lore:['{\"text\":\"Only usable by Titans\"}']},WarhammerHardenedItem:1} 1",
                                                     "permission_level": 4
                                                 },
                                                 {

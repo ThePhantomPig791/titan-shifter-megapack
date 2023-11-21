@@ -622,7 +622,7 @@
     },
     "beast_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/mvBgk5n/beast-1.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/beast/beast-1.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -647,7 +647,7 @@
     },
     "beast_titan_skin_kind_of_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/bH5kpXG/beast-2.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/beast/beast-2.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -672,7 +672,7 @@
     },
     "beast_titan_skin_slightly_more_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/QKzPfwL/beast-3.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/beast/beast-3.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -697,7 +697,7 @@
     },
     "beast_titan_skin_most_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/YWHr5bb/beast-4.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/beast/beast-4.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -722,7 +722,7 @@
     },
     "beast_titan_eyes_royal_blood": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/2N5nY3F/eyes-royal-blood.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/beast/eyes-royal-blood.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -1704,7 +1704,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/z6s0vcV/b1.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/beast/b1.png"
     },
     "titan_marks_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1737,7 +1737,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/0Fty9mG/b2.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/beast/b2.png"
     },
     "titan_marks_even_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -1781,7 +1781,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/DRtZNtX/b3.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/beast/b3.png"
     },
     "titan_marks_the_worst": {
         "type": "apugli:entity_texture_overlay",
@@ -1819,7 +1819,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/3zLRn4Q/b4.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/beast/b4.png"
     },
     "force_eject": {
         "type": "origins:action_over_time",

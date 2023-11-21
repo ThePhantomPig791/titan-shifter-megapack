@@ -1,7 +1,7 @@
 {
     "type": "origins:multiple",
     "name": "Stats:",
-    "description": "§oMax Shifts§r: 4\n§oHeight§r: 13, 12.5, 12, 11.5\n§oSpeed§r: 2.3, 2.3, 2, 2\n§oStrength§r: 4.5, 4, 3.5, 3\n§oHealth§r: 2, 1.8, 1.6, 1.4\n§oDefense§r: 1.2, 1.1, 1, 1\n§oDurability§r: 20\n§oMinutes between shifts§r: 0.5, 3, 5\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 7",
+    "description": "§oMax Shifts§r: 5\n§oHeight§r: 13, 12.5, 12, 11.5, 11\n§oSpeed§r: 2.3, 2.3, 2, 2, 1.8\n§oStrength§r: 4.5, 4, 3.5, 3, 2.75\n§oHealth§r: 2, 1.8, 1.6, 1.4, 1.4\n§oDefense§r: 1.2, 1.1, 1, 1, 0.9\n§oDurability§r: 20\n§oMinutes between shifts§r: 0.5, 3, 4, 5\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 7",
     "badges": [],
     "is_shifted": {
         "type": "origins:resource",
@@ -1576,7 +1576,7 @@
     },
     "founding_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/8zb3s4F/founding.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -2596,7 +2596,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/bzNCpv5/fo1.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/founding/fo1.png"
     },
     "titan_marks_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -2629,7 +2629,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/sJ0VxLW/fo2.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/founding/fo2.png"
     },
     "titan_marks_even_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -2673,7 +2673,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/ZNQ8X0z/fo3.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/founding/fo3.png"
     },
     "titan_marks_the_worst": {
         "type": "apugli:entity_texture_overlay",
@@ -2711,7 +2711,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/B28DLSG/fo4.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/founding/fo4.png"
     },
     "force_eject": {
         "type": "origins:action_over_time",
@@ -4348,7 +4348,7 @@
     },
     "armor_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/5113fDP/founding-armor.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding_armor.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -4379,7 +4379,7 @@
     },
     "armor_titan_skin_shedded": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/4mWVJ6p/founding-armor-shed.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding_armor_shed.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -4580,7 +4580,7 @@
     },
     "attack_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/KyNtYJR/founding-attack.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding_attack.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -5052,7 +5052,7 @@
     },
     "beast_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/6DLMR7j/founding-beast.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding_beast.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -5387,7 +5387,7 @@
     },
     "colossal_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/qrmLLcL/founding-colossal.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding_colossal.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -5418,7 +5418,7 @@
     },
     "colossal_titan_skin_steam": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/H219GCV/founding-colossal-steam.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding_colossal_steam.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -5613,7 +5613,7 @@
     },
     "female_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/30Bjw4v/founding-female.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding_female.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -5650,7 +5650,7 @@
     },
     "female_titan_skin_hardened": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/5Fqr34Q/founding-female-hardened.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding_female_hardened.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -7157,7 +7157,7 @@
     },
     "warhammer_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/b6G7p2d/founding-warhammer.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding_warhammer.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -7966,7 +7966,7 @@
     },
     "jaw_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/r4rLRBS/founding-jaw.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding_jaw.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -8229,7 +8229,7 @@
     },
     "cart_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/z2rX4x0/founding-cart.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/founding/founding_cart.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,

@@ -1,7 +1,7 @@
 {
     "type": "origins:active_self",
     "name": "'You fought well...'",
-    "description": "'...right up to the end.' You can rapidly emit steam from your titan body to ignite and fling away any entities nearby.",
+    "description": "'...right up to the end.'\nYou can rapidly emit steam from your titan body to ignite and fling away any entities nearby.",
     "badges": [
         {
             "type": "origins:keybind",

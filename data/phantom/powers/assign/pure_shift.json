@@ -35,7 +35,7 @@
     },
     "skin_not_player_underlay": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/gvQcbXC/pure-not-player.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/pure-not-player.png",
         "show_first_person": true,
         "render_original_model": false,
         "render_player_outer_layer": false,
@@ -2690,7 +2690,7 @@
     },
     "skin_1": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/jbhC0QB/pure-1.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/pure_1.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -2715,7 +2715,7 @@
     },
     "skin_2": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/Gtz9zx7/pure-2.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/pure_2.png",
         "player_model": "default",
         "show_first_person": true,
         "render_original_model": false,
@@ -2740,7 +2740,7 @@
     },
     "skin_3": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/yyxYTQ9/pure-3.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/pure_3.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -2765,7 +2765,7 @@
     },
     "skin_4": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/C0VyGjB/pure-4.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/pure-4.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -2790,7 +2790,7 @@
     },
     "skin_5": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/JBVR5Sn/pure-5.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/pure-5.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -2815,7 +2815,7 @@
     },
     "skin_6": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/tbzw9Bm/pure-6.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/pure-6.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -2840,7 +2840,7 @@
     },
     "skin_7": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/NrgYdsp/pure-7.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/pure-7.png",
         "show_first_person": true,
         "render_original_model": false,
         "render_player_outer_layer": false,
@@ -2864,7 +2864,7 @@
     },
     "skin_8": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/gm5rH12/pure-8.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/pure-8.png",
         "show_first_person": true,
         "render_original_model": false,
         "render_player_outer_layer": false,
@@ -2888,7 +2888,7 @@
     },
     "skin_9": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/CPsWcR4/pure-9.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/pure-9.png",
         "show_first_person": true,
         "render_original_model": false,
         "render_player_outer_layer": false,
@@ -3806,7 +3806,7 @@
     },
     "skin_wall": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/FVhg44M/wall-titan.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/wall-titan.png",
         "show_first_person": true,
         "render_original_model": false,
         "render_player_outer_layer": false,

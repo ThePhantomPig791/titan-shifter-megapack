@@ -1,12 +1,12 @@
 {
     "type": "origins:active_self",
-    "name": "Hardened Weapons",
-    "description": "In titan form, you can manifest titan-sized weapons to aid you in combat. Be careful not to overuse this ability, as it can rapidly drain hunger.",
+    "name": "Hardening",
+    "description": "In titan form, you can manifest titan-sized weapons or structures to aid you in combat, earning you the title of \"architect\". Be careful not to overuse this ability, as it can rapidly drain hunger.",
     "badges": [
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/active.png",
-            "text": "Press %s to pick from a list of weapons."
+            "text": "Press %s to pick from a list of weapons or structures."
         }
     ],
     "key": {

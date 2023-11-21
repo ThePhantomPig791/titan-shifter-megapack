@@ -257,7 +257,7 @@
     },
     "berserk_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/FhcjVgz/berserk-skeleton.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/attack/berserk_skeleton.png",
         "condition": {
             "type": "origins:resource",
             "resource": "*:*_is_berserk_skeleton",
@@ -267,7 +267,7 @@
     },
     "wall_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/FHvNfFd/wall-titan-skeleton.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/pure/wall-titan-skeleton.png",
         "condition": {
             "type": "origins:resource",
             "resource": "*:*_is_wall_skeleton",

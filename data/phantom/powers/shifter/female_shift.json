@@ -468,7 +468,7 @@
     },
     "female_titan_skin": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/SX4t5Xq/Female-Titan.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/female/Female-Titan.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -499,7 +499,7 @@
     },
     "female_titan_skin_kind_of_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/YDVcXkx/Female-Weary.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/female/Female-Weary.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -530,7 +530,7 @@
     },
     "female_titan_skin_hardened": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/dg9X4W0/Female-Titan-Hardened.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/female/Female-Titan-Hardened.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -561,7 +561,7 @@
     },
     "female_titan_skin_hardened_and_weary": {
         "type": "apugli:entity_texture_overlay",
-        "texture_url": "https://i.ibb.co/F3SDMSh/Female-Weary-Hardened.png",
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/titans/female/Female-Weary-Hardened.png",
         "player_model": "slim",
         "show_first_person": true,
         "render_original_model": false,
@@ -2261,7 +2261,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/5jR8pSm/f1.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/female/f1.png"
     },
     "titan_marks_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -2305,7 +2305,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/3hTP4Tz/f2.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/female/f2.png"
     },
     "titan_marks_even_worse": {
         "type": "apugli:entity_texture_overlay",
@@ -2349,7 +2349,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/jMvknf1/f3.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/female/f3.png"
     },
     "titan_marks_the_worst": {
         "type": "apugli:entity_texture_overlay",
@@ -2381,7 +2381,7 @@
                 }
             ]
         },
-        "texture_url": "https://i.ibb.co/qxvYwQv/f4.png"
+        "texture_url": "https://raw.githubusercontent.com/ThePhantomPig791/titan_shifter_megapack_assets/main/marks/female/f4.png"
     },
     "force_eject": {
         "type": "origins:action_over_time",

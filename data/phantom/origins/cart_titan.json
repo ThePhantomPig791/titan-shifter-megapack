@@ -5,7 +5,7 @@
         "phantom:description/titan_abilities/cart_mounts"
     ],
     "name": "Cart Titan",
-    "description": "As a transportation and military unit, the Cart Titan does not excel at hand-to-hand combat, but instead can be outfitted with multiple forms of tactical gear.",
+    "description": "As a transportation and military unit, the Cart Titan does not excel at hand-to-hand combat, but instead can be outfitted with multiple forms of tactical gear. However, its extreme durability makes up for its below-average strength.",
     "impact": 3,
     "order": 7,
     "icon": "minecraft:dead_tube_coral"
