@@ -1936,20 +1936,47 @@
                     "compare_to": 1
                 },
                 {
-                    "type": "origins:food_level",
-                    "comparison": "<=",
-                    "compare_to": 6
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:food_level",
+                                    "comparison": "<=",
+                                    "compare_to": 6
+                                },
+                                {
+                                    "type": "origins:gamemode",
+                                    "gamemode": "creative",
+                                    "inverted": true
+                                }
+                            ]
+                        },
+                        {
+                            "type": "origins:and",
+                            "conditions": [
+                                {
+                                    "type": "origins:command",
+                                    "command": "execute if entity @s[tag=HasCrystalDown]",
+                                    "comparison": "!=",
+                                    "compare_to": 0
+                                },
+                                {
+                                    "type": "origins:resource",
+                                    "resource": "*:*_crystal_placed",
+                                    "comparison": "!=",
+                                    "compare_to": 0
+                                }
+                            ]
+                        }
+                    ]
                 },
                 {
                     "type": "origins:resource",
                     "resource": "*:*_shift",
                     "comparison": "==",
                     "compare_to": 0
-                },
-                {
-                    "type": "origins:gamemode",
-                    "gamemode": "creative",
-                    "inverted": true
                 }
             ]
         },
@@ -2965,6 +2992,11 @@
             ]
         }
     },
+    "crystal_placed": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 1
+    },
     "crystal_loop": {
         "type": "origins:action_over_time",
         "interval": 1,
@@ -2984,6 +3016,18 @@
                     "compare_to": 1
                 }
             ]
+        },
+        "falling_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_crystal_placed",
+            "change": 0,
+            "operation": "set"
+        },
+        "rising_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_crystal_placed",
+            "change": 1,
+            "operation": "set"
         },
         "entity_action": {
             "type": "origins:area_of_effect",
