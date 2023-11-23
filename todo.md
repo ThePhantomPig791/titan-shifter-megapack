@@ -16,6 +16,6 @@
 
 - [x] Move all assets to github :')
 
-- [ ] Make the Jaw able to break a Warhammer crystal while the latter's titan is still in use
+- [x] Make the Jaw able to break a Warhammer crystal while the latter's titan is still in use
 
 - [ ] Remove old todo entries

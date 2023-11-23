@@ -1,4 +1,4 @@
-scale set pehkui:defense 7
+scale set pehkui:defense 3
 scale set pehkui:motion 2
 scale set pehkui:attack 9
 playsound minecraft:entity.zombie_villager.cure player @a[distance=..32] ~ ~ ~ 0.3 0.1

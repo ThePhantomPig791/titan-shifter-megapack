@@ -7572,10 +7572,19 @@
                                 "condition": {
                                     "type": "origins:actor_condition",
                                     "condition": {
-                                        "type": "origins:command",
-                                        "command": "execute if entity @s[nbt={SelectedItemSlot:8}]",
-                                        "comparison": "!=",
-                                        "compare_to": 0
+                                        "type": "origins:and",
+                                        "conditions": [
+                                            {
+                                                "type": "origins:constant",
+                                                "value": false
+                                            },
+                                            {
+                                                "type": "origins:command",
+                                                "command": "execute if entity @s[nbt={SelectedItemSlot:8}]",
+                                                "comparison": "!=",
+                                                "compare_to": 0
+                                            }
+                                        ]
                                     }
                                 },
                                 "if_action": {
