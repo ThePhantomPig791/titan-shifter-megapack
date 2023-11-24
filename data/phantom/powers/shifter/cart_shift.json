@@ -1,7 +1,7 @@
 {
     "type": "origins:multiple",
     "name": "Stats:",
-    "description": "§oMax Shifts§r: 30\n§oHeight§r: 4\n§oSpeed§r: 5\n§oStrength§r: 2\n§oHealth§r: 3\n§oDefense§r: 1\n§oDurability§r: 500%\n§oSeconds between shifts§r: 5 (on normal ejection terms)\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 1",
+    "description": "§oMax Shifts§r: 30\n§oHeight§r: 4\n§oSpeed§r: 5\n§oStrength§r: 2\n§oHealth§r: 3\n§oDefense§r: 1\n§oDurability§r: 500%\n§oSeconds between shifts§r: 3 (on normal ejection terms)\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 1",
     "badges": [],
     "is_shifted": {
         "type": "origins:resource",
@@ -32,7 +32,7 @@
         "key": {
             "key": "key.origins.primary_active"
         },
-        "cooldown": 120,
+        "cooldown": 40,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -163,7 +163,7 @@
         "key": {
             "key": "key.origins.primary_active"
         },
-        "cooldown": 120,
+        "cooldown": 40,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -196,7 +196,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "resource set @s phantom:shifter/cart_shift_shifting_cooldown 11000",
+                    "command": "resource set @s phantom:shifter/cart_shift_shifting_cooldown 11500",
                     "permission_level": 4
                 },
                 {
@@ -1320,8 +1320,17 @@
             "type": "origins:and",
             "actions": [
                 {
-                    "type": "origins:trigger_cooldown",
-                    "power": "*:*_actual_cooldown"
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_amount_of_shifts",
+                        "comparison": ">=",
+                        "compare_to": 10
+                    },
+                    "if_action": {
+                        "type": "origins:trigger_cooldown",
+                        "power": "*:*_actual_cooldown"
+                    }
                 },
                 {
                     "type": "origins:delay",
@@ -1365,7 +1374,7 @@
                 },
                 {
                     "type": "origins:execute_command",
-                    "command": "resource set @s phantom:shifter/cart_shift_shifting_cooldown 7000",
+                    "command": "resource set @s phantom:shifter/cart_shift_shifting_cooldown 10000",
                     "permission_level": 4
                 },
                 {

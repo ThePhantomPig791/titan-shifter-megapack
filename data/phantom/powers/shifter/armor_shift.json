@@ -515,6 +515,7 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
+        "cooldown": 3,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -2020,7 +2021,11 @@
     },
     "punch_explosion": {
         "type": "origins:active_self",
-        "cooldown": 60,
+        "cooldown": 40,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 2
+        },
         "key": {
             "key": "key.attack"
         },
@@ -2045,11 +2050,12 @@
                     }
                 },
                 {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "offhand",
-                    "item_condition": {
-                        "type": "origins:empty"
-                    }
+                    "type": "origins:raycast",
+                    "distance": 16,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any"
                 }
             ]
         },
@@ -2068,13 +2074,13 @@
                         "action": {
                             "type": "origins:explode",
                             "destruction_type": "break",
-                            "power": 1
+                            "power": 2
                         }
                     },
                     "block_action": {
                         "type": "origins:explode",
                         "destruction_type": "break",
-                        "power": 1
+                        "power": 2
                     },
                     "command_step": 1
                 }
@@ -2090,7 +2096,7 @@
         "hud_render": {
             "should_render": true,
             "sprite_location": "origins:textures/gui/community/huang/resource_bar_01.png",
-            "bar_index": 3
+            "bar_index": 20
         },
         "condition": {
             "type": "origins:and",
@@ -2106,12 +2112,44 @@
                     "resource": "*:*_is_shifted",
                     "comparison": "==",
                     "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_shed",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
             ]
         },
         "entity_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:speed",
+                        "duration": 10,
+                        "amplifier": 2,
+                        "is_ambient": false,
+                        "show_particles": false,
+                        "show_icon": true
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:apply_effect",
+                        "effect": {
+                            "effect": "minecraft:speed",
+                            "duration": 10,
+                            "amplifier": 5,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        }
+                    }
+                },
                 {
                     "type": "origins:delay",
                     "ticks": 10,
@@ -2120,29 +2158,6 @@
                         "resource": "*:*_is_charging",
                         "change": 1,
                         "operation": "set"
-                    }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "effect give @s minecraft:speed 10 2 true",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:delay",
-                    "ticks": 5,
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "effect give @s minecraft:speed 10 5 true",
-                        "permission_level": 4
-                    }
-                },
-                {
-                    "type": "origins:delay",
-                    "ticks": 10,
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "effect give @s minecraft:speed 1000000 10 true",
-                        "permission_level": 4
                     }
                 }
             ]
@@ -2182,6 +2197,17 @@
                     "inverted": true
                 }
             ]
+        },
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:speed",
+                "duration": 10,
+                "amplifier": 10,
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": true
+            }
         },
         "falling_action": {
             "type": "origins:and",

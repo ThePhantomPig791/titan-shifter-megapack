@@ -7,6 +7,7 @@
         "phantom:description/skeleton",
         "phantom:description/marks",
         "phantom:description/death_ejection",
+        "phantom:description/titan_grabbing",
         "phantom:description/extra_stats",
         "phantom:description/particles"
     ],

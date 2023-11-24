@@ -28,6 +28,7 @@ scale set pehkui:projectiles 1
 effect give @s minecraft:instant_health 1 10 true
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
 tag @s remove TSMP.Titan
+tag @s remove TSMP.HugeTitan
 tag @s remove HasCrystalDown
 resource set @s phantom:shifter/founding_shift_titan 0
 power revoke @s phantom:assign/founding_jaw_shift_climb

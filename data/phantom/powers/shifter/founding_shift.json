@@ -1302,20 +1302,6 @@
                     "permission_level": 4
                 },
                 {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_titan",
-                        "comparison": "!=",
-                        "compare_to": 0
-                    },
-                    "if_action": {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_titan",
-                        "change": -2000
-                    }
-                },
-                {
                     "type": "origins:if_else_list",
                     "actions": [
                         {
@@ -1435,6 +1421,11 @@
                             }
                         }
                     ]
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_titan",
+                    "change": -2000
                 },
                 {
                     "type": "origins:delay",
@@ -1725,8 +1716,52 @@
                     "change": -1
                 },
                 {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:resource",
+                        "resource": "*:*_titan",
+                        "comparison": "==",
+                        "compare_to": 4
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "resource set @s phantom:shifter/founding_shift_shifting_cooldown 3000",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function phantom:shift/colossal_titan/unshift",
+                                "permission_level": 4
+                            }
+                        ]
+                    },
+                    "else_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:execute_command",
+                                "command": "resource set @s phantom:shifter/founding_shift_shifting_cooldown 6000",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "function phantom:shift/female_titan/unshift",
+                                "permission_level": 4
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_titan",
+                    "change": -2000
+                },
+                {
                     "type": "origins:execute_command",
-                    "command": "function phantom:shift/founding_titan/unshift",
+                    "command": "effect clear @s",
                     "permission_level": 4
                 },
                 {
@@ -1737,16 +1772,6 @@
                         "command": "effect give @s minecraft:instant_health 1 0 true",
                         "permission_level": 4
                     }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "resource set @s phantom:shifter/founding_shift_shifting_cooldown 7000",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "effect clear @s",
-                    "permission_level": 4
                 },
                 {
                     "type": "origins:execute_command",
@@ -2239,6 +2264,11 @@
                         "resource": "*:*_shifting_cooldown",
                         "change": 12000,
                         "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_titan",
+                        "change": -2000
                     }
                 ]
             }
@@ -2263,20 +2293,6 @@
                         "type": "origins:execute_command",
                         "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
                         "permission_level": 4
-                    },
-                    {
-                        "type": "origins:if_else",
-                        "condition": {
-                            "type": "origins:resource",
-                            "resource": "*:*_titan",
-                            "comparison": "!=",
-                            "compare_to": 0
-                        },
-                        "if_action": {
-                            "type": "origins:change_resource",
-                            "resource": "*:*_titan",
-                            "change": -2000
-                        }
                     },
                     {
                         "type": "origins:if_else_list",
@@ -2400,6 +2416,11 @@
                         ]
                     },
                     {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_titan",
+                        "change": -2000
+                    },
+                    {
                         "type": "origins:delay",
                         "ticks": 5,
                         "action": {
@@ -2456,6 +2477,50 @@
                         "change": -1
                     },
                     {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_titan",
+                            "comparison": "==",
+                            "compare_to": 4
+                        },
+                        "if_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "resource set @s phantom:shifter/founding_shift_shifting_cooldown 4000",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "function phantom:shift/colossal_titan/unshift",
+                                    "permission_level": 4
+                                }
+                            ]
+                        },
+                        "else_action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "resource set @s phantom:shifter/founding_shift_shifting_cooldown 7000",
+                                    "permission_level": 4
+                                },
+                                {
+                                    "type": "origins:execute_command",
+                                    "command": "function phantom:shift/female_titan/unshift",
+                                    "permission_level": 4
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_titan",
+                        "change": -2000
+                    },
+                    {
                         "type": "origins:execute_command",
                         "command": "function phantom:shift/founding_titan/unshift",
                         "permission_level": 4
@@ -2468,11 +2533,6 @@
                             "command": "effect give @s minecraft:instant_health 1 0 true",
                             "permission_level": 4
                         }
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "resource set @s phantom:shifter/founding_shift_shifting_cooldown 7000",
-                        "permission_level": 4
                     },
                     {
                         "type": "origins:execute_command",
@@ -2763,20 +2823,6 @@
                     "permission_level": 4
                 },
                 {
-                    "type": "origins:if_else",
-                    "condition": {
-                        "type": "origins:resource",
-                        "resource": "*:*_titan",
-                        "comparison": "!=",
-                        "compare_to": 0
-                    },
-                    "if_action": {
-                        "type": "origins:change_resource",
-                        "resource": "*:*_titan",
-                        "change": -2000
-                    }
-                },
-                {
                     "type": "origins:if_else_list",
                     "actions": [
                         {
@@ -2896,6 +2942,11 @@
                             }
                         }
                     ]
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_titan",
+                    "change": -2000
                 },
                 {
                     "type": "origins:delay",
@@ -4044,15 +4095,41 @@
                 },
                 {
                     "type": "origins:resource",
-                    "resource": "*:*_titan",
+                    "resource": "*:*_shed",
                     "comparison": "==",
-                    "compare_to": 3
+                    "compare_to": 0
                 }
             ]
         },
         "entity_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:apply_effect",
+                    "effect": {
+                        "effect": "minecraft:speed",
+                        "duration": 10,
+                        "amplifier": 2,
+                        "is_ambient": false,
+                        "show_particles": false,
+                        "show_icon": true
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:apply_effect",
+                        "effect": {
+                            "effect": "minecraft:speed",
+                            "duration": 10,
+                            "amplifier": 5,
+                            "is_ambient": false,
+                            "show_particles": false,
+                            "show_icon": true
+                        }
+                    }
+                },
                 {
                     "type": "origins:delay",
                     "ticks": 10,
@@ -4061,29 +4138,6 @@
                         "resource": "*:*_is_charging",
                         "change": 1,
                         "operation": "set"
-                    }
-                },
-                {
-                    "type": "origins:execute_command",
-                    "command": "effect give @s minecraft:speed 10 2 true",
-                    "permission_level": 4
-                },
-                {
-                    "type": "origins:delay",
-                    "ticks": 5,
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "effect give @s minecraft:speed 10 5 true",
-                        "permission_level": 4
-                    }
-                },
-                {
-                    "type": "origins:delay",
-                    "ticks": 10,
-                    "action": {
-                        "type": "origins:execute_command",
-                        "command": "effect give @s minecraft:speed 1000000 10 true",
-                        "permission_level": 4
                     }
                 }
             ]
@@ -4119,12 +4173,21 @@
                     "type": "origins:sprinting"
                 },
                 {
-                    "type": "origins:resource",
-                    "resource": "*:*_titan",
-                    "comparison": "==",
-                    "compare_to": 3
+                    "type": "origins:sneaking",
+                    "inverted": true
                 }
             ]
+        },
+        "entity_action": {
+            "type": "origins:apply_effect",
+            "effect": {
+                "effect": "minecraft:speed",
+                "duration": 10,
+                "amplifier": 10,
+                "is_ambient": false,
+                "show_particles": false,
+                "show_icon": true
+            }
         },
         "falling_action": {
             "type": "origins:and",
@@ -4237,6 +4300,7 @@
         "key": {
             "key": "key.origins.secondary_active"
         },
+        "cooldown": 3,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -4279,7 +4343,11 @@
     },
     "armor_punch_explosion": {
         "type": "origins:active_self",
-        "cooldown": 60,
+        "cooldown": 40,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 2
+        },
         "key": {
             "key": "key.attack"
         },
@@ -4304,11 +4372,12 @@
                     }
                 },
                 {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "offhand",
-                    "item_condition": {
-                        "type": "origins:empty"
-                    }
+                    "type": "origins:raycast",
+                    "distance": 16,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any"
                 },
                 {
                     "type": "origins:resource",
@@ -4333,13 +4402,13 @@
                         "action": {
                             "type": "origins:explode",
                             "destruction_type": "break",
-                            "power": 1
+                            "power": 2
                         }
                     },
                     "block_action": {
                         "type": "origins:explode",
                         "destruction_type": "break",
-                        "power": 1
+                        "power": 2
                     },
                     "command_step": 1
                 }
@@ -5318,7 +5387,11 @@
     },
     "colossal_punch_explosion": {
         "type": "origins:active_self",
-        "cooldown": 60,
+        "cooldown": 80,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 2
+        },
         "key": {
             "key": "key.attack"
         },
@@ -5343,11 +5416,12 @@
                     }
                 },
                 {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "offhand",
-                    "item_condition": {
-                        "type": "origins:empty"
-                    }
+                    "type": "origins:raycast",
+                    "distance": 100,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any"
                 },
                 {
                     "type": "origins:resource",
@@ -7276,16 +7350,16 @@
                         {
                             "effect": "minecraft:resistance",
                             "duration": 1200,
-                            "amplifier": 6,
+                            "amplifier": 4,
                             "show_particles": false,
-                            "show_icon": false
+                            "show_icon": true
                         },
                         {
                             "effect": "minecraft:regeneration",
-                            "duration": 1400,
-                            "amplifier": 9,
+                            "duration": 300,
+                            "amplifier": 4,
                             "show_particles": false,
-                            "show_icon": false
+                            "show_icon": true
                         }
                     ]
                 }
@@ -7305,6 +7379,90 @@
                     "nbt": "{TSMP_RoyalBlood:1}"
                 }
             ]
+        }
+    },
+    "royal_blood_loop": {
+        "type": "origins:action_over_time",
+        "interval": 20,
+        "condition": {
+            "type": "origins:resource",
+            "resource": "*:*_royal_blood",
+            "comparison": "!=",
+            "compare_to": 0
+        },
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_is_shifted",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_amount_of_shifts",
+                        "change": 0,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:apply_effect",
+                        "effects": [
+                            {
+                                "effect": "minecraft:resistance",
+                                "duration": 220,
+                                "amplifier": 1,
+                                "show_particles": false,
+                                "show_icon": true
+                            },
+                            {
+                                "effect": "minecraft:regeneration",
+                                "duration": 220,
+                                "amplifier": 2,
+                                "show_particles": false,
+                                "show_icon": true
+                            }
+                        ]
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_shifting_cooldown",
+                        "change": -150
+                    }
+                ]
+            },
+            "else_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_amount_of_shifts",
+                        "change": 1,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:apply_effect",
+                        "effects": [
+                            {
+                                "effect": "minecraft:resistance",
+                                "duration": 220,
+                                "amplifier": 2,
+                                "show_particles": false,
+                                "show_icon": true
+                            },
+                            {
+                                "effect": "minecraft:regeneration",
+                                "duration": 220,
+                                "amplifier": 1,
+                                "show_particles": false,
+                                "show_icon": true
+                            }
+                        ]
+                    }
+                ]
+            }
         }
     },
     "mass_pure_transform": {

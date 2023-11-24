@@ -1747,7 +1747,11 @@
     },
     "punch_explosion": {
         "type": "origins:active_self",
-        "cooldown": 60,
+        "cooldown": 80,
+        "hud_render": {
+            "sprite_location": "origins:textures/gui/community/huang/resource_bar_02.png",
+            "bar_index": 2
+        },
         "key": {
             "key": "key.attack"
         },
@@ -1772,11 +1776,12 @@
                     }
                 },
                 {
-                    "type": "origins:equipped_item",
-                    "equipment_slot": "offhand",
-                    "item_condition": {
-                        "type": "origins:empty"
-                    }
+                    "type": "origins:raycast",
+                    "distance": 100,
+                    "block": true,
+                    "entity": true,
+                    "shape_type": "collider",
+                    "fluid_handling": "any"
                 }
             ]
         },

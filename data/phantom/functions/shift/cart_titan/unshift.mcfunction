@@ -11,7 +11,7 @@ execute at @e[tag=titan_corpse,limit=1,distance=..5,sort=nearest] run tp @s ~ ~1
 tp @s ^ ^ ^-1
 effect give @s minecraft:invisibility 1 1 true
 effect give @s minecraft:night_vision 2 1 true
-effect give @s minecraft:blindness 2 5 true
+effect give @s minecraft:blindness 1 5 true
 playsound minecraft:block.fire.extinguish player @a[distance=..32] ~ ~ ~ 10
 scale set pehkui:width 1
 scale set pehkui:height 1
