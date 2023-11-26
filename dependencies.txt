@@ -1,5 +1,3 @@
-- Minecraft 1.19.3
-
 - Origins (therefore Apoli, which the former includes): https://modrinth.com/mod/origins/
 
 - Apugli: https://modrinth.com/mod/apugli/
