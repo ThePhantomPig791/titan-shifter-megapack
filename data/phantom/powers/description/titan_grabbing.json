@@ -1,15 +1,12 @@
 {
-    "type": "origins:active_self",
+    "type": "origins:simple",
     "name": "Massive Hands",
     "description": "In Titan form, you can grab other entities. If the entity is too big, like the Ender Dragon or another titan, the grabbing won't work. However, if you're the Colossal Titan, you can grab other, smaller titans. Once you've grabbed something, you can crush, drop, or throw it. Be careful, though, because taking over a few hearts of damage will make you drop what you're holding.",
     "badges": [
         {
-            "type": "origins:keybind",
+            "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/active.png",
             "text": "Grab entities by right clicking them. You can crush/eat them with the load toolbar activator key, drop them with the save toolbar key, and throw them with sneak + save toolbar."
         }
-    ],
-    "entity_action": {
-        "type": "origins:nothing"
-    }
+    ]
 }

@@ -1,0 +1,10 @@
+{
+    "replace": false,
+    "values": [
+        "#apoli:material/wood",
+        "#minecraft:leaves",
+        "#minecraft:flowers",
+        "#minecraft:wool",
+        "#minecraft:wool_carpets"
+    ]
+}

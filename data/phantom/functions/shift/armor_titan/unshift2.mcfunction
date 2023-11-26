@@ -24,6 +24,7 @@ effect clear @s minecraft:slowness
 effect clear @s minecraft:slow_falling
 effect clear @s minecraft:speed
 effect give @s minecraft:instant_health 1 0 true
+attribute @s minecraft:generic.attack_speed base set 4
 particle minecraft:flash ~ ~2 ~ 2 4 2 0.00001 250
 resource set @s phantom:shifter/armor_shift_is_shedded 0
 resource set @s phantom:shifter/armor_shift_is_charging 0

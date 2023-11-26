@@ -69,6 +69,10 @@
             "type": "origins:and",
             "actions": [
                 {
+                    "type": "origins:set_fall_distance",
+                    "fall_distance": 0
+                },
+                {
                     "type": "origins:if_else_list",
                     "actions": [
                         {
@@ -118,7 +122,7 @@
                                         },
                                         "if_action": {
                                             "type": "origins:explode",
-                                            "power": 20,
+                                            "power": 10,
                                             "destruction_type": "break",
                                             "damage_self": false
                                         },
@@ -747,7 +751,17 @@
                             },
                             {
                                 "type": "origins:execute_command",
-                                "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..16] ~ ~ ~ 0.3 0.1",
+                                "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..100] ~ ~ ~ 0.3 0.1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..100] ~ ~25 ~ 0.3 0.1",
+                                "permission_level": 4
+                            },
+                            {
+                                "type": "origins:execute_command",
+                                "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..100] ~ ~50 ~ 0.3 0.1",
                                 "permission_level": 4
                             }
                         ]
@@ -1025,6 +1039,16 @@
                         "resource": "*:*_shifting_cooldown",
                         "change": 12000,
                         "operation": "set"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove TSMP.Titan",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove TSMP.HugeTitan",
+                        "permission_level": 4
                     }
                 ]
             }
@@ -2245,6 +2269,10 @@
                                 "type": "origins:and",
                                 "actions": [
                                     {
+                                        "type": "origins:set_fall_distance",
+                                        "fall_distance": 0
+                                    },
+                                    {
                                         "type": "origins:change_resource",
                                         "resource": "*:*_is_shifted",
                                         "change": 1
@@ -2263,13 +2291,95 @@
                                         }
                                     },
                                     {
+                                        "type": "origins:block_action_at",
+                                        "block_action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 10,
+                                            "shape": "sphere",
+                                            "block_condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:hardness",
+                                                        "comparison": "<=",
+                                                        "compare_to": 100
+                                                    },
+                                                    {
+                                                        "type": "origins:hardness",
+                                                        "comparison": ">=",
+                                                        "compare_to": 0
+                                                    }
+                                                ]
+                                            },
+                                            "block_action": {
+                                                "type": "origins:set_block",
+                                                "block": "minecraft:air"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:heal",
+                                        "amount": 30
+                                    },
+                                    {
                                         "type": "origins:delay",
-                                        "ticks": 5,
+                                        "ticks": 3,
                                         "action": {
                                             "type": "origins:execute_command",
                                             "command": "function phantom:shift/colossal_titan/nuke_shift",
                                             "permission_level": 4
                                         }             
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 2,
+                                        "action": {
+                                            "type": "origins:heal",
+                                            "amount": 30
+                                        }         
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 3,
+                                        "action": {
+                                            "type": "origins:heal",
+                                            "amount": 30
+                                        }         
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 4,
+                                        "action": {
+                                            "type": "origins:heal",
+                                            "amount": 30
+                                        }         
+                                    },
+                                    {
+                                        "type": "origins:block_action_at",
+                                        "block_action": {
+                                            "type": "origins:area_of_effect",
+                                            "radius": 35,
+                                            "shape": "sphere",
+                                            "block_condition": {
+                                                "type": "origins:and",
+                                                "conditions": [
+                                                    {
+                                                        "type": "origins:hardness",
+                                                        "comparison": "<=",
+                                                        "compare_to": 20
+                                                    },
+                                                    {
+                                                        "type": "origins:hardness",
+                                                        "comparison": ">=",
+                                                        "compare_to": 0
+                                                    }
+                                                ]
+                                            },
+                                            "block_action": {
+                                                "type": "origins:set_block",
+                                                "block": "minecraft:air"
+                                            }
+                                        }
                                     },
                                     {
                                         "type": "origins:execute_command",
@@ -2287,14 +2397,66 @@
                                         "saturation": 1
                                     },
                                     {
-                                        "type": "origins:explode",
-                                        "power": 150,
-                                        "destruction_type": "break",
-                                        "damage_self": false
+                                        "type": "origins:block_action_at",
+                                        "block_action": {
+                                            "type": "origins:offset",
+                                            "y": 10,
+                                            "action": {
+                                                "type": "origins:and",
+                                                "actions": [
+                                                    {
+                                                        "type": "origins:area_of_effect",
+                                                        "radius": 40,
+                                                        "shape": "sphere",
+                                                        "block_condition": {
+                                                            "type": "origins:in_tag",
+                                                            "tag": "phantom:burn_from_steam"
+                                                        },
+                                                        "block_action": {
+                                                            "type": "origins:set_block",
+                                                            "block": "minecraft:fire"
+                                                        }
+                                                    },
+                                                    {
+                                                        "type": "origins:area_of_effect",
+                                                        "radius": 50,
+                                                        "shape": "sphere",
+                                                        "block_condition": {
+                                                            "type": "origins:or",
+                                                            "conditions": [
+                                                                {
+                                                                    "type": "origins:in_tag",
+                                                                    "tag": "phantom:evaporate_from_steam"
+                                                                },
+                                                                {
+                                                                    "type": "origins:block",
+                                                                    "block": "minecraft:lava"
+                                                                }
+                                                            ]
+                                                        },
+                                                        "block_action": {
+                                                            "type": "origins:set_block",
+                                                            "block": "minecraft:air"
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
                                     },
                                     {
                                         "type": "origins:delay",
-                                        "ticks": 10,
+                                        "ticks": 1,
+                                        "action": {
+                                            "type": "origins:explode",
+                                            "power": 150,
+                                            "destruction_type": "break",
+                                            "damage_self": false,
+                                            "create_fire": true
+                                        }
+                                    },
+                                    {
+                                        "type": "origins:delay",
+                                        "ticks": 5,
                                         "action": {
                                             "type": "origins:area_of_effect",
                                             "radius": 200,
@@ -2354,6 +2516,35 @@
                         "command": "effect give @s minecraft:instant_health 1 10 true",
                         "permission_level": 4
                     }
+                }
+            ]
+        }
+    },
+    "fall_immunity": {
+        "type": "origins:modify_falling",
+        "take_fall_damage": false,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        }
+    },
+    "fire_immunity": {
+        "type": "origins:fire_immunity",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "!=",
+                    "compare_to": 0
                 }
             ]
         }
@@ -2491,6 +2682,16 @@
                 },
                 {
                     "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..100] ~ ~25 ~ 3 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..100] ~ ~50 ~ 3 0.5",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
                     "command": "scale delay set pehkui:attack 0",
                     "permission_level": 4
                 },
@@ -2517,6 +2718,16 @@
                 {
                     "type": "origins:execute_command",
                     "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..100] ~ ~ ~ 1 0.3",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..100] ~ ~25 ~ 1 0.3",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "playsound minecraft:entity.generic.extinguish_fire player @a[distance=..100] ~ ~50 ~ 1 0.3",
                     "permission_level": 4
                 },
                 {
@@ -2581,6 +2792,86 @@
         "entity_action": {
             "type": "origins:and",
             "actions": [
+                {
+                    "type": "origins:block_action_at",
+                    "block_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 35,
+                                "shape": "sphere",
+                                "block_condition": {
+                                    "type": "origins:in_tag",
+                                    "tag": "phantom:burn_from_steam"
+                                },
+                                "block_action": {
+                                    "type": "origins:chance",
+                                    "chance": 0.25,
+                                    "action": {
+                                        "type": "origins:set_block",
+                                        "block": "minecraft:fire"
+                                    }
+                                }
+                            },
+                            {
+                                "type": "origins:area_of_effect",
+                                "radius": 25,
+                                "shape": "sphere",
+                                "block_condition": {
+                                    "type": "origins:in_tag",
+                                    "tag": "phantom:evaporate_from_steam"
+                                },
+                                "block_action": {
+                                    "type": "origins:set_block",
+                                    "block": "minecraft:air"
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:block_action_at",
+                    "block_action": {
+                        "type": "origins:offset",
+                        "y": 40,
+                        "action": {
+                            "type": "origins:and",
+                            "actions": [
+                                {
+                                    "type": "origins:area_of_effect",
+                                    "radius": 35,
+                                    "shape": "sphere",
+                                    "block_condition": {
+                                        "type": "origins:in_tag",
+                                        "tag": "phantom:burn_from_steam"
+                                    },
+                                    "block_action": {
+                                        "type": "origins:chance",
+                                        "chance": 0.25,
+                                        "action": {
+                                            "type": "origins:set_block",
+                                            "block": "minecraft:fire"
+                                        }
+                                    }
+                                },
+                                {
+                                    "type": "origins:area_of_effect",
+                                    "radius": 25,
+                                    "shape": "sphere",
+                                    "block_condition": {
+                                        "type": "origins:in_tag",
+                                        "tag": "phantom:evaporate_from_steam"
+                                    },
+                                    "block_action": {
+                                        "type": "origins:set_block",
+                                        "block": "minecraft:air"
+                                    }
+                                }
+                            ]
+                        }
+                    }
+                },
                 {
                     "type": "origins:area_of_effect",
                     "radius": 100,

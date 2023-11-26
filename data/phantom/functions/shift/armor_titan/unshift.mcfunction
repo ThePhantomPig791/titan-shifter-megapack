@@ -24,6 +24,7 @@ scale set pehkui:defense 1
 scale set pehkui:held_item 1
 effect clear @s minecraft:speed
 effect give @s minecraft:instant_health 1 10 true
+attribute @s minecraft:generic.attack_speed base set 4
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
 resource set @s phantom:shifter/armor_shift_is_shedded 0
 resource set @s phantom:shifter/armor_shift_is_charging 0

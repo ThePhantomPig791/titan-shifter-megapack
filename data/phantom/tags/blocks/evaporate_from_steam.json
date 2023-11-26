@@ -1,0 +1,163 @@
+{
+    "replace": false,
+    "partly_adapted_from": "https://github.com/apace100/apoli/blob/1.20/src/main/resources/data/apoli/tags/blocks/material/glass.json",
+    "values": [
+        "#apoli:material/water",
+        "#minecraft:ice",
+        "minecraft:kelp",
+        "minecraft:kelp_plant",
+        "minecraft:seagrass",
+        "minecraft:tall_seagrass",
+
+
+        
+        {
+        "id": "minecraft:black_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:black_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:blue_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:blue_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:brown_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:brown_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:cyan_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:cyan_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:glowstone",
+        "required": false
+        },
+        {
+        "id": "minecraft:gray_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:gray_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:green_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:green_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:light_blue_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:light_blue_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:light_gray_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:light_gray_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:lime_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:lime_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:magenta_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:magenta_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:orange_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:orange_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:pink_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:pink_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:purple_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:purple_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:red_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:red_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:sea_lantern",
+        "required": false
+        },
+        {
+        "id": "minecraft:tinted_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:white_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:white_stained_glass_pane",
+        "required": false
+        },
+        {
+        "id": "minecraft:yellow_stained_glass",
+        "required": false
+        },
+        {
+        "id": "minecraft:yellow_stained_glass_pane",
+        "required": false
+        }
+    ]
+}

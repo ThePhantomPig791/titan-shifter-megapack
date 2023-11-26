@@ -1195,6 +1195,16 @@
                         "resource": "*:*_shifting_cooldown",
                         "change": 12000,
                         "operation": "set"
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove TSMP.Titan",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove TSMP.HugeTitan",
+                        "permission_level": 4
                     }
                 ]
             }

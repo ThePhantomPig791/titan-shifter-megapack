@@ -25,6 +25,7 @@ effect give @s minecraft:saturation 1 255 true
 effect give @s minecraft:slow_falling 1 0 true
 execute as @s at @s run particle dust 1.0 1.0 0.0 100 ~ ~ ~ 8 30 8 100 10000 normal
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 25
+attribute @s minecraft:generic.attack_speed base set 0.5
 tag @s add TSMP.Titan
 tag @s add TSMP.HugeTitan
 power revoke @s phantom:assign/being_grabbed

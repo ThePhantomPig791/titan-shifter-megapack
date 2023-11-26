@@ -18,25 +18,6 @@
                 "phantom:cart_titan"
             ],
             "comment": "The order of the origins above is actually the order I made them in!"
-        },
-        {
-            "condition": {
-                "type": "origins:and",
-                "conditions": [
-                    {
-                        "type": "appli:name",
-                        "name": "ThePhantomPig791"
-                    },
-                    {
-                        "type": "origins:origin",
-                        "origin": "phantom:titan",
-                        "layer": "origins:origin"
-                    }
-                ]
-            },
-            "origins": [
-                "phantom:name_origin_test"
-            ]
         }
     ],
     "order": 1,

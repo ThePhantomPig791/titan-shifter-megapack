@@ -26,5 +26,6 @@ scale set pehkui:held_item 1
 effect clear @s minecraft:speed
 effect give @s minecraft:instant_health 1 10 true
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
+attribute @s minecraft:generic.attack_speed base set 4
 tag @s remove TSMP.Titan
 tag @s remove TSMP.HugeTitan

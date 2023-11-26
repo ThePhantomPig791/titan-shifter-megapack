@@ -20,6 +20,7 @@ scale set pehkui:projectiles 1
 effect give @s minecraft:instant_health 1 10 true
 effect give @s minecraft:saturation 1 255 true
 execute as @s at @s run particle dust 1.0 1.0 0.0 100 ~ ~2 ~ 2 5 2 100 5000 normal
+attribute @s minecraft:generic.attack_speed base set 1.5
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 25
 tag @s add TSMP.Titan
 power revoke @s phantom:assign/being_grabbed

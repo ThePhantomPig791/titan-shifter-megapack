@@ -1589,6 +1589,16 @@
                         "type": "origins:change_resource",
                         "resource": "*:*_has_changed_this_life",
                         "change": -1
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove TSMP.Titan",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
+                        "command": "tag @s remove TSMP.HugeTitan",
+                        "permission_level": 4
                     }
                 ]
             }

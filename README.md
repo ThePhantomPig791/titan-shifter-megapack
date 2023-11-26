@@ -1,5 +1,5 @@
 # Titan Shifter Megapack
-## A 1.19.3 - 1.20.2 Minecraft Origins datapack that adds Titan Shifters from from [Attack on Titan](https://en.wikipedia.org/wiki/Attack_on_Titan) as origins!
+## A 1.19.4 - 1.20.2 Minecraft Origins datapack that adds Titan Shifters from [Attack on Titan](https://en.wikipedia.org/wiki/Attack_on_Titan) as origins!
 ### Requires [Origins](https://modrinth.com/mod/origins), [Pehkui](https://modrinth.com/mod/pehkui), [Apugli](https://modrinth.com/mod/apugli), and [Appli](https://modrinth.com/mod/appli)
 
 
