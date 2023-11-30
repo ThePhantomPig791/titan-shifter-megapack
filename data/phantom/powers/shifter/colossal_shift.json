@@ -2269,6 +2269,16 @@
                                 "type": "origins:and",
                                 "actions": [
                                     {
+                                        "type": "origins:apply_effect",
+                                        "effect": {
+                                            "effect": "minecraft:levitation",
+                                            "amplifier": 0,
+                                            "duration": 20,
+                                            "show_particles": false,
+                                            "show_icon": false
+                                        }
+                                    },
+                                    {
                                         "type": "origins:set_fall_distance",
                                         "fall_distance": 0
                                     },
