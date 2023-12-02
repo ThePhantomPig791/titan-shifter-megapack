@@ -12,6 +12,90 @@
             "type": "origins:tooltip",
             "sprite": "origins:textures/gui/badge/info.png",
             "text": "Unshifting with a mount will give it back to you, but being force ejected only has a 50% chance to give you the mount back."
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "titan_shifter_megapack:textures/item/titan_saddle_mount.png",
+            "recipe": {
+                "id": "titan_shifter_megapack:titan_saddle_mount",
+                "type": "minecraft:crafting_shaped",
+                "pattern": [
+                    "# #",
+                    "PfP",
+                    "PfP"
+                ],
+                "key": {
+                    "#": {
+                        "item": "minecraft:saddle"
+                    },
+                    "P": {
+                        "tag": "minecraft:planks"
+                    },
+                    "f": {
+                        "tag": "minecraft:fence_gates"
+                    }
+                },
+                "result": {
+                    "item": "titan_shifter_megapack:titan_saddle_mount",
+                    "count": 1
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "titan_shifter_megapack:textures/item/titan_barrel_mount.png",
+            "recipe": {
+                "type": "minecraft:crafting_shaped",
+                "pattern": [
+                    "# #",
+                    "PfP",
+                    "PfP"
+                ],
+                "key": {
+                    "#": {
+                        "item": "minecraft:barrel"
+                    },
+                    "P": {
+                        "tag": "minecraft:planks"
+                    },
+                    "f": {
+                        "tag": "minecraft:fence_gates"
+                    }
+                },
+                "result": {
+                    "item": "titan_shifter_megapack:titan_barrel_mount",
+                    "count": 1
+                }
+            }
+        },
+        {
+            "type": "origins:crafting_recipe",
+            "sprite": "titan_shifter_megapack:textures/item/titan_rifle_mount.png",
+            "recipe": {
+                "pattern": [
+                    "###",
+                    "IGI",
+                    "IiI"
+                ],
+                "key": {
+                    "#": {
+                        "item": "minecraft:tnt"
+                    },
+                    "I": {
+                        "item": "minecraft:iron_block"
+                    },
+                    "G": {
+                        "item": "minecraft:gunpowder"
+                    },
+                    "i": {
+                        "item": "minecraft:iron_ingot"
+                    }
+                },
+                "result": {
+                    "item": "titan_shifter_megapack:titan_rifle_mount",
+                    "count": 1
+                }
+            }
         }
     ],
     "key": {
