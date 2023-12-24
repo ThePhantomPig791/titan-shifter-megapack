@@ -27,4 +27,5 @@ particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 25
 tag @s add TSMP.Titan
 tag @s add TSMP.HugeTitan
 power revoke @s phantom:assign/being_grabbed
+power grant @s phantom:assign/hide_nametag
 resource set @s phantom:shifter/founding_shift_titan 4

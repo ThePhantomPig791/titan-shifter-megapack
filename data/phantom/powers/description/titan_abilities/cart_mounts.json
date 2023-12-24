@@ -17,7 +17,7 @@
             "type": "origins:crafting_recipe",
             "sprite": "titan_shifter_megapack:textures/item/titan_saddle_mount.png",
             "recipe": {
-                "id": "titan_shifter_megapack:titan_saddle_mount",
+                "id": "phantom:titan_saddle_mount",
                 "type": "minecraft:crafting_shaped",
                 "pattern": [
                     "# #",
@@ -45,6 +45,7 @@
             "type": "origins:crafting_recipe",
             "sprite": "titan_shifter_megapack:textures/item/titan_barrel_mount.png",
             "recipe": {
+                "id": "phantom:titan_barrel_mount",
                 "type": "minecraft:crafting_shaped",
                 "pattern": [
                     "# #",
@@ -72,6 +73,8 @@
             "type": "origins:crafting_recipe",
             "sprite": "titan_shifter_megapack:textures/item/titan_rifle_mount.png",
             "recipe": {
+                "id": "phantom:titan_rifle_mount",
+                "type": "minecraft:crafting_shaped",
                 "pattern": [
                     "###",
                     "IGI",

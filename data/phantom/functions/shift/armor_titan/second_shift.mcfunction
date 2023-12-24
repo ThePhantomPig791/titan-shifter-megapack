@@ -15,7 +15,7 @@ scale set pehkui:attack 8
 scale set pehkui:health 1.7
 scale set pehkui:step_height 3
 scale set pehkui:held_item 0.14
-scale set pehkui:defense 3
+scale set pehkui:defense 1.5
 scale set pehkui:projectiles 1
 effect give @s minecraft:instant_health 1 10 true
 execute as @s at @s run particle dust 1.0 1.0 0.0 100 ~ ~2 ~ 2 5 2 100 5000 normal
@@ -24,3 +24,4 @@ particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 25
 resource set @s phantom:shifter/armor_shift_is_shedded 1
 tag @s add TSMP.Titan
 power revoke @s phantom:assign/being_grabbed
+power grant @s phantom:assign/hide_nametag

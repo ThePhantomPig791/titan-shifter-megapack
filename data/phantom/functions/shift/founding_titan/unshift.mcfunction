@@ -30,5 +30,10 @@ particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
 tag @s remove TSMP.Titan
 tag @s remove TSMP.HugeTitan
 tag @s remove HasCrystalDown
-resource set @s phantom:shifter/founding_shift_titan 0
+attribute @s minecraft:generic.attack_speed base set 4
 power revoke @s phantom:assign/founding_jaw_shift_climb
+power revoke @s phantom:assign/hide_nametag
+resource set @s phantom:shifter/founding_shift_titan 0
+resource set @s phantom:shifter/founding_is_shedded 0
+resource set @s phantom:shifter/founding_is_charging 0
+resource set @s phantom:shifter/founding_shift_reset_shifts_timer 4200

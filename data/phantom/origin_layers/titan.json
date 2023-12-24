@@ -2,24 +2,186 @@
     "origins": [
         {
             "condition": {
-                "type": "origins:origin",
-                "origin": "phantom:titan",
-                "layer": "origins:origin"
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:titan",
+                        "layer": "origins:origin"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "phantom:config/attack_disabled",
+                        "inverted": true
+                    }
+                ]
             },
             "origins": [
-                "phantom:attack_titan",
-                "phantom:female_titan",
-                "phantom:armor_titan",
-                "phantom:colossal_titan",
-                "phantom:warhammer_titan",
-                "phantom:beast_titan",
-                "phantom:founding_titan",
-                "phantom:jaw_titan",
+                "phantom:attack_titan"
+            ]
+        },
+        {
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:titan",
+                        "layer": "origins:origin"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "phantom:config/female_disabled",
+                        "inverted": true
+                    }
+                ]
+            },
+            "origins": [
+                "phantom:female_titan"
+            ]
+        },
+        {
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:titan",
+                        "layer": "origins:origin"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "phantom:config/armor_disabled",
+                        "inverted": true
+                    }
+                ]
+            },
+            "origins": [
+                "phantom:armor_titan"
+            ]
+        },
+        {
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:titan",
+                        "layer": "origins:origin"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "phantom:config/colossal_disabled",
+                        "inverted": true
+                    }
+                ]
+            },
+            "origins": [
+                "phantom:colossal_titan"
+            ]
+        },
+        {
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:titan",
+                        "layer": "origins:origin"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "phantom:config/warhammer_disabled",
+                        "inverted": true
+                    }
+                ]
+            },
+            "origins": [
+                "phantom:warhammer_titan"
+            ]
+        },
+        {
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:titan",
+                        "layer": "origins:origin"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "phantom:config/beast_disabled",
+                        "inverted": true
+                    }
+                ]
+            },
+            "origins": [
+                "phantom:beast_titan"
+            ]
+        },
+        {
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:titan",
+                        "layer": "origins:origin"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "phantom:config/founding_disabled",
+                        "inverted": true
+                    }
+                ]
+            },
+            "origins": [
+                "phantom:founding_titan"
+            ]
+        },
+        {
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:titan",
+                        "layer": "origins:origin"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "phantom:config/jaw_disabled",
+                        "inverted": true
+                    }
+                ]
+            },
+            "origins": [
+                "phantom:jaw_titan"
+            ]
+        },
+        {
+            "condition": {
+                "type": "origins:and",
+                "conditions": [
+                    {
+                        "type": "origins:origin",
+                        "origin": "phantom:titan",
+                        "layer": "origins:origin"
+                    },
+                    {
+                        "type": "origins:power",
+                        "power": "phantom:config/cart_disabled",
+                        "inverted": true
+                    }
+                ]
+            },
+            "origins": [
                 "phantom:cart_titan"
-            ],
-            "comment": "The order of the origins above is actually the order I made them in!"
+            ]
         }
     ],
+    "comment": "The order of the origins above is actually the order I made them in!",
     "order": 1,
     "name": "Titan",
     "missing_name": "No Titan",

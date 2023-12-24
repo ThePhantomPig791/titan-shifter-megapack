@@ -15,7 +15,7 @@ scale set pehkui:attack 12
 scale set pehkui:health 2
 scale set pehkui:step_height 3
 scale set pehkui:held_item 0.14
-scale set pehkui:defense 5
+scale set pehkui:defense 3.5
 scale set pehkui:projectiles 1
 effect give @s minecraft:instant_health 1 10 true
 effect give @s minecraft:saturation 1 255 true
@@ -24,3 +24,4 @@ attribute @s minecraft:generic.attack_speed base set 1.5
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 25
 tag @s add TSMP.Titan
 power revoke @s phantom:assign/being_grabbed
+power grant @s phantom:assign/hide_nametag

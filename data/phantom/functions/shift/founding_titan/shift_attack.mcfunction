@@ -22,4 +22,5 @@ execute as @s at @s run particle dust 1.0 1.0 0.0 100 ~ ~2 ~ 2 5 2 100 5000 norm
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 25
 tag @s add TSMP.Titan
 power revoke @s phantom:assign/being_grabbed
+power grant @s phantom:assign/hide_nametag
 resource set @s phantom:shifter/founding_shift_titan 1

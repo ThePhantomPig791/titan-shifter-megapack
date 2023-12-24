@@ -24,3 +24,6 @@ effect clear @s minecraft:slowness
 effect clear @s minecraft:slow_falling
 effect give @s minecraft:instant_health 1 0 true
 particle minecraft:flash ~ ~2 ~ 2 4 2 0.00001 250
+resource set @s phantom:shifter/attack_shift_reset_shifts_timer 4000
+power revoke @s phantom:assign/hide_nametag
+tag @s remove TSMP.Titan

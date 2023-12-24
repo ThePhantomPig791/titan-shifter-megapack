@@ -28,5 +28,6 @@ scale set pehkui:defense 1
 scale set pehkui:held_item 1
 effect give @s minecraft:instant_health 1 10 true
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
+resource set @s phantom:shifter/cart_shift_reset_shifts_timer 1200
+power revoke @s phantom:assign/hide_nametag
 tag @s remove TSMP.Titan
-power revoke @s phantom:assign/jaw_shift_climb

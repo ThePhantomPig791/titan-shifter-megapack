@@ -26,4 +26,6 @@ effect give @s minecraft:instant_health 1 10 true
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
 resource set @s phantom:shifter/female_shift_is_hardened 0
 resource set @s phantom:shifter/female_shift_has_hardened 0
+resource set @s phantom:shifter/female_shift_reset_shifts_timer 2400
+power revoke @s phantom:assign/hide_nametag
 tag @s remove TSMP.Titan

@@ -1,7 +1,7 @@
 {
     "type": "origins:multiple",
     "name": "Stats:",
-    "description": "§oMax Shifts§r: 2\n§oHeight§r: 14, 13.5\n§oSpeed§r: 4, 3.75\n§oStrength§r: 6.5, 5\n§oHealth§r: 1.7, 1.5\n§oDefense§r: 1\n§oDurability§r: 21\n§oMinutes between shifts§r: 0.25, 2\n§oAverage minutes§r §oto§r §oregain§r §oa shift§r: 5",
+    "description": "§oMax Shifts§r: 2\n§oHeight§r: 14, 13.5\n§oSpeed§r: 4, 3.75\n§oStrength§r: 6.5, 5\n§oHealth§r: 1.7, 1.5\n§oDefense§r: 1\n§oDurability§r: 21\n§oMinutes between shifts§r: 0.25, 2\n§oMinutes§r §oto§r §oregain§r §oa shift§r: 2",
     "badges": [],
     "is_shifted": {
         "type": "origins:resource",
@@ -352,28 +352,30 @@
     "high_shifts_overlay": {
         "type": "origins:overlay",
         "texture": "minecraft:textures/misc/nausea.png",
-        "red": 0.3,
+        "red": 0.7,
         "green": 0.3,
         "blue": 0.1,
-        "strength": 0.1,
+        "strength": 0.5,
         "draw_mode": "nausea",
         "draw_phase": "above_hud",
         "visible_in_third_person": false,
         "hide_with_hud": false,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_amount_of_shifts",
-            "comparison": "==",
-            "compare_to": 2
-        }
-    },
-    "prevent_nametag": {
-        "type": "apugli:prevent_label_render",
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_is_shifted",
-            "comparison": "==",
-            "compare_to": 1
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_amount_of_shifts",
+                    "comparison": "==",
+                    "compare_to": 2
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
         }
     },
     "has_been_damaged": {
@@ -2132,6 +2134,11 @@
                     },
                     {
                         "type": "origins:execute_command",
+                        "command": "effect clear @s",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
                         "command": "function phantom:shift/female_titan/unshift",
                         "permission_level": 4
                     },
@@ -2147,11 +2154,6 @@
                     {
                         "type": "origins:execute_command",
                         "command": "resource set @s phantom:shifter/female_shift_shifting_cooldown 6000",
-                        "permission_level": 4
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "effect clear @s",
                         "permission_level": 4
                     },
                     {
@@ -2211,6 +2213,11 @@
                     },
                     {
                         "type": "origins:execute_command",
+                        "command": "effect clear @s",
+                        "permission_level": 4
+                    },
+                    {
+                        "type": "origins:execute_command",
                         "command": "function phantom:shift/female_titan/unshift2",
                         "permission_level": 4
                     },
@@ -2226,11 +2233,6 @@
                     {
                         "type": "origins:execute_command",
                         "command": "resource set @s phantom:shifter/female_shift_shifting_cooldown 4000",
-                        "permission_level": 4
-                    },
-                    {
-                        "type": "origins:execute_command",
-                        "command": "effect clear @s",
                         "permission_level": 4
                     },
                     {
@@ -2701,111 +2703,59 @@
             ]
         }
     },
-    "amount_of_shifts_reset_eventually": {
-        "type": "origins:action_over_time",
-        "interval": 1,
-        "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_amount_of_shifts",
-            "comparison": "==",
-            "compare_to": 1
-        },
-        "rising_action": {
-            "type": "origins:delay",
-            "ticks": 4000,
-            "action": {
-                "type": "origins:if_else",
-                "condition": {
-                    "type": "origins:and",
-                    "conditions": [
-                        {
-                            "type": "origins:resource",
-                            "resource": "*:*_amount_of_shifts",
-                            "comparison": "==",
-                            "compare_to": 1
-                        },
-                        {
-                            "type": "origins:resource",
-                            "resource": "*:*_is_shifted",
-                            "comparison": "==",
-                            "compare_to": 0
-                        },
-                        {
-                            "type": "origins:origin",
-                            "origin": "phantom:titan",
-                            "layer": "origins:origin"
-                        }
-                    ]
-                },
-                "if_action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:change_resource",
-                            "resource": "*:*_amount_of_shifts",
-                            "change": -1
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "playsound minecraft:block.beacon.power_select player @s ~ ~ ~ 1 2",
-                            "permission_level": 4
-                        }
-                    ]
-                }
-            }
-        }
+    "reset_shifts_timer": {
+        "type": "origins:resource",
+        "min": 0,
+        "max": 20000
     },
-    "amount_of_shifts_reset_eventually_longer": {
+    "reset_shifts_loop": {
         "type": "origins:action_over_time",
         "interval": 1,
         "condition": {
-            "type": "origins:resource",
-            "resource": "*:*_amount_of_shifts",
-            "comparison": "==",
-            "compare_to": 2
-        },
-        "rising_action": {
-            "type": "origins:delay",
-            "ticks": 6000,
-            "action": {
-                "type": "origins:if_else",
-                "condition": {
-                    "type": "origins:and",
-                    "conditions": [
-                        {
-                            "type": "origins:resource",
-                            "resource": "*:*_amount_of_shifts",
-                            "comparison": "==",
-                            "compare_to": 2
-                        },
-                        {
-                            "type": "origins:resource",
-                            "resource": "*:*_is_shifted",
-                            "comparison": "==",
-                            "compare_to": 0
-                        },
-                        {
-                            "type": "origins:origin",
-                            "origin": "phantom:titan",
-                            "layer": "origins:origin"
-                        }
-                    ]
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_reset_shifts_timer",
+                    "comparison": "!=",
+                    "compare_to": 0
                 },
-                "if_action": {
-                    "type": "origins:and",
-                    "actions": [
-                        {
-                            "type": "origins:change_resource",
-                            "resource": "*:*_amount_of_shifts",
-                            "change": -1
-                        },
-                        {
-                            "type": "origins:execute_command",
-                            "command": "playsound minecraft:block.beacon.power_select player @s ~ ~ ~ 1 2",
-                            "permission_level": 4
-                        }
-                    ]
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 0
                 }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:change_resource",
+            "resource": "*:*_reset_shifts_timer",
+            "change": -1
+        },
+        "falling_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:resource",
+                "resource": "*:*_is_shifted",
+                "comparison": "==",
+                "compare_to": 0
+            },
+            "if_action": {
+                "type": "origins:and",
+                "actions": [
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_reset_shifts_timer",
+                        "change": 2400,
+                        "operation": "set"
+                    },
+                    {
+                        "type": "origins:change_resource",
+                        "resource": "*:*_amount_of_shifts",
+                        "change": -1
+                    }
+                ]
             }
         }
     },
@@ -2819,7 +2769,9 @@
         },
         "features": [
             "stuck_objects",
-            "cape"
+            "cape",
+            "armor",
+            "elytra"
         ]
     },
     "taunt": {
@@ -3116,6 +3068,7 @@
         "key": {
             "key": "key.loadToolbarActivator"
         },
+        "cooldown": 100,
         "condition": {
             "type": "origins:and",
             "conditions": [
@@ -3214,6 +3167,872 @@
             "resource": "*:*_is_shifted",
             "comparison": "==",
             "compare_to": 1
+        }
+    },
+    "prevent_item_pickup": {
+        "type": "appli:prevent_item_pickup",
+        "item_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "tag": "phantom:warhammer_hardened_items"
+                    },
+                    "inverted": true
+                },
+                {
+                    "type": "origins:ingredient",
+                    "ingredient": {
+                        "item": "titan_shifter_megapack:titan_skin_bolt"
+                    },
+                    "inverted": true
+                }
+            ]
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if data storage tsmp:config {titans_pick_up_items:0}",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        }
+    },
+    "non_permanent_titans": {
+        "type": "origins:action_on_callback",
+        "entity_action_gained": {
+            "type": "origins:execute_command",
+            "command": "execute if data storage tsmp:config {permanent_titans:0} run data modify storage tsmp:config titan_female_enabled set value 0"
+        },
+        "entity_action_lost": {
+            "type": "origins:execute_command",
+            "command": "execute if data storage tsmp:config {permanent_titans:0} run data modify storage tsmp:config titan_female_enabled set value 1"
+        }
+    },
+    "steal_titan": {
+        "type": "appli:action_on_kill",
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if data storage tsmp:config {permanent_titans:0}",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:or",
+                    "conditions": [
+                        {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_shifted",
+                            "comparison": "!=",
+                            "compare_to": 0
+                        },
+                        {
+                            "type": "origins:command",
+                            "command": "execute if data storage tsmp:config {steal_titan_only_when_shifted:0}",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    ]
+                }
+            ]
+        },
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:actor_condition",
+                        "condition": {
+                            "type": "origins:resource",
+                            "resource": "*:*_is_shifted",
+                            "comparison": "==",
+                            "compare_to": 1
+                        }
+                    },
+                    "if_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:change_resource",
+                                    "resource": "*:*_is_shifted",
+                                    "change": -1
+                                }
+                            },
+                            {
+                                "type": "origins:actor_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "function phantom:shift/female_titan/unshift",
+                                    "permission_level": 4
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:if_else_list",
+                        "actions": [
+                            {
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "phantom:armor_titan"
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s origins:origin origins:human"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s phantom:titan origins:empty"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:if_else_list",
+                                                "actions": [
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:1}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s origins:origin phantom:titan"
+                                                                },
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s phantom:titan phantom:armor_titan"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:2}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:chance",
+                                                            "chance": 0.5,
+                                                            "action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s origins:origin phantom:titan"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s phantom:titan phantom:armor_titan"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "phantom:attack_titan"
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s origins:origin origins:human"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s phantom:titan origins:empty"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:if_else_list",
+                                                "actions": [
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:1}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s origins:origin phantom:titan"
+                                                                },
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s phantom:titan phantom:attack_titan"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:2}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:chance",
+                                                            "chance": 0.5,
+                                                            "action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s origins:origin phantom:titan"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s phantom:titan phantom:attack_titan"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "phantom:beast_titan"
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s origins:origin origins:human"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s phantom:titan origins:empty"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:if_else_list",
+                                                "actions": [
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:1}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s origins:origin phantom:titan"
+                                                                },
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s phantom:titan phantom:beast_titan"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:2}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:chance",
+                                                            "chance": 0.5,
+                                                            "action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s origins:origin phantom:titan"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s phantom:titan phantom:beast_titan"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "phantom:cart_titan"
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s origins:origin origins:human"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s phantom:titan origins:empty"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:if_else_list",
+                                                "actions": [
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:1}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s origins:origin phantom:titan"
+                                                                },
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s phantom:titan phantom:cart_titan"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:2}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:chance",
+                                                            "chance": 0.5,
+                                                            "action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s origins:origin phantom:titan"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s phantom:titan phantom:cart_titan"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "phantom:colossal_titan"
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s origins:origin origins:human"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s phantom:titan origins:empty"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:if_else_list",
+                                                "actions": [
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:1}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s origins:origin phantom:titan"
+                                                                },
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s phantom:titan phantom:colossal_titan"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:2}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:chance",
+                                                            "chance": 0.5,
+                                                            "action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s origins:origin phantom:titan"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s phantom:titan phantom:colossal_titan"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "phantom:female_titan"
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s origins:origin origins:human"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s phantom:titan origins:empty"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:if_else_list",
+                                                "actions": [
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:1}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s origins:origin phantom:titan"
+                                                                },
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s phantom:titan phantom:female_titan"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:2}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:chance",
+                                                            "chance": 0.5,
+                                                            "action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s origins:origin phantom:titan"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s phantom:titan phantom:female_titan"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "phantom:founding_titan"
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s origins:origin origins:human"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s phantom:titan origins:empty"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:if_else_list",
+                                                "actions": [
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:1}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s origins:origin phantom:titan"
+                                                                },
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s phantom:titan phantom:founding_titan"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:2}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:chance",
+                                                            "chance": 0.5,
+                                                            "action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s origins:origin phantom:titan"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s phantom:titan phantom:founding_titan"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "phantom:jaw_titan"
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s origins:origin origins:human"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s phantom:titan origins:empty"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:if_else_list",
+                                                "actions": [
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:1}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s origins:origin phantom:titan"
+                                                                },
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s phantom:titan phantom:jaw_titan"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:2}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:chance",
+                                                            "chance": 0.5,
+                                                            "action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s origins:origin phantom:titan"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s phantom:titan phantom:jaw_titan"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            },
+                            {
+                                "condition": {
+                                    "type": "origins:target_condition",
+                                    "condition": {
+                                        "type": "origins:origin",
+                                        "origin": "phantom:warhammer_titan"
+                                    }
+                                },
+                                "action": {
+                                    "type": "origins:and",
+                                    "actions": [
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s origins:origin origins:human"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:target_action",
+                                            "action": {
+                                                "type": "origins:execute_command",
+                                                "command": "origin set @s phantom:titan origins:empty"
+                                            }
+                                        },
+                                        {
+                                            "type": "origins:actor_action",
+                                            "action": {
+                                                "type": "origins:if_else_list",
+                                                "actions": [
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:1}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:and",
+                                                            "actions": [
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s origins:origin phantom:titan"
+                                                                },
+                                                                {
+                                                                    "type": "origins:execute_command",
+                                                                    "command": "origin set @s phantom:titan phantom:warhammer_titan"
+                                                                }
+                                                            ]
+                                                        }
+                                                    },
+                                                    {
+                                                        "condition": {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_steal_another:2}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        "action": {
+                                                            "type": "origins:chance",
+                                                            "chance": 0.5,
+                                                            "action": {
+                                                                "type": "origins:and",
+                                                                "actions": [
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s origins:origin phantom:titan"
+                                                                    },
+                                                                    {
+                                                                        "type": "origins:execute_command",
+                                                                        "command": "origin set @s phantom:titan phantom:warhammer_titan"
+                                                                    }
+                                                                ]
+                                                            }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                }
+            ]
         }
     }
 }

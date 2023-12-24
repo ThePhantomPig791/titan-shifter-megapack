@@ -1,4 +1,8 @@
-execute if predicate phantom:0.01_chance run function phantom:give/royal_blood
+execute if data storage tsmp:config {royal_blood_chance:1} if predicate phantom:0.01_chance run function phantom:give/royal_blood
+execute if data storage tsmp:config {royal_blood_chance:2} if predicate phantom:0.25_chance run function phantom:give/royal_blood
+execute if data storage tsmp:config {royal_blood_chance:3} if predicate phantom:0.50_chance run function phantom:give/royal_blood
+execute if data storage tsmp:config {royal_blood_chance:4} if predicate phantom:0.75_chance run function phantom:give/royal_blood
+execute if data storage tsmp:config {royal_blood_chance:5} run function phantom:give/royal_blood
 
 execute if block ~ ~ ~ minecraft:anvil if predicate phantom:0.10_chance run setblock ~ ~ ~ minecraft:chipped_anvil
 execute if block ~ ~ ~ minecraft:chipped_anvil if predicate phantom:0.10_chance run setblock ~ ~ ~ minecraft:damaged_anvil

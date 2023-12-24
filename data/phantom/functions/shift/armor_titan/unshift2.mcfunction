@@ -28,4 +28,6 @@ attribute @s minecraft:generic.attack_speed base set 4
 particle minecraft:flash ~ ~2 ~ 2 4 2 0.00001 250
 resource set @s phantom:shifter/armor_shift_is_shedded 0
 resource set @s phantom:shifter/armor_shift_is_charging 0
+resource set @s phantom:shifter/armor_shift_reset_shifts_timer 4800
+power revoke @s phantom:assign/hide_nametag
 tag @s remove TSMP.Titan

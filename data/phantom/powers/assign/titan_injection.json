@@ -95,6 +95,12 @@
             "type": "origins:and",
             "conditions": [
                 {
+                    "type": "origins:command",
+                    "command": "execute if data storage tsmp:config {injections_enabled:1}",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
                     "type": "origins:equipped_item",
                     "equipment_slot": "mainhand",
                     "item_condition": {
