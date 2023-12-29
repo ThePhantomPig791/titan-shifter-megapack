@@ -2,7 +2,8 @@
     "powers": [
         "phantom:shifter/female_shift",
         "phantom:description/titan_abilities/female_crystal",
-        "phantom:description/titan_abilities/female_hardening"
+        "phantom:description/titan_abilities/female_hardening",
+        "phantom:description/titan_abilities/female_attack_speed"
     ],
     "name": "Female Titan",
     "description": "As one of the fastest of the Nine Titans, the Female Titan can quickly catch up to its prey. This immensive speed comes with a few drawbacks, though.",

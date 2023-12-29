@@ -1,0 +1,22 @@
+{
+    "type": "origins:climbing",
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:collided_horizontally"
+            },
+            {
+                "type": "origins:sneaking"
+            },
+            {
+                "type": "origins:origin",
+                "origin": "phantom:colossal_titan",
+                "inverted": true
+            }
+        ]
+    },
+    "hold_condition": {
+        "type": "origins:collided_horizontally"
+    }
+}

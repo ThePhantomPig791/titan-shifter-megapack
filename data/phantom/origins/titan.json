@@ -2,6 +2,7 @@
     "powers": [
         "phantom:description/generic_shifting",
         "phantom:self_stab",
+        "phantom:description/stacking",
         "phantom:pure_immunity",
         "phantom:description/food",
         "phantom:description/skeleton",

@@ -1,7 +1,7 @@
 {
     "type": "origins:active_self",
     "name": "Scream",
-    "description": "While §4Royal§r §4Blood§r is active, you can scream, causing any humans injected with your titan's spinal fluid to transform into Pure Titans.",
+    "description": "While §4Royal§r §4Blood§r is active, you can scream, granting you roughly a minute of positive effects and causing any humans injected with your titan's spinal fluid to transform into Pure Titans.",
     "badges": [
         {
             "type": "origins:keybind",

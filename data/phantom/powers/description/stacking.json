@@ -1,0 +1,12 @@
+{
+    "type": "origins:simple",
+    "name": "Titan Stacking",
+    "description": "When titans are set to stealable by an admin in the config, by default titans will be able to stack on top of each other. This means that if, say, the Attack Titan ate the Armored Titan, the Attack would gain effects reminiscent of the Armored Titan. Remember, this functionality is disabled by default.",
+    "badges": [
+        {
+            "type": "origins:keybind",
+            "sprite": "origins:textures/gui/badge/active.png",
+            "text": "If a stack gives you an active ability, you can activate it with the hotbar key corrisponding to that titan. For example, the Armored stack's charge ability is actived with \"3\" because it is the third titan in the selection menu."
+        }
+    ]
+}

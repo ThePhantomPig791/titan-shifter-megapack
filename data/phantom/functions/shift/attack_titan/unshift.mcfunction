@@ -21,8 +21,10 @@ scale set pehkui:attack 1
 scale set pehkui:health 1
 scale set pehkui:step_height 1
 scale set pehkui:held_item 1
+scale set pehkui:defense 1
 effect give @s minecraft:instant_health 1 10 true
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
 resource set @s phantom:shifter/attack_shift_reset_shifts_timer 3000
+resource set @s phantom:shifter/attack_shift_harden_knuckles_resource 0
 power revoke @s phantom:assign/hide_nametag
 tag @s remove TSMP.Titan

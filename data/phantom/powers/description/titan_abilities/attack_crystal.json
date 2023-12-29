@@ -7,7 +7,7 @@
         {
             "type": "origins:keybind",
             "sprite": "origins:textures/gui/badge/active.png",
-            "text": "Crystal untransform with %s."
+            "text": "Crystal untransform by sneaking and pressing %s."
         }
     ],
     "key": {

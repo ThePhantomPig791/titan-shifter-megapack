@@ -25,3 +25,4 @@ particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 25
 tag @s add TSMP.Titan
 power revoke @s phantom:assign/being_grabbed
 power grant @s phantom:assign/hide_nametag
+attribute @s minecraft:generic.attack_speed modifier add 5dc6bccf-3bd2-4d02-b833-a6951fed1bb6 female_speed_increase 1 add

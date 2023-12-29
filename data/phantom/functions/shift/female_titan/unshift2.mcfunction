@@ -29,3 +29,4 @@ resource set @s phantom:shifter/female_shift_has_hardened 0
 resource set @s phantom:shifter/female_shift_reset_shifts_timer 2400
 power revoke @s phantom:assign/hide_nametag
 tag @s remove TSMP.Titan
+attribute @s minecraft:generic.attack_speed modifier remove 5dc6bccf-3bd2-4d02-b833-a6951fed1bb6

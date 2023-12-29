@@ -184,6 +184,10 @@
     "comment": "The order of the origins above is actually the order I made them in!",
     "order": 1,
     "name": "Titan",
+    "gui_title": {
+        "choose_origin": "Select your Titan.",
+        "view_origin": "This is your Titan."
+    },
     "missing_name": "No Titan",
     "missing_description": "You are a regular human (at least when it comes to Titan Shifting)."
 }

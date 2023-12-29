@@ -52,8 +52,9 @@ execute unless data storage tsmp:config titan_pure_unshift_on run data modify st
 # Titan stealing
 execute unless data storage tsmp:config permanent_titans run data modify storage tsmp:config permanent_titans set value 1
 execute unless data storage tsmp:config steal_titan_only_when_shifted run data modify storage tsmp:config steal_titan_only_when_shifted set value 1
-# 0 = Use original titan, 1 = Use new titan, 2 = Randomly choose
-execute unless data storage tsmp:config titan_steal_another run data modify storage tsmp:config titan_steal_another set value 1
+# 0 = Use original titan, 1 = Use new titan, 2 = Randomly choose, 3 = Stack
+execute unless data storage tsmp:config titan_steal_another run data modify storage tsmp:config titan_steal_another set value 3
+execute unless data storage tsmp:config lose_stacks_on_death run data modify storage tsmp:config lose_stacks_on_death set value 1
 # 0 = Pures and Shifters, 1 = Any Pure / Titan
 execute unless data storage tsmp:config other_origins_can_steal run data modify storage tsmp:config other_origins_can_steal set value 0
 
@@ -65,3 +66,5 @@ execute unless data storage tsmp:config royal_blood_chance run data modify stora
 execute unless data storage tsmp:config injections_enabled run data modify storage tsmp:config injections_enabled set value 1
 
 execute unless data storage tsmp:config titans_pick_up_items run data modify storage tsmp:config titans_pick_up_items set value 0
+# 0 = Disabled, 1 = Enabled, 2 = Enabled with cooldown
+execute unless data storage tsmp:config titan_crush run data modify storage tsmp:config titan_crush set value 2
