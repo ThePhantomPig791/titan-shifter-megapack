@@ -4423,21 +4423,27 @@
                                 }
                             },
                             {
-                                "type": "origins:chance",
-                                "chance": 0.5,
+                                "type": "origins:delay",
+                                "ticks": 20,
                                 "action": {
-                                    "type": "origins:if_else",
-                                    "condition": {
-                                        "type": "origins:resource",
-                                        "resource": "*:*_amount_of_shifts",
-                                        "comparison": "!=",
-                                        "compare_to": 1
-                                    },
-                                    "if_action": {
-                                        "type": "origins:change_resource",
-                                        "resource": "*:*_amount_of_shifts",
-                                        "change": -1
-                                    }
+                                    "type": "origins:execute_command",
+                                    "command": "scale add pehkui:attack 1"
+                                }
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 20,
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scale add pehkui:defense 1"
+                                }
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 20,
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scale add pehkui:knockback 1"
                                 }
                             }
                         ]
@@ -4967,7 +4973,7 @@
             "actions": [
                 {
                     "type": "origins:damage",
-                    "amount": 10,
+                    "amount": 1,
                     "damage_type": "minecraft:player_attack"
                 },
                 {
@@ -5568,6 +5574,48 @@
             }
         }
     },
+    "stack_jaw_eat_bonus": {
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:feed",
+            "food": 2,
+            "saturation": 4
+        },
+        "cooldown": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=TSMP.stack.jaw]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:explosive",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:projectile",
+                    "inverted": true
+                }
+            ]
+        }
+    },
     "stack_cart_loop": {
         "type": "origins:action_over_time",
         "interval": 2,
@@ -5591,7 +5639,7 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "*:*_shifting_cooldown",
-            "change": 1
+            "change": -20
         }
     },
     "stack_steam_blast": {

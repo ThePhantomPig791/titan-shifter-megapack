@@ -37,3 +37,6 @@ execute if data storage tsmp:config {titan_cart_enabled:1} run power revoke @a[n
 
 execute if data storage tsmp:config {titan_pure_keyboard:0} run power grant @a[nbt=!{cardinal_components:{"apoli:powers":{Powers:[{Type:"phantom:config/pure_keyboard_disabled"}]}}}] phantom:config/pure_keyboard_disabled
 execute if data storage tsmp:config {titan_pure_keyboard:1} run power revoke @a[nbt={cardinal_components:{"apoli:powers":{Powers:[{Type:"phantom:config/pure_keyboard_disabled"}]}}}] phantom:config/pure_keyboard_disabled
+
+execute if data storage tsmp:config {other_origins_can_steal:1} run power grant @a[nbt=!{cardinal_components:{"apoli:powers":{Powers:[{Type:"phantom:assign/can_steal"}]}}}] phantom:assign/can_steal
+execute if data storage tsmp:config {other_origins_can_steal:0} run power revoke @a[nbt={cardinal_components:{"apoli:powers":{Powers:[{Type:"phantom:assign/can_steal"}]}}}] phantom:assign/can_steal

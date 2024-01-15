@@ -1,0 +1,448 @@
+{
+    "type": "appli:action_on_kill",
+    "condition": {
+        "type": "origins:and",
+        "conditions": [
+            {
+                "type": "origins:command",
+                "command": "execute if data storage tsmp:config {permanent_titans:0}",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:command",
+                "command": "execute if data storage tsmp:config {steal_titan_only_when_shifted:0}",
+                "comparison": "==",
+                "compare_to": 1
+            },
+            {
+                "type": "origins:origin",
+                "origin": "phantom:armor_titan",
+                "inverted": true
+            },
+            {
+                "type": "origins:origin",
+                "origin": "phantom:attack_titan",
+                "inverted": true
+            },
+            {
+                "type": "origins:origin",
+                "origin": "phantom:beast_titan",
+                "inverted": true
+            },
+            {
+                "type": "origins:origin",
+                "origin": "phantom:cart_titan",
+                "inverted": true
+            },
+            {
+                "type": "origins:origin",
+                "origin": "phantom:colossal_titan",
+                "inverted": true
+            },
+            {
+                "type": "origins:origin",
+                "origin": "phantom:female_titan",
+                "inverted": true
+            },
+            {
+                "type": "origins:origin",
+                "origin": "phantom:founding_titan",
+                "inverted": true
+            },
+            {
+                "type": "origins:origin",
+                "origin": "phantom:jaw_titan",
+                "inverted": true
+            },
+            {
+                "type": "origins:origin",
+                "origin": "phantom:warhammer_titan",
+                "inverted": true
+            }
+        ]
+    },
+    "bientity_action": {
+        "type": "origins:if_else_list",
+        "actions": [
+            {
+                "condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "phantom:armor_titan"
+                    }
+                },
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin origins:human"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan origins:empty"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin phantom:titan"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan phantom:armor_titan"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "phantom:attack_titan"
+                    }
+                },
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin origins:human"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan origins:empty"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin phantom:titan"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan phantom:attack_titan"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "phantom:beast_titan"
+                    }
+                },
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin origins:human"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan origins:empty"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin phantom:titan"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan phantom:beast_titan"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "phantom:cart_titan"
+                    }
+                },
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin origins:human"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan origins:empty"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin phantom:titan"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan phantom:cart_titan"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "phantom:colossal_titan"
+                    }
+                },
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin origins:human"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan origins:empty"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin phantom:titan"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan phantom:colossal_titan"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "phantom:female_titan"
+                    }
+                },
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin origins:human"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan origins:empty"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin phantom:titan"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan phantom:female_titan"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "phantom:founding_titan"
+                    }
+                },
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin origins:human"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan origins:empty"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin phantom:titan"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan phantom:founding_titan"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "phantom:jaw_titan"
+                    }
+                },
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin origins:human"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan origins:empty"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin phantom:titan"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan phantom:jaw_titan"
+                            }
+                        }
+                    ]
+                }
+            },
+            {
+                "condition": {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:origin",
+                        "origin": "phantom:warhammer_titan"
+                    }
+                },
+                "action": {
+                    "type": "origins:and",
+                    "actions": [
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin origins:human"
+                            }
+                        },
+                        {
+                            "type": "origins:target_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan origins:empty"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s origins:origin phantom:titan"
+                            }
+                        },
+                        {
+                            "type": "origins:actor_action",
+                            "action": {
+                                "type": "origins:execute_command",
+                                "command": "origin set @s phantom:titan phantom:warhammer_titan"
+                            }
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}

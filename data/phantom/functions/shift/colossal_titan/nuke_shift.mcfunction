@@ -24,6 +24,7 @@ scale set pehkui:step_height 3
 scale set pehkui:held_item 0.03
 scale set pehkui:defense 15
 scale set pehkui:projectiles 1
+scale set pehkui:knockback 3
 effect give @s minecraft:instant_health 1 10 true
 effect give @s minecraft:slow_falling 1 0 true
 execute as @s at @s run particle dust 1.0 1.0 0.0 100 ~ ~2 ~ 2 5 2 100 5000 normal

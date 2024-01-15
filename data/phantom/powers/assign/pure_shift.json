@@ -4501,5 +4501,270 @@
                 }
             ]
         }
+    },
+    "grab_start": {
+        "type": "origins:action_on_entity_use",
+        "item_condition": {
+            "type": "origins:empty"
+        },
+        "hands": [
+            "off_hand"
+        ],
+        "condition": {
+            "type": "origins:command",
+            "command": "execute if entity @e[tag=BeingGrabbedByTitan,distance=..30]",
+            "comparison": "==",
+            "compare_to": 0
+        },
+        "priority": 100,
+        "bientity_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:target_condition",
+                    "condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[type=#phantom:ungrabbable]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[tag=TSMP.Titan]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/skeleton\"}]}}}]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:command",
+                                "command": "execute if entity @s[nbt={cardinal_components:{\"apoli:powers\":{Powers:[{Type:\"phantom:shifter/female_shift_crystalize\", Data:1b}]}}}]",
+                                "comparison": "==",
+                                "compare_to": 0
+                            },
+                            {
+                                "type": "origins:living"
+                            }
+                        ]
+                    }
+                }
+            ]
+        },
+        "bientity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:target_action",
+                    "action": {
+                        "type": "origins:if_else",
+                        "condition": {
+                            "type": "origins:command",
+                            "command": "execute if entity @s[tag=BeingGrabbedByTitan]",
+                            "comparison": "==",
+                            "compare_to": 0
+                        },
+                        "if_action": {
+                            "type": "origins:execute_command",
+                            "command": "power grant @s phantom:assign/being_grabbed",
+                            "permission_level": 4
+                        },
+                        "else_action": {
+                            "type": "origins:execute_command",
+                            "command": "power revoke @s phantom:assign/being_grabbed",
+                            "permission_level": 4
+                        }
+                    }
+                },
+                {
+                    "type": "origins:actor_action",
+                    "action": {
+                        "type": "origins:swing_hand",
+                        "hand": "OFF_HAND"
+                    }
+                }
+            ]
+        }
+    },
+    "grab_loop": {
+        "type": "origins:action_over_time",
+        "interval": 1,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @e[tag=BeingGrabbedByTitan,distance=..30]",
+                    "comparison": "!=",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=BeingGrabbedByTitan]",
+                    "comparison": "==",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:execute_command",
+                    "command": "execute anchored feet facing ^1 ^ ^ run tp @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] ^ ^4.25 ^3",
+                    "permission_level": 4
+                }
+            ]
+        }
+    },
+    "grab_drop": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.saveToolbarActivator"
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @e[tag=BeingGrabbedByTitan,distance=..30]",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:if_else",
+            "condition": {
+                "type": "origins:sneaking",
+                "inverted": true
+            },
+            "if_action": {
+                "type": "origins:execute_command",
+                "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
+                "permission_level": 4
+            }
+        }
+    },
+    "grab_kill": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.loadToolbarActivator"
+        },
+        "cooldown": 600,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if data storage tsmp:config {titan_crush:0}",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @e[tag=BeingGrabbedByTitan,distance=..30]",
+                    "comparison": "!=",
+                    "compare_to": 0
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:if_else",
+                    "condition": {
+                        "type": "origins:command",
+                        "command": "execute if data storage tsmp:config {titan_crush:1}",
+                        "comparison": "==",
+                        "compare_to": 1
+                    },
+                    "if_action": {
+                        "type": "origins:delay",
+                        "ticks": 1,
+                        "action": {
+                            "type": "origins:change_resource",
+                            "resource": "*:*_grab_kill",
+                            "change": -1000
+                        }
+                    }
+                },
+                {
+                    "type": "origins:area_of_effect",
+                    "radius": 30,
+                    "bientity_condition": {
+                        "type": "origins:and",
+                        "conditions": [
+                            {
+                                "type": "origins:target_condition",
+                                "condition": {
+                                    "type": "origins:command",
+                                    "command": "execute if entity @s[tag=BeingGrabbedByTitan]",
+                                    "comparison": "!=",
+                                    "compare_to": 0
+                                }
+                            },
+                            {
+                                "type": "origins:can_see"
+                            }
+                        ]
+                    },
+                    "bientity_action": {
+                        "type": "origins:and",
+                        "actions": [
+                            {
+                                "type": "origins:damage",
+                                "amount": 14,
+                                "source": {
+                                    "name": "cramming.player"
+                                }
+                            },
+                            {
+                                "type": "origins:target_action",
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "playsound minecraft:entity.player.hurt_on_fire player @a[distance=..32] ~ ~ ~ 1 0.1 1",
+                                    "permission_level": 4
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "power revoke @e[tag=BeingGrabbedByTitan,distance=..30,sort=nearest,limit=1] phantom:assign/being_grabbed",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:swing_hand",
+                    "hand": "OFF_HAND"
+                }
+            ]
+        }
     }
 }

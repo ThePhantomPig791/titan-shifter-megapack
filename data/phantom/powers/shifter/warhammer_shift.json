@@ -6124,21 +6124,27 @@
                                 }
                             },
                             {
-                                "type": "origins:chance",
-                                "chance": 0.5,
+                                "type": "origins:delay",
+                                "ticks": 20,
                                 "action": {
-                                    "type": "origins:if_else",
-                                    "condition": {
-                                        "type": "origins:resource",
-                                        "resource": "*:*_amount_of_shifts",
-                                        "comparison": "!=",
-                                        "compare_to": 1
-                                    },
-                                    "if_action": {
-                                        "type": "origins:change_resource",
-                                        "resource": "*:*_amount_of_shifts",
-                                        "change": -1
-                                    }
+                                    "type": "origins:execute_command",
+                                    "command": "scale add pehkui:attack 1"
+                                }
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 20,
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scale add pehkui:defense 1"
+                                }
+                            },
+                            {
+                                "type": "origins:delay",
+                                "ticks": 20,
+                                "action": {
+                                    "type": "origins:execute_command",
+                                    "command": "scale add pehkui:knockback 1"
                                 }
                             }
                         ]
@@ -6668,7 +6674,7 @@
             "actions": [
                 {
                     "type": "origins:damage",
-                    "amount": 10,
+                    "amount": 1,
                     "damage_type": "minecraft:player_attack"
                 },
                 {
@@ -6854,6 +6860,147 @@
                     "resource": "*:*_stack_attack",
                     "comparison": "==",
                     "compare_to": 1
+                }
+            ]
+        }
+    },
+    "stack_crystal_harden_thanks_null": {
+        "type": "origins:active_self",
+        "key": {
+            "key": "key.hotbar.1"
+        },
+        "cooldown": 120,
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_stack_attack",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_shift",
+                    "comparison": "==",
+                    "compare_to": 0
+                },
+                {
+                    "type": "origins:sneaking"
+                }
+            ]
+        },
+        "entity_action": {
+            "type": "origins:and",
+            "actions": [
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_shifting_cooldown",
+                    "change": 8000,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:feed",
+                    "food": -20,
+                    "saturation": 20
+                },
+                {
+                    "type": "origins:execute_command",
+                    "command": "function phantom:shift/attack_titan/only_crystal",
+                    "permission_level": 4
+                },
+                {
+                    "type": "origins:change_resource",
+                    "resource": "*:*_actual_cooldown",
+                    "change": 5500,
+                    "operation": "set"
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 10,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @s ~ ~10 ~-2 0 0",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 11,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "fill ^ ^ ^ ^ ^1 ^-4 minecraft:air",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:instant_health 1 0 true",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 30,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:instant_health 1 0 true",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 5,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "effect give @s minecraft:saturation 1 255 true",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 10,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.lightning_bolt.thunder player @a[distance=..64] ~ ~ ~ 5 2",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 10,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.wither.spawn player @a[distance=..64] ~ ~ ~ 5 0.1",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 10,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "playsound minecraft:entity.zombie_villager.cure player @a[distance=..64] ~ ~ ~ 5 0.1",
+                        "permission_level": 4
+                    }
+                },
+                {
+                    "type": "origins:delay",
+                    "ticks": 1,
+                    "action": {
+                        "type": "origins:execute_command",
+                        "command": "tp @e[type=skeleton,limit=1,sort=nearest,tag=titan_skeleton,distance=..15] ~ -1000 ~",
+                        "permission_level": 4
+                    }
                 }
             ]
         }
@@ -7269,6 +7416,48 @@
             }
         }
     },
+    "stack_jaw_eat_bonus": {
+        "type": "origins:self_action_on_kill",
+        "entity_action": {
+            "type": "origins:feed",
+            "food": 2,
+            "saturation": 4
+        },
+        "cooldown": 0,
+        "hud_render": {
+            "should_render": false
+        },
+        "condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:command",
+                    "command": "execute if entity @s[tag=TSMP.stack.jaw]",
+                    "comparison": "==",
+                    "compare_to": 1
+                },
+                {
+                    "type": "origins:resource",
+                    "resource": "*:*_is_shifted",
+                    "comparison": "==",
+                    "compare_to": 1
+                }
+            ]
+        },
+        "damage_condition": {
+            "type": "origins:and",
+            "conditions": [
+                {
+                    "type": "origins:explosive",
+                    "inverted": true
+                },
+                {
+                    "type": "origins:projectile",
+                    "inverted": true
+                }
+            ]
+        }
+    },
     "stack_cart_loop": {
         "type": "origins:action_over_time",
         "interval": 2,
@@ -7292,7 +7481,7 @@
         "entity_action": {
             "type": "origins:change_resource",
             "resource": "*:*_shifting_cooldown",
-            "change": 1
+            "change": -20
         }
     },
     "stack_steam_blast": {
