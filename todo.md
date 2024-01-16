@@ -1,5 +1,7 @@
 # To-Do list
 
+Very Distant:
+
 [ ] Titan AI using RAA
 
 [ ] Warhammer radial spikes and large spike :sob: (remember to add them to Founding)
@@ -7,23 +9,27 @@
 [ ] The Vow :scream:???//??////??/???
 
 
-[x] Look into (and hopefully fix) the 1.20.2 origin screen bugs
+Less Distant:
 
-Config:
-- [x] Crush enable / enable with cooldown / disable
+[ ] Warhammer pickaxe and durability
 
-[x] Titan stealing
 
-[x] Titan stacking!
-- [x] Make stacks respect the like enable/disable state for both gaining and losing them
-- [x] Add and fit to all titans
+Bugs / High priority:
 
-- [x] Fix any origins not being able to steal titans when that config option is enabled (thanks Johnny)
+[x] Investigate Founding and Beast last shifts
 
-- [x] Add attack and defense stats to colossal stack
+[x] Attack hardened knuckles tomfoolery
 
-- [x] Make Pures able to grab (only player pures obviously)
+[x] Colossal stack permanently increases KB
 
-- [x] Fix colossal stack accidentially having properties of the cart's stack :sob:
+[x] Founding Warhammer doesn't have aoe spikes
 
-- [ ] Fix founding attack crystal harden and knuckles conflict
+[x] Stacks aren't *ever* removed if lose stacks on death is false
+
+[x] Warhammer crossbow doesn't go away ? :sob: (turns out it was only the Founding's)
+
+[x] Founding colossal can't nuke in multiplayer
+
+[x] Non-player pures can steal titans
+
+[x] Titan stealing like lowkey doesn't work for some reason? Desync issues, only on stack

@@ -22,6 +22,7 @@ scale set pehkui:health 1
 scale set pehkui:step_height 1
 scale set pehkui:defense 1
 scale set pehkui:held_item 1
+scale set pehkui:knockback 1
 effect clear @s minecraft:speed
 effect give @s minecraft:instant_health 1 10 true
 attribute @s minecraft:generic.attack_speed base set 4

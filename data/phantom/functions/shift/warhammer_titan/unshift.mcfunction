@@ -23,6 +23,7 @@ scale set pehkui:step_height 1
 scale set pehkui:held_item 1
 scale set pehkui:projectiles 1
 scale set pehkui:defense 1
+scale set pehkui:knockback 1
 effect give @s minecraft:instant_health 1 10 true
 particle minecraft:flash ~ ~2 ~ 2 7 2 0.00001 100
 resource set @s phantom:shifter/warhammer_shift_reset_shifts_timer 4800

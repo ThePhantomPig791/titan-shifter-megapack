@@ -20,6 +20,7 @@ scale set pehkui:health 1
 scale set pehkui:step_height 1
 scale set pehkui:held_item 1
 scale set pehkui:defense 1
+scale set pehkui:knockback 1
 effect clear @s minecraft:slowness
 effect clear @s minecraft:slow_falling
 effect give @s minecraft:instant_health 1 0 true
