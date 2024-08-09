@@ -1119,312 +1119,327 @@
                                     "tag": "{display:{Name:'{\"text\":\"Colossal Titan\"}'}}"
                                 },
                                 "entity_action": {
-                                    "type": "origins:and",
-                                    "actions": [
-                                        {
-                                            "type": "origins:set_fall_distance",
-                                            "fall_distance": 0
-                                        },
-                                        {
-                                            "type": "origins:change_resource",
-                                            "resource": "*:*_is_shifted",
-                                            "change": 1
-                                        },
-                                        {
-                                            "type": "origins:change_resource",
-                                            "resource": "*:*_amount_of_shifts",
-                                            "change": 1
-                                        },
-                                        {
-                                            "type": "origins:change_resource",
-                                            "resource": "*:*_titan",
-                                            "change": 4
-                                        },
-                                        {
-                                            "type": "origins:delay",
-                                            "ticks": 3,
-                                            "action": {
+                                    "type": "origins:delay",
+                                    "ticks": 1,
+                                    "action": {
+                                        "type": "origins:and",
+                                        "actions": [
+                                            {
+                                                "type": "origins:set_fall_distance",
+                                                "fall_distance": 0
+                                            },
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_is_shifted",
+                                                "change": 1
+                                            },
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_amount_of_shifts",
+                                                "change": 1
+                                            },
+                                            {
+                                                "type": "origins:change_resource",
+                                                "resource": "*:*_titan",
+                                                "change": 4
+                                            },
+                                            {
+                                                "type": "origins:delay",
+                                                "ticks": 3,
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "function phantom:shift/founding_titan/shift_colossal",
+                                                    "permission_level": 4
+                                                }             
+                                            },
+                                            {
                                                 "type": "origins:execute_command",
-                                                "command": "function phantom:shift/founding_titan/shift_colossal",
+                                                "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
                                                 "permission_level": 4
-                                            }             
-                                        },
-                                        {
-                                            "type": "origins:execute_command",
-                                            "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
-                                            "permission_level": 4
-                                        },
-                                        {
-                                            "type": "origins:execute_command",
-                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
-                                            "permission_level": 4
-                                        },
-                                        {
-                                            "type": "origins:if_else",
-                                            "condition": {
-                                                "type": "apugli:key_pressed",
-                                                "key": {
-                                                    "key": "key.sneak",
-                                                    "continuous": true
+                                            },
+                                            {
+                                                "type": "origins:execute_command",
+                                                "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                                "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:if_else",
+                                                "condition": {
+                                                    "type": "origins:and",
+                                                    "conditions": [
+                                                        {
+                                                            "type": "origins:command",
+                                                            "command": "execute if data storage tsmp:config {titan_colossal_allow_nuke:1}",
+                                                            "comparison": "==",
+                                                            "compare_to": 1
+                                                        },
+                                                        {
+                                                            "type": "apugli:key_pressed",
+                                                            "key": {
+                                                                "key": "key.sneak",
+                                                                "continuous": true
+                                                            }
+                                                        }
+                                                    ]
+                                                },
+                                                "if_action": {
+                                                    "type": "origins:and",
+                                                    "actions": [
+                                                        {
+                                                            "type": "origins:apply_effect",
+                                                            "effect": {
+                                                                "effect": "minecraft:levitation",
+                                                                "amplifier": 0,
+                                                                "duration": 20,
+                                                                "show_particles": false,
+                                                                "show_icon": false
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "origins:area_of_effect",
+                                                            "radius": 100,
+                                                            "bientity_action": {
+                                                                "type": "origins:add_velocity",
+                                                                "z": 10
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "origins:block_action_at",
+                                                            "block_action": {
+                                                                "type": "origins:area_of_effect",
+                                                                "radius": 10,
+                                                                "shape": "sphere",
+                                                                "block_condition": {
+                                                                    "type": "origins:and",
+                                                                    "conditions": [
+                                                                        {
+                                                                            "type": "origins:hardness",
+                                                                            "comparison": "<=",
+                                                                            "compare_to": 100
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:hardness",
+                                                                            "comparison": ">=",
+                                                                            "compare_to": 0
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "block_action": {
+                                                                    "type": "origins:set_block",
+                                                                    "block": "minecraft:air"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "origins:heal",
+                                                            "amount": 30
+                                                        },
+                                                        {
+                                                            "type": "origins:delay",
+                                                            "ticks": 2,
+                                                            "action": {
+                                                                "type": "origins:heal",
+                                                                "amount": 30
+                                                            }         
+                                                        },
+                                                        {
+                                                            "type": "origins:delay",
+                                                            "ticks": 3,
+                                                            "action": {
+                                                                "type": "origins:heal",
+                                                                "amount": 30
+                                                            }         
+                                                        },
+                                                        {
+                                                            "type": "origins:delay",
+                                                            "ticks": 4,
+                                                            "action": {
+                                                                "type": "origins:heal",
+                                                                "amount": 30
+                                                            }         
+                                                        },
+                                                        {
+                                                            "type": "origins:block_action_at",
+                                                            "block_action": {
+                                                                "type": "origins:area_of_effect",
+                                                                "radius": 20,
+                                                                "shape": "sphere",
+                                                                "block_condition": {
+                                                                    "type": "origins:and",
+                                                                    "conditions": [
+                                                                        {
+                                                                            "type": "origins:hardness",
+                                                                            "comparison": "<=",
+                                                                            "compare_to": 20
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:hardness",
+                                                                            "comparison": ">=",
+                                                                            "compare_to": 0
+                                                                        }
+                                                                    ]
+                                                                },
+                                                                "block_action": {
+                                                                    "type": "origins:set_block",
+                                                                    "block": "minecraft:air"
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
+                                                            "permission_level": 4
+                                                        },
+                                                        {
+                                                            "type": "origins:execute_command",
+                                                            "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
+                                                            "permission_level": 4
+                                                        },
+                                                        {
+                                                            "type": "origins:feed",
+                                                            "food": -2,
+                                                            "saturation": 1
+                                                        },
+                                                        {
+                                                            "type": "origins:block_action_at",
+                                                            "block_action": {
+                                                                "type": "origins:offset",
+                                                                "y": 10,
+                                                                "action": {
+                                                                    "type": "origins:and",
+                                                                    "actions": [
+                                                                        {
+                                                                            "type": "origins:area_of_effect",
+                                                                            "radius": 40,
+                                                                            "shape": "sphere",
+                                                                            "block_condition": {
+                                                                                "type": "origins:in_tag",
+                                                                                "tag": "phantom:burn_from_steam"
+                                                                            },
+                                                                            "block_action": {
+                                                                                "type": "origins:set_block",
+                                                                                "block": "minecraft:fire"
+                                                                            }
+                                                                        },
+                                                                        {
+                                                                            "type": "origins:area_of_effect",
+                                                                            "radius": 50,
+                                                                            "shape": "sphere",
+                                                                            "block_condition": {
+                                                                                "type": "origins:or",
+                                                                                "conditions": [
+                                                                                    {
+                                                                                        "type": "origins:in_tag",
+                                                                                        "tag": "phantom:evaporate_from_steam"
+                                                                                    },
+                                                                                    {
+                                                                                        "type": "origins:block",
+                                                                                        "block": "minecraft:lava"
+                                                                                    }
+                                                                                ]
+                                                                            },
+                                                                            "block_action": {
+                                                                                "type": "origins:set_block",
+                                                                                "block": "minecraft:air"
+                                                                            }
+                                                                        }
+                                                                    ]
+                                                                }
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "origins:delay",
+                                                            "ticks": 1,
+                                                            "action": {
+                                                                "type": "origins:explode",
+                                                                "power": 75,
+                                                                "destruction_type": "break",
+                                                                "damage_self": false,
+                                                                "create_fire": true
+                                                            }
+                                                        },
+                                                        {
+                                                            "type": "origins:delay",
+                                                            "ticks": 5,
+                                                            "action": {
+                                                                "type": "origins:area_of_effect",
+                                                                "radius": 175,
+                                                                "bientity_action": {
+                                                                    "type": "origins:target_action",
+                                                                    "action": {
+                                                                        "type": "origins:set_on_fire",
+                                                                        "duration": 5
+                                                                    }
+                                                                },
+                                                                "bientity_condition": {
+                                                                    "type": "origins:can_see"
+                                                                }
+                                                            }             
+                                                        },
+                                                        {
+                                                            "type": "origins:delay",
+                                                            "ticks": 10,
+                                                            "action": {
+                                                                "type": "origins:area_of_effect",
+                                                                "radius": 250,
+                                                                "bientity_action": {
+                                                                    "type": "origins:target_action",
+                                                                    "action": {
+                                                                        "type": "origins:set_on_fire",
+                                                                        "duration": 20
+                                                                    }
+                                                                },
+                                                                "bientity_condition": {
+                                                                    "type": "origins:target_condition",
+                                                                    "condition": {
+                                                                        "type": "origins:entity_type",
+                                                                        "entity_type": "minecraft:item"
+                                                                    }
+                                                                }
+                                                            }             
+                                                        }
+                                                    ]
+                                                },
+                                                "else_action": {
+                                                    "type": "origins:explode",
+                                                    "power": 7,
+                                                    "destruction_type": "break",
+                                                    "damage_self": false
                                                 }
                                             },
-                                            "if_action": {
-                                                "type": "origins:explode",
-                                                "power": 7,
-                                                "destruction_type": "break",
-                                                "damage_self": false
+                                            {
+                                                "type": "origins:delay",
+                                                "ticks": 5,
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                    "permission_level": 4
+                                                }
                                             },
-                                            "else_action": {
-                                                "type": "origins:and",
-                                                "actions": [
-                                                    {
-                                                        "type": "origins:apply_effect",
-                                                        "effect": {
-                                                            "effect": "minecraft:levitation",
-                                                            "amplifier": 0,
-                                                            "duration": 20,
-                                                            "show_particles": false,
-                                                            "show_icon": false
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "origins:area_of_effect",
-                                                        "radius": 100,
-                                                        "bientity_action": {
-                                                            "type": "origins:add_velocity",
-                                                            "z": 10
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "origins:block_action_at",
-                                                        "block_action": {
-                                                            "type": "origins:area_of_effect",
-                                                            "radius": 10,
-                                                            "shape": "sphere",
-                                                            "block_condition": {
-                                                                "type": "origins:and",
-                                                                "conditions": [
-                                                                    {
-                                                                        "type": "origins:hardness",
-                                                                        "comparison": "<=",
-                                                                        "compare_to": 100
-                                                                    },
-                                                                    {
-                                                                        "type": "origins:hardness",
-                                                                        "comparison": ">=",
-                                                                        "compare_to": 0
-                                                                    }
-                                                                ]
-                                                            },
-                                                            "block_action": {
-                                                                "type": "origins:set_block",
-                                                                "block": "minecraft:air"
-                                                            }
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "origins:heal",
-                                                        "amount": 30
-                                                    },
-                                                    {
-                                                        "type": "origins:delay",
-                                                        "ticks": 2,
-                                                        "action": {
-                                                            "type": "origins:heal",
-                                                            "amount": 30
-                                                        }         
-                                                    },
-                                                    {
-                                                        "type": "origins:delay",
-                                                        "ticks": 3,
-                                                        "action": {
-                                                            "type": "origins:heal",
-                                                            "amount": 30
-                                                        }         
-                                                    },
-                                                    {
-                                                        "type": "origins:delay",
-                                                        "ticks": 4,
-                                                        "action": {
-                                                            "type": "origins:heal",
-                                                            "amount": 30
-                                                        }         
-                                                    },
-                                                    {
-                                                        "type": "origins:block_action_at",
-                                                        "block_action": {
-                                                            "type": "origins:area_of_effect",
-                                                            "radius": 20,
-                                                            "shape": "sphere",
-                                                            "block_condition": {
-                                                                "type": "origins:and",
-                                                                "conditions": [
-                                                                    {
-                                                                        "type": "origins:hardness",
-                                                                        "comparison": "<=",
-                                                                        "compare_to": 20
-                                                                    },
-                                                                    {
-                                                                        "type": "origins:hardness",
-                                                                        "comparison": ">=",
-                                                                        "compare_to": 0
-                                                                    }
-                                                                ]
-                                                            },
-                                                            "block_action": {
-                                                                "type": "origins:set_block",
-                                                                "block": "minecraft:air"
-                                                            }
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "origins:execute_command",
-                                                        "command": "playsound minecraft:block.beacon.activate player @a[distance=..16] ~ ~ ~ 1 1",
-                                                        "permission_level": 4
-                                                    },
-                                                    {
-                                                        "type": "origins:execute_command",
-                                                        "command": "playsound minecraft:item.trident.thunder player @a[distance=..16] ~ ~ ~ 0.7 1",
-                                                        "permission_level": 4
-                                                    },
-                                                    {
-                                                        "type": "origins:feed",
-                                                        "food": -2,
-                                                        "saturation": 1
-                                                    },
-                                                    {
-                                                        "type": "origins:block_action_at",
-                                                        "block_action": {
-                                                            "type": "origins:offset",
-                                                            "y": 10,
-                                                            "action": {
-                                                                "type": "origins:and",
-                                                                "actions": [
-                                                                    {
-                                                                        "type": "origins:area_of_effect",
-                                                                        "radius": 40,
-                                                                        "shape": "sphere",
-                                                                        "block_condition": {
-                                                                            "type": "origins:in_tag",
-                                                                            "tag": "phantom:burn_from_steam"
-                                                                        },
-                                                                        "block_action": {
-                                                                            "type": "origins:set_block",
-                                                                            "block": "minecraft:fire"
-                                                                        }
-                                                                    },
-                                                                    {
-                                                                        "type": "origins:area_of_effect",
-                                                                        "radius": 50,
-                                                                        "shape": "sphere",
-                                                                        "block_condition": {
-                                                                            "type": "origins:or",
-                                                                            "conditions": [
-                                                                                {
-                                                                                    "type": "origins:in_tag",
-                                                                                    "tag": "phantom:evaporate_from_steam"
-                                                                                },
-                                                                                {
-                                                                                    "type": "origins:block",
-                                                                                    "block": "minecraft:lava"
-                                                                                }
-                                                                            ]
-                                                                        },
-                                                                        "block_action": {
-                                                                            "type": "origins:set_block",
-                                                                            "block": "minecraft:air"
-                                                                        }
-                                                                    }
-                                                                ]
-                                                            }
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "origins:delay",
-                                                        "ticks": 1,
-                                                        "action": {
-                                                            "type": "origins:explode",
-                                                            "power": 75,
-                                                            "destruction_type": "break",
-                                                            "damage_self": false,
-                                                            "create_fire": true
-                                                        }
-                                                    },
-                                                    {
-                                                        "type": "origins:delay",
-                                                        "ticks": 5,
-                                                        "action": {
-                                                            "type": "origins:area_of_effect",
-                                                            "radius": 175,
-                                                            "bientity_action": {
-                                                                "type": "origins:target_action",
-                                                                "action": {
-                                                                    "type": "origins:set_on_fire",
-                                                                    "duration": 5
-                                                                }
-                                                            },
-                                                            "bientity_condition": {
-                                                                "type": "origins:can_see"
-                                                            }
-                                                        }             
-                                                    },
-                                                    {
-                                                        "type": "origins:delay",
-                                                        "ticks": 10,
-                                                        "action": {
-                                                            "type": "origins:area_of_effect",
-                                                            "radius": 250,
-                                                            "bientity_action": {
-                                                                "type": "origins:target_action",
-                                                                "action": {
-                                                                    "type": "origins:set_on_fire",
-                                                                    "duration": 20
-                                                                }
-                                                            },
-                                                            "bientity_condition": {
-                                                                "type": "origins:target_condition",
-                                                                "condition": {
-                                                                    "type": "origins:entity_type",
-                                                                    "entity_type": "minecraft:item"
-                                                                }
-                                                            }
-                                                        }             
-                                                    }
-                                                ]
-                                            }
-                                        },
-                                        {
-                                            "type": "origins:delay",
-                                            "ticks": 5,
-                                            "action": {
+                                            {
+                                                "type": "origins:delay",
+                                                "ticks": 30,
+                                                "action": {
+                                                    "type": "origins:execute_command",
+                                                    "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                    "permission_level": 4
+                                                }
+                                            },
+                                            {
+                                                "type": "origins:set_fall_distance",
+                                                "fall_distance": 0
+                                            },
+                                            {
                                                 "type": "origins:execute_command",
-                                                "command": "effect give @s minecraft:instant_health 1 10 true",
+                                                "command": "effect give @s minecraft:regeneration 1 200 true",
                                                 "permission_level": 4
+                                            },
+                                            {
+                                                "type": "origins:trigger_cooldown",
+                                                "power": "*:*_shift_into_other_titan_cooldown"
                                             }
-                                        },
-                                        {
-                                            "type": "origins:delay",
-                                            "ticks": 30,
-                                            "action": {
-                                                "type": "origins:execute_command",
-                                                "command": "effect give @s minecraft:instant_health 1 10 true",
-                                                "permission_level": 4
-                                            }
-                                        },
-                                        {
-                                            "type": "origins:set_fall_distance",
-                                            "fall_distance": 0
-                                        },
-                                        {
-                                            "type": "origins:execute_command",
-                                            "command": "effect give @s minecraft:regeneration 1 200 true",
-                                            "permission_level": 4
-                                        },
-                                        {
-                                            "type": "origins:trigger_cooldown",
-                                            "power": "*:*_shift_into_other_titan_cooldown"
-                                        }
-                                    ]
+                                        ]
+                                    }
                                 }
                             },
                             {
